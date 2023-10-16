@@ -46,7 +46,7 @@ const Product = () => {
             key={solution.id}
             className="px-4 py-8 text-center md:w-[300px] mx-auto md:h-80 rounded-md shadow cursor-pointer hover:-translate-y-5 hover:border-b-4 hover:border-indigo-700 transition-all duration-300 flex h-full bg-bgWhite"
           >
-            <div className="mb-4 h-40  mx-auto">
+            <div className="mb-4 h-50  mx-auto">
               <h4 className="font-bold text-neutralDGrey">{solution.name}</h4>
               <p className="text-sm text-neutralDgrey ">
                 {solution.description}

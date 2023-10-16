@@ -81,7 +81,7 @@ const Navbar = () => {
         >
           {navItems.map(({ link, path }) => (
             <a
-              className="block text-base text-gray900 hover:text-brandPrimary first:font-medium"
+              className="mt-8 block text-base text-gray900 hover:text-brandPrimary first:font-medium text-center"
               href={path}
               key={path}
             >
