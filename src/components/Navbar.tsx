@@ -53,7 +53,7 @@ const Navbar = () => {
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               <Link
-                className="block text-base text-textPrimary hover:text-textPrimary first:font-medium"
+                className="block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer"
                 to={path}
                 key={path}
               >
@@ -82,7 +82,7 @@ const Navbar = () => {
         >
           {navItems.map(({ link, path }) => (
             <Link
-              className="mt-8 block text-base text-gray900 hover:text-brandPrimary first:font-medium text-center"
+              className="mt-8 block text-base text-gray900 hover:text-brandPrimary first:font-medium text-center cursor-pointer"
               to={path}
               key={path}
             >
