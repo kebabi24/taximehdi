@@ -16,19 +16,19 @@ const Product = () => {
     },
     {
       id: 3,
-      name: "Acsiome ERP",
+      name: "Axiom ERP",
       description:
         "La solution ACSIOME-ERP est un outil de gestion intégré de toute l’activité de l’entreprise, éditée par acsiome technologies. Développé en full-web, accessible par n’importe quel appareil connecté, et répondant aux exigences et attentes des entreprises commerciale et industrielle, cet outil est équipé d’un module de gestion de la distribution des colis; vous permettant de suivre la livraison de vos produits partout sur le territoire national et en temps réel",
     },
     {
       id: 4,
-      name: "Acsiome COLIS",
+      name: "Axiom COLIS",
       description:
         "La solution de gestion de la distribution des colis vous permet de prendre les commandes de vos clients sur le terrain et de faire remonter ces informations en temps réel, pour optimiser vos flux de livraison.Elle vous permet aussi de gérer au mieux votre relation avec vos partenaires, de suivre l’activité de vos équipes de ventes, et vos performances sur le terrain.L’outil est doté d’un générateur de code à barre / Code QR pour l’identification de vos colis et Partenaire...",
     },
     {
       id: 5,
-      name: "Acsiome DD",
+      name: "Axiom DD",
       description:
         "La solution de gestion de la distribution directe est structurée en modules complémentaires qui vous permettent de gérer l’activité de vos équipes de ventes et réaliser votre plein potentiel en intégrant le maximum d’informations sur l’évolution des ventes et la veille concurrentielle en temps réel",
     },
