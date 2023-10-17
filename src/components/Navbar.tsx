@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import lg from "../assets/logo2.png";
-import { Link } from "react-router-dom";
 import { FaXmark, FaBars } from "react-icons/fa6";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-scroll";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -27,11 +28,11 @@ const Navbar = () => {
 
   //navitemss array
   const navItems = [
-    { link: "Qui somme-nous", path: "home" },
-    { link: "Produits", path: "service" },
-    { link: "Services", path: "about" },
-    { link: "Nos partenaires", path: "product" },
-    { link: "Contact", path: "testimonial" },
+    { link: "Qui somme-nous", path: "about" },
+    { link: "Produits", path: "solutions" },
+    { link: "Vision", path: "vision" },
+    { link: "Nos partenaires", path: "partners" },
+    { link: "Contact", path: "contact" },
   ];
   return (
     <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0">
@@ -51,13 +52,13 @@ const Navbar = () => {
           </a>
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
-              <a
+              <Link
                 className="block text-base text-textPrimary hover:text-textPrimary first:font-medium"
-                href={path}
+                to={path}
                 key={path}
               >
                 {link}
-              </a>
+              </Link>
             ))}
           </ul>
           <div className="md:hidden">
@@ -80,13 +81,13 @@ const Navbar = () => {
           }`}
         >
           {navItems.map(({ link, path }) => (
-            <a
+            <Link
               className="mt-8 block text-base text-gray900 hover:text-brandPrimary first:font-medium text-center"
-              href={path}
+              to={path}
               key={path}
             >
               {link}
-            </a>
+            </Link>
           ))}
         </div>
       </nav>

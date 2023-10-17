@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const About = () => {
   return (
-    <div className="md:px-14 px-4 py-16 max-w-screen-2x1 mx-auto">
-      <div className="text-center my-2">
+    <div className="md:px-14 px-4 py-12 max-w-screen-2xl mx-auto" id="about">
+      <div className="text-center">
         <h1 className="text-4xl text-neutralDGrey font-semibold mb-2">
           A propos de nous
         </h1>

@@ -14,7 +14,10 @@ import k from "../assets/k.jpg";
 
 const Partner = () => {
   return (
-    <div className="md:px-14 px-4 py-16 max-w-screen-2x1 mx-auto bg-bgWhite">
+    <div
+      className="md:px-14 px-4 py-16 max-w-screen-2x1 mx-auto bg-bgWhite"
+      id="partners"
+    >
       <div className="text-center my-2">
         <h1 className="text-4xl text-neutralDGrey font-semibold mb-2">
           ILS NOUS ONT FAIT CONFIANCE

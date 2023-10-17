@@ -34,7 +34,10 @@ const Product = () => {
     },
   ];
   return (
-    <div className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto bg-textPrimary">
+    <div
+      className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto bg-textPrimary"
+      id="solutions"
+    >
       <div className="text-center my-2">
         <h1 className="text-4xl text-neutralDGrey font-semibold mb-2">
           Nos solutions
