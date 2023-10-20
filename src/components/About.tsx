@@ -38,7 +38,7 @@ const About = () => {
     // </div>
     <>
       <div
-        className="container flex flex-wrap p-32 max-w-screen-2xl mx-auto overflow-hidden"
+        className="container flex flex-wrap p-12 max-w-screen-2xl mx-auto overflow-hidden"
         id="about"
       >
         <div className="lg:w-1/2 md:w-1/2">
