@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 const Team = () => {
   return (
-    <div className="md:px-14 px-4 py-8 max-w-screen-2x1 mx-auto ">
+    <div className="md:px-14 px-4 py-8 max-w-screen-2x1 mx-auto overflow-hidden">
       <motion.div
         variants={fadeIn("down", 0.9)}
         initial="hidden"

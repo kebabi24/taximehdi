@@ -7,16 +7,10 @@ import { fadeIn } from "../variants";
 const Goals = () => {
   return (
     <div
-      className="md:px-14 px-4 py-4 max-w-screen-2xl mx-auto bg-bgGreen"
+      className="md:px-14 px-4 py-4 max-w-screen-2xl mx-auto bg-bgGreen overflow-hidden"
       id="vision"
     >
-      <motion.div
-        variants={fadeIn("left", 0.5)}
-        initial="hidden"
-        whileInView={"show"}
-        viewport={{ once: false, amount: 0.7 }}
-        className="my-24 md:my-8 py-4 flex flex-col md:flex-row-reverse items-center justify-between gap-12"
-      >
+      <div>
         <div>
           <img src={photo1} alt="" />
         </div>
@@ -31,7 +25,7 @@ const Goals = () => {
             connaissances à niveau.{" "}
           </p>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

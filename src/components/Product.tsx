@@ -47,7 +47,7 @@ const Product = () => {
   ];
   return (
     <div
-      className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto bg-textPrimary"
+      className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto bg-textPrimary overflow-hidden"
       id="solutions"
     >
       <div className="text-center my-2">

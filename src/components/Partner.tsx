@@ -15,7 +15,7 @@ import k from "../assets/k.jpg";
 const Partner = () => {
   return (
     <div
-      className="md:px-14 px-4 py-16 max-w-screen-2x1 mx-auto bg-bgWhite"
+      className="md:px-14 px-4 py-16 max-w-screen-2x1 mx-auto bg-bgWhite overflow-hidden"
       id="partners"
     >
       <div className="text-center my-2">
