@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import lg from "../assets/logo2.png";
+import lg from "../assets/logooo.png";
 import { FaXmark, FaBars } from "react-icons/fa6";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Link } from "react-scroll";
@@ -30,6 +30,7 @@ const Navbar = () => {
   const navItems = [
     { link: "Qui somme-nous", path: "about" },
     { link: "Produits", path: "solutions" },
+    { link: "Service", path: "service" },
     { link: "Vision", path: "vision" },
     { link: "Nos partenaires", path: "partners" },
     { link: "Contact", path: "contact" },
@@ -82,7 +83,7 @@ const Navbar = () => {
         >
           {navItems.map(({ link, path }) => (
             <Link
-              className="mt-8 block text-base text-gray900 hover:text-brandPrimary first:font-medium text-center cursor-pointer"
+              className="mt-8 block text-base text-gray900 hover:text-brandPrimary text-center cursor-pointer"
               to={path}
               key={path}
             >

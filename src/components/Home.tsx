@@ -1,27 +1,39 @@
 import { Carousel } from "flowbite-react";
 import React, { useState, useEffect } from "react";
-import banner1 from "../assets/banner1.jpg";
+import banner from "../assets/banner.svg";
+import photo1 from "../assets/1.jpg";
+// motion
+import { motion } from "framer-motion";
+// variants
+import { fadeIn } from "../variants";
 const Home = () => {
   return (
-    <div className="bg-neutralSilver">
-      <div className="max-w-screen-2xl mx-auto min-h-screen h-screen">
-        <Carousel className="w-full mx-auto">
-          <div className="my-28 md:my-8 py-12  flex flex-col md:flex-row-reverse items-center justify-between gap-12">
-            <div>
-              <img src={banner1} alt="" />
+    <div className="w-screen h-[calc(100vh-5rem)]">
+      <div className="bg-cover bg-[url('src/assets/banner.svg')] bg-center bg-no-repeat h-full w-full overflow-hidden">
+        <div className="container mx-auto flex flex-col my-auto align-middle h-full">
+          <motion.div
+            className=" my-auto  mx-auto lg:mx-20 w-10/12 lg:w-2/5"
+            variants={fadeIn("down", 0.01)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 1 }}
+          >
+            <h1 className="lg:text-5xl md:text-4xl  mt-16 mb-4">
+              <span className="text-violet-500 font-semibold">Lets'start</span>{" "}
+              with Acsiome Technologies
+            </h1>
+            <p className="lg:text-2xl md:text-1xl mb-4">
+              ACSIOME TECHNOLOGIES fondée en 2015, est créditée d’un capital
+              expérience au savoir-faire dans le domaine de l'intégration de
+              solutions SI reconnus et apprécié par nos partenaires métier.
+            </p>
+            <div className="flex items-center">
+              <button className="rounded px-10 py-3 text-white bg-violet-500 hover:bg-violet-600">
+                Naviguer dans notre univers
+              </button>
             </div>
-          </div>
-          <div className="my-28 md:my-8 py-12  flex flex-col md:flex-row-reverse items-center justify-between gap-12">
-            <div>
-              <img src={banner1} alt="" />
-            </div>
-          </div>
-          <div className="my-28 md:my-8 py-12  flex flex-col md:flex-row-reverse items-center justify-between gap-12">
-            <div>
-              <img src={banner1} alt="" />
-            </div>
-          </div>
-        </Carousel>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

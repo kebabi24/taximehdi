@@ -10,7 +10,7 @@ export default {
       colors: {
         'neutralSilver': "#F5F7FA",
         'neutralDGrey': "#4D4D4D",
-        'brandPrimary': "blue",
+        'brandPrimary': "#2951D5",
         'brandSecondary': "red",
         'neutralSilver': "#F5F7FA",
         'gray900': "#717171",
@@ -18,6 +18,7 @@ export default {
         'bgGreen': "#2B2B2B",
         'bgWhite': "white",
         'bgBlack': "black",
+        'blackBlack': "#26262C",
       }
     },
   },

@@ -7,17 +7,21 @@ import Team from "./components/Team";
 import Partner from "./components/Partner";
 import Product from "./components/Product";
 import Contact from "./components/Contact";
+import Items from "./components/Items";
 function App() {
   return (
     <>
       <Navbar />
       <Home />
-      <About />
-      <Goals />
-      <Team />
-      <Partner />
-      <Product />
-      <Contact />
+      <About></About>
+      <Goals></Goals>
+      <Team></Team>
+
+      <Product></Product>
+
+      {/* <Items></Items> */}
+      <Partner></Partner>
+      <Contact></Contact>
     </>
   );
 }
