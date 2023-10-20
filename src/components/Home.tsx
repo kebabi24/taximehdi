@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 const Home = () => {
   return (
-    <div className="w-screen h-[calc(100vh-5rem)]">
-      <div className="bg-cover bg-[url('src/assets/banner.svg')] bg-center bg-no-repeat h-full w-full overflow-hidden">
+    <div className="h-[calc(100vh-5rem)] overflow-hidden">
+      <div className="bg-cover bg-[url('src/assets/banner.svg')] bg-center bg-no-repeat h-full w-full">
         <div className="container mx-auto flex flex-col my-auto align-middle h-full">
           <motion.div
             className=" my-auto  mx-auto lg:mx-20 w-10/12 lg:w-2/5"
