@@ -9,8 +9,17 @@ const Contact = () => {
       id="contact"
     >
       <div className="my-24 md:my-8 py-8 flex flex-col md:flex-row-reverse items-center justify-between gap-12">
-        <div>
-          <img src={map} alt="" />
+        <div className="">
+          <div className="mb-4">
+            <p className="text-bgWhite">
+              Adresse : Coopérative immobilière El Anouar N° 10, Reghaia, Alger{" "}
+            </p>
+            <p className="text-bgWhite">
+              Email: contact@acsiome.tech - web: www.acsiome.tech
+            </p>
+            <p className="text-bgWhite">Mob: 0560625473/0560613470</p>
+          </div>
+          <img className="flex self-center" src={map} alt="" />
         </div>
         <div className="md:w-1/2 ">
           <h1 className="text-5xl font-semibold mb-4 text-white md:w-3/4 leading-snug ">
@@ -33,6 +42,16 @@ const Contact = () => {
                   className="text-white leading-snug "
                   htmlFor="base"
                   value="Email:*"
+                />
+              </div>
+              <TextInput id="base" sizing="md" type="text" />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label
+                  className="text-white leading-snug "
+                  htmlFor="base"
+                  value="Numéro de téléphone:*"
                 />
               </div>
               <TextInput id="base" sizing="md" type="text" />
