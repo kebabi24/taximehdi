@@ -5,7 +5,7 @@ import { Button, Label, TextInput } from "flowbite-react";
 const Contact = () => {
   return (
     <div
-      className="md:px-14 px-4 py-8 max-w-screen-2x1 mx-auto bg-blackBlack"
+      className="md:px-14 px-4 py-8 max-w-screen-2x1 mx-auto bg-blackBlack overflow-hidden"
       id="contact"
     >
       <div className="my-24 md:my-8 py-8 flex flex-col md:flex-row-reverse items-center justify-between gap-12">
@@ -22,7 +22,17 @@ const Contact = () => {
                 <Label
                   className="text-white leading-snug "
                   htmlFor="base"
-                  value="Email"
+                  value="Object:*"
+                />
+              </div>
+              <TextInput id="base" sizing="md" type="text" />
+            </div>
+            <div>
+              <div className="mb-2 block">
+                <Label
+                  className="text-white leading-snug "
+                  htmlFor="base"
+                  value="Email:*"
                 />
               </div>
               <TextInput id="base" sizing="md" type="text" />

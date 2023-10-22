@@ -28,7 +28,7 @@ const Product = () => {
     },
     {
       id: 5,
-      name: "Axiom DD",
+      name: "Axiom Delivery",
       description:
         "La solution de gestion de la distribution directe est structurée en modules complémentaires qui vous permettent de gérer l’activité de vos équipes de ventes et réaliser votre plein potentiel en intégrant le maximum d’informations sur l’évolution des ventes et la veille concurrentielle en temps réel",
     },
@@ -51,7 +51,7 @@ const Product = () => {
       id="solutions"
     >
       <div className="text-center my-2">
-        <h1 className="text-4xl text-neutralDGrey font-semibold mb-2">
+        <h1 className="text-4xl text-neutralDGrey font-semibold mb-10 mt-10">
           Nos solutions
         </h1>
       </div>

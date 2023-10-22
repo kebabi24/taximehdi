@@ -28,10 +28,11 @@ const Navbar = () => {
 
   //navitemss array
   const navItems = [
-    { link: "Qui somme-nous", path: "about" },
-    { link: "Produits", path: "solutions" },
-    { link: "Service", path: "service" },
+    { link: "Qui sommes-nous", path: "about" },
     { link: "Vision", path: "vision" },
+    { link: "Produits", path: "solutions" },
+    { link: "Services", path: "service" },
+
     { link: "Nos partenaires", path: "partners" },
     { link: "Contact", path: "contact" },
   ];

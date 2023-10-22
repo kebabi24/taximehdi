@@ -38,10 +38,10 @@ const About = () => {
     // </div>
     <>
       <div
-        className="container flex flex-wrap p-12 max-w-screen-2xl mx-auto overflow-hidden"
+        className="container flex flex-wrap p-12 max-w-screen-2xl py-28 mx-auto overflow-hidden"
         id="about"
       >
-        <div className="lg:w-1/2 md:w-1/2">
+        <div className="px-4 lg:w-1/2 md:w-1/2">
           <h1 className="text-4xl text-blackBlack font-bold mb-2">
             Qui sommes-nous
           </h1>
