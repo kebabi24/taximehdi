@@ -8,6 +8,7 @@ import Partner from "./components/Partner";
 import Product from "./components/Product";
 import Contact from "./components/Contact";
 import Items from "./components/Items";
+import Services from "./components/Services";
 function App() {
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
       <Team></Team>
 
       <Product></Product>
-
+      <Services></Services>
       {/* <Items></Items> */}
       <Partner></Partner>
       <Contact></Contact>

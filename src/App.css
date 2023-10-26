@@ -7,3 +7,7 @@ body {
 header {
   z-index: 10001 !important;
 }
+
+.bgColor:hover {
+  background-color: "red";
+}

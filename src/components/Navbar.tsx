@@ -46,10 +46,7 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center text-base gap-8">
-          <a
-            className="text-2xl font-semibold flex items-center space-x-3 "
-            href=""
-          >
+          <a className="text-2xl font-semibold flex items-center space-x-3">
             <img src={lg} alt="" />
           </a>
           <ul className="md:flex space-x-12 hidden">
@@ -78,13 +75,13 @@ const Navbar = () => {
         </div>
         {/* nav items for mobile devices */}
         <div
-          className={`space-y-4 px-4 mt-16 py-7 bg-bgWhite ${
+          className={` px-4 mt-24 py-5 bg-bgWhite ${
             isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
           }`}
         >
           {navItems.map(({ link, path }) => (
             <Link
-              className="mt-8 block text-base text-gray900 hover:text-brandPrimary text-center cursor-pointer"
+              className="mt-4 block text-base text-gray900 hover:text-brandPrimary text-center cursor-pointer"
               to={path}
               key={path}
             >

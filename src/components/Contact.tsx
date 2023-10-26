@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import map from "../assets/map.png";
-import { Button, Label, TextInput } from "flowbite-react";
+import { Button, Label, TextInput, Textarea } from "flowbite-react";
 
 const Contact = () => {
   return (
@@ -14,9 +14,8 @@ const Contact = () => {
             <p className="text-bgWhite">
               Adresse : Coopérative immobilière El Anouar N° 10, Reghaia, Alger{" "}
             </p>
-            <p className="text-bgWhite">
-              Email: contact@acsiome.tech - web: www.acsiome.tech
-            </p>
+            <p className="text-bgWhite">Email: contact@acsiome.tech</p>
+            <p className="text-bgWhite">web: www.acsiome.tech</p>
             <p className="text-bgWhite">Mob: 0560625473/0560613470</p>
           </div>
           <img className="flex self-center" src={map} alt="" />
@@ -64,7 +63,7 @@ const Contact = () => {
                   value="Message"
                 />
               </div>
-              <TextInput id="large" sizing="lg" type="text" />
+              <Textarea id="large" rows={5} />
             </div>
             <Button type="submit">Envoyer un message</Button>
           </div>
