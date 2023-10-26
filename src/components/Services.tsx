@@ -79,7 +79,7 @@ const Services = () => {
   return (
     <div
       className="md:px-14 px-4 py-12 max-w-screen-2xl mx-auto bg-bgGreen"
-      id="vision"
+      id="services"
     >
       <div className="flex items-center justify-center">
         <h1 className="text-5xl font-semibold mb-4 text-white md:w-full leading-snug ">
