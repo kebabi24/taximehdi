@@ -120,9 +120,9 @@ const Home = () => {
               >
                 <MenuItem value=""></MenuItem>
 
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={10}>Simple</MenuItem>
+                <MenuItem value={20}>Confort</MenuItem>
+                <MenuItem value={30}>Van</MenuItem>
               </Select>
             </FormControl>
             <TextField

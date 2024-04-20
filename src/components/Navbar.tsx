@@ -29,8 +29,7 @@ const Navbar = () => {
   //navitemss array
   const navItems = [
     { link: "Qui sommes-nous", path: "about" },
-    { link: "Vision", path: "vision" },
-    { link: "Produits", path: "solutions" },
+
     { link: "Services", path: "services" },
 
     { link: "Nos partenaires", path: "partners" },
@@ -52,7 +51,7 @@ const Navbar = () => {
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               <Link
-                className="block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer"
+                className="block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer font-bold"
                 to={path}
                 key={path}
               >
@@ -87,10 +86,12 @@ const Navbar = () => {
           className={` px-4 mt-24 py-5 bg-textPrimary ${
             isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
           }`}
+          style={{ zIndex: 99 }}
+          onScroll={toggleMenu}
         >
           {navItems.map(({ link, path }) => (
             <Link
-              className="mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer"
+              className="mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer "
               to={path}
               key={path}
             >
