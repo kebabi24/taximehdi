@@ -84,13 +84,13 @@ const Navbar = () => {
         </div>
         {/* nav items for mobile devices */}
         <div
-          className={` px-4 mt-24 py-5 bg-bgWhite ${
+          className={` px-4 mt-24 py-5 bg-textPrimary ${
             isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
           }`}
         >
           {navItems.map(({ link, path }) => (
             <Link
-              className="mt-4 block text-base text-gray900 hover:text-brandPrimary text-center cursor-pointer"
+              className="mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer"
               to={path}
               key={path}
             >

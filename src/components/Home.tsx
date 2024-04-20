@@ -38,7 +38,7 @@ const Home = () => {
   };
   return (
     <div className="h-[calc(120vh-5rem)] overflow-hidden">
-      <div className="bg-cover bg-[url('assets/hero-002.jpg')] flex bg-center bg-no-repeat h-full w-full container flex flex-wrap lg:px-12 px-4 max-w-screen-2xl py-24">
+      <div className="bg-cover bg-[url('assets/hero-002.jpg')] flex bg-center bg-no-repeat h-full w-full container flex flex-wrap lg:px-12 px-5 max-w-screen-2xl py-24">
         <div
           className="bg-white  lg:w-1/3 md:w-1/3"
           style={{ borderRadius: 10 }}
