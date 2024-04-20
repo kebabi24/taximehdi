@@ -120,9 +120,9 @@ const Home = () => {
               >
                 <MenuItem value=""></MenuItem>
 
-                <MenuItem value={10}>Simple</MenuItem>
-                <MenuItem value={20}>Confort</MenuItem>
-                <MenuItem value={30}>Van</MenuItem>
+                <MenuItem value={"Simple"}>Simple</MenuItem>
+                <MenuItem value={"Confort"}>Confort</MenuItem>
+                <MenuItem value={"Van"}>Van</MenuItem>
               </Select>
             </FormControl>
             <TextField
@@ -130,6 +130,7 @@ const Home = () => {
               id="input-with-icon-textfield"
               placeholder="Numéro de téléphone"
               InputProps={{
+                inputMode: "tel",
                 startAdornment: (
                   <InputAdornment position="start">
                     <LocalPhoneIcon />
