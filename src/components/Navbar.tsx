@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import lg from "../assets/logooo.png";
-import { FaXmark, FaBars } from "react-icons/fa6";
+import { FaXmark, FaBars, FaPhone } from "react-icons/fa6";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Link } from "react-scroll";
 const Navbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
     { link: "Contact", path: "contact" },
   ];
   return (
-    <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0 overflow-hidden">
+    <header className="w-full bg-white md:bg-white  top-0 left-0 right-0 overflow-hidden">
       <nav
         className={`py-4 lg:px-14 px-4 ${
           isSticky
@@ -46,7 +46,7 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center text-base gap-8">
-          <a className="text-2xl font-semibold flex items-center space-x-3">
+          <a>
             <img src={lg} alt="" />
           </a>
           <ul className="md:flex space-x-12 hidden">
@@ -71,6 +71,15 @@ const Navbar = () => {
                 <FaBars className="h-6 w-6" />
               )}
             </button>
+          </div>
+          <div className="md:flex space-x-12 hidden">
+            <Link
+              className="flex block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer"
+              to="/cart"
+            >
+              <FaPhone className="h-6 w-6" />
+              <span>(213) 6 71 42 14 48</span>
+            </Link>
           </div>
         </div>
         {/* nav items for mobile devices */}

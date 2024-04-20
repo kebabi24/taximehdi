@@ -14,15 +14,15 @@ function App() {
     <>
       <Navbar />
       <Home />
-      <About></About>
+      {/* <About></About>
       <Goals></Goals>
       <Team></Team>
 
       <Product></Product>
       <Services></Services>
-      {/* <Items></Items> */}
+      <Items></Items>
       <Partner></Partner>
-      <Contact></Contact>
+      <Contact></Contact> */}
     </>
   );
 }

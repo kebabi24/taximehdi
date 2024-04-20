@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BsFillDisplayFill } from "react-icons/bs";
 import photo1 from "../assets/1.jpg";
 // motion
 import { motion } from "framer-motion";
@@ -92,8 +93,11 @@ const Services = () => {
             {solutions.map((solution) => (
               <div
                 key={solution.id}
-                className="card px-4 py-8 text-center md:w-[400px] mx-auto md:h-100 rounded-md shadow   flex h-full  justify-center items-center "
+                className="card px-4 py-8 text-center md:w-[400px] mx-auto md:h-100 rounded-md shadow flex flex-col   flex h-full  justify-center items-center "
               >
+                <div className="flex justify-items-start items-start">
+                  <BsFillDisplayFill className="h-12 w-12" color="white" />
+                </div>
                 <div className="mb-4 h-50  mx-auto">
                   <p className="text-sm text-bgWhite text-overflow:ellipsis">
                     {solution.description}

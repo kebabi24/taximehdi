@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
 import qad from "../assets/qad1.png";
-import axiom from "../assets/axiom2.png";
+import axiom from "../assets/newlogoo.png";
 import targit from "../assets/tagit.png";
 const Product = () => {
   const [isShowMore1, setIsShowMore1] = useState(false);

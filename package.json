@@ -1,5 +1,5 @@
 {
-  "name": "acsiome-website",
+  "name": "taxi-mehdi24",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@material-tailwind/react": "^2.1.4",
+    "@mui/icons-material": "^5.15.15",
+    "@mui/material": "^5.15.15",
+    "@mui/x-date-pickers": "^7.2.0",
+    "dayjs": "^1.11.10",
     "flowbite-react": "^0.6.4",
     "framer-motion": "^10.16.4",
     "localforage": "^1.10.0",
@@ -21,10 +27,13 @@
     "react-router-dom": "^6.16.0",
     "react-scroll": "^1.9.0",
     "react-slick": "^0.29.0",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "vite-plugin-require": "^1.1.11"
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.8",
+    "@types/node": "^20.8.10",
+    "@types/nodemailer": "^6.4.13",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/react-scroll": "^1.8.8",
@@ -40,6 +49,7 @@
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.11"
+    "vite": "^4.4.11",
+    "vite-plugin-require-transform": "^1.0.21"
   }
 }
