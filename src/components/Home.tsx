@@ -63,13 +63,13 @@ const Home = () => {
       className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto bg-[url('assets/hero-002.jpg')] overflow-hidden"
       id="solutions"
     >
-      <div className="text-center my-2"></div>
-      <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
+      <div className="text-center  "></div>
+      <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
         <div
           style={{ borderRadius: "10px" }}
-          className="card  text-center  mx-auto md:h-100 rounded-md shadow cursor-pointer hover:-translate-y-5 hover:border-b-4 hover:border-indigo-700 transition-all duration-300 flex h-full bg-bgWhite justify-center items-center"
+          className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-bgWhite justify-center items-center"
         >
-          <div className=" h-50 md:w-[400px] mx-auto flex flex-col justify-center items-center ">
+          <div className=" h-50 md:w-[600px] mx-auto flex flex-col justify-center items-center ">
             <div
               className="w-full bg-textPrimary mb-5"
               style={{
@@ -81,10 +81,7 @@ const Home = () => {
                 height: "100px",
               }}
             >
-              <span
-                style={{ marginLeft: "28px", fontSize: "24px" }}
-                className="px-10 font-bold "
-              >
+              <span style={{ fontSize: "32px" }} className="px-10 font-bold ">
                 BOOK NOW!
               </span>
             </div>
@@ -92,35 +89,41 @@ const Home = () => {
               className="p-5"
               style={{ display: "flex", flexDirection: "column" }}
             >
-              <TextField
-                style={{ marginBottom: "7px" }}
-                id="input-with-icon-textfield"
-                placeholder="Localisation de départ"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LoginIcon />
-                    </InputAdornment>
-                  ),
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <TextField
+                  style={{ marginBottom: "7px", marginRight: "5px" }}
+                  id="input-with-icon-textfield"
+                  placeholder="Localisation de départ"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <LoginIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                  variant="outlined"
+                />
+                <TextField
+                  id="input-with-icon-textfield"
+                  placeholder="Localisation d'arrivé"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <LogoutIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                  variant="outlined"
+                />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
                 }}
-                variant="outlined"
-              />
-              <TextField
-                id="input-with-icon-textfield"
-                placeholder="Localisation d'arrivé"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LogoutIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                variant="outlined"
-              />
-
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={["MobileDateTimePicker"]}>
-                  <DemoItem>
+              >
+                <div style={{ width: "50%" }}>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDateTimePicker
                       defaultValue={dayjs("2022-04-17T15:30")}
                       slotProps={{
@@ -130,48 +133,75 @@ const Home = () => {
                         },
                       }}
                     />
-                  </DemoItem>
-                </DemoContainer>
-              </LocalizationProvider>
-              <FormControl style={{ marginBottom: "7px", marginTop: "7px" }}>
-                <Select
-                  value={type}
-                  onChange={handleChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  renderValue={(value) => {
-                    console.log(value);
-                    return (
-                      <Box sx={{ display: "flex", gap: 1 }}>
-                        <SvgIcon>
-                          <LocalTaxiIcon />
-                        </SvgIcon>
-                        {value}
-                      </Box>
-                    );
-                  }}
-                >
-                  <MenuItem value=""></MenuItem>
+                  </LocalizationProvider>
+                </div>
+                <div style={{ width: "50%" }}>
+                  <Button
+                    variant="contained"
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "black",
+                      fontWeight: "bold",
+                      height: "100%",
+                      width: "100%",
+                    }}
+                  >
+                    Ajouter un retour
+                  </Button>
+                </div>
+              </div>
 
-                  <MenuItem value={"Simple"}>Simple</MenuItem>
-                  <MenuItem value={"Confort"}>Confort</MenuItem>
-                  <MenuItem value={"Van"}>Van</MenuItem>
-                </Select>
-              </FormControl>
-              <TextField
-                style={{ marginBottom: "40px" }}
-                id="input-with-icon-textfield"
-                placeholder="Numéro de téléphone"
-                InputProps={{
-                  inputMode: "tel",
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LocalPhoneIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                variant="outlined"
-              />
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <div style={{ width: "50%" }}>
+                  <FormControl
+                    style={{
+                      minWidth: "100%",
+                      marginBottom: "7px",
+                      marginTop: "7px",
+                    }}
+                  >
+                    <Select
+                      value={type}
+                      onChange={handleChange}
+                      style={{ minWidth: "100%" }}
+                      displayEmpty
+                      inputProps={{ "aria-label": "Without label" }}
+                      placeholder="Type de véhicule"
+                      renderValue={(value) => {
+                        console.log(value);
+                        return (
+                          <Box sx={{ display: "flex" }}>
+                            <SvgIcon>
+                              <LocalTaxiIcon />
+                            </SvgIcon>
+                            {value}
+                          </Box>
+                        );
+                      }}
+                    >
+                      <MenuItem value={"Simple"}>Simple</MenuItem>
+                      <MenuItem value={"Confort"}>Confort</MenuItem>
+                      <MenuItem value={"Van"}>Van</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
+                <div style={{ width: "50%" }}>
+                  <TextField
+                    style={{ marginBottom: "7px", marginTop: "7px" }}
+                    id="input-with-icon-textfield"
+                    placeholder="Numéro de téléphone"
+                    InputProps={{
+                      inputMode: "tel",
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <LocalPhoneIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                    variant="outlined"
+                  />
+                </div>
+              </div>
               <Button
                 variant="contained"
                 size="large"
