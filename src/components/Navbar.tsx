@@ -36,7 +36,7 @@ const Navbar = () => {
     { link: "Contact", path: "contact" },
   ];
   return (
-    <header className="w-full bg-white md:bg-white  top-0 left-0 right-0 overflow-hidden">
+    <header className="w-full bg-black md:bg-black  top-0 left-0 right-0 overflow-hidden">
       <nav
         className={`py-4 lg:px-14 px-4 ${
           isSticky

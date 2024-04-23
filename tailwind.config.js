@@ -14,10 +14,11 @@ export default {
         'brandSecondary': "red",
         'neutralSilver': "#F5F7FA",
         'gray900': "#717171",
-        'textPrimary': "#F09721",
+        'textPrimary': "white",
         'bgGreen': "#2B2B2B",
         'bgWhite': "white",
         'bgBlack': "black",
+        'yellow': "yellow",
         'blackBlack': "#26262C",
       }
     },

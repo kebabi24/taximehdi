@@ -1,7 +1,7 @@
 import { Carousel } from "flowbite-react";
 import React, { useState, useEffect } from "react";
 import banner from "../assets/banner.svg";
-import photo1 from "../assets/hero-002.jpg";
+import photo1 from "../assets/hero.jpg";
 // motion
 import { motion } from "framer-motion";
 // variants
@@ -60,31 +60,69 @@ const Home = () => {
   };
   return (
     <div
-      className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto bg-[url('assets/hero-002.jpg')] overflow-hidden"
+      className="md:px-14 px-4 py-32 max-w-screen-2xl  mx-auto bg-black "
       id="solutions"
     >
-      <div className="text-center  "></div>
-      <div className="mt-2 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-10/11 mx-auto gap-12 ">
         <div
-          style={{ borderRadius: "10px" }}
-          className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-bgWhite justify-center items-center"
+          style={{
+            borderRadius: "10px",
+          }}
+          className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-white justify-center items-center "
         >
           <div className=" h-50 md:w-[600px] mx-auto flex flex-col justify-center items-center ">
             <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+                textAlign: "justify",
+                flexWrap: "wrap",
+              }}
+              className=" bg-black"
+            >
+              <span
+                style={{
+                  fontSize: "40px",
+                  fontWeight: "bold",
+                  color: "white",
+                  display: "flex",
+                  flexWrap: "wrap",
+                }}
+              >
+                Allez où vous
+              </span>
+              <span
+                style={{ fontSize: "40px", fontWeight: "bold", color: "white" }}
+              >
+                voulez avec Taxi Mehdi
+              </span>
+              <br />
+              <span
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  marginBottom: "10px",
+                }}
+              >
+                Commandez une course, montez à bord et c'est parti.
+              </span>
+            </div>
+            {/* <div
               className="w-full bg-textPrimary mb-5"
               style={{
                 display: "flex",
                 alignItems: "center",
 
-                borderStartStartRadius: 10,
-                borderStartEndRadius: 10,
+                // borderStartStartRadius: 10,
+                // borderStartEndRadius: 10,
                 height: "100px",
               }}
             >
               <span style={{ fontSize: "32px" }} className="px-10 font-bold ">
                 BOOK NOW!
               </span>
-            </div>
+            </div> */}
             <div
               className="p-5"
               style={{ display: "flex", flexDirection: "column" }}
@@ -214,6 +252,14 @@ const Home = () => {
                 Réserver maintenant!
               </Button>
             </div>
+          </div>
+        </div>
+        <div
+          style={{ borderRadius: "10px" }}
+          className="flex-col card  text-center  mx-auto md:h-100 rounded-md shadow bg-yellow   flex h-full  justify-center items-center"
+        >
+          <div className=" ">
+            <img src={photo1} alt="" />
           </div>
         </div>
       </div>
