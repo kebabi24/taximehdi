@@ -60,7 +60,7 @@ const Home = () => {
   };
   return (
     <div
-      className="md:px-14 px-4 py-24 max-w-screen-2xl  mx-auto bg-[url('assets/hero-002.jpg')] "
+      className="md:px-4 px-4 py-12 max-w-screen-2xl  mx-auto bg-[url('assets/hero-002.jpg')] "
       id="solutions"
     >
       <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-10/11 mx-auto gap-12 ">
