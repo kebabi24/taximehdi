@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import lg from "../assets/logooo.png";
+import lg from "../assets/logo22.png";
 import { FaXmark, FaBars, FaPhone } from "react-icons/fa6";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Link } from "react-scroll";

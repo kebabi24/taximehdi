@@ -60,17 +60,17 @@ const Home = () => {
   };
   return (
     <div
-      className="md:px-14 px-4 py-32 max-w-screen-2xl  mx-auto bg-black "
+      className="md:px-14 px-4 md:py-12 max-w-screen-2xl  mx-auto bg-black "
       id="solutions"
     >
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-10/11 mx-auto gap-12 ">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1  mx-auto gap-12 ">
         <div
           style={{
             borderRadius: "10px",
           }}
-          className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-white justify-center items-center "
+          className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-black justify-center items-center "
         >
-          <div className=" h-50 md:w-[600px] mx-auto flex flex-col justify-center items-center ">
+          <div className=" h-50 md:w-[500px] mx-auto flex flex-col justify-center items-center ">
             <div
               style={{
                 display: "flex",
@@ -79,7 +79,7 @@ const Home = () => {
                 textAlign: "justify",
                 flexWrap: "wrap",
               }}
-              className=" bg-black"
+              className=" bg-black p-5"
             >
               <span
                 style={{
@@ -125,11 +125,25 @@ const Home = () => {
             </div> */}
             <div
               className="p-5"
-              style={{ display: "flex", flexDirection: "column" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
             >
-              <div style={{ display: "flex", flexDirection: "row" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+
+                  marginBottom: "5px",
+                }}
+              >
                 <TextField
-                  style={{ marginBottom: "7px", marginRight: "5px" }}
+                  style={{
+                    marginRight: "5px",
+                    backgroundColor: "#F3F3F3",
+                    borderRadius: 5,
+                  }}
                   id="input-with-icon-textfield"
                   placeholder="Localisation de départ"
                   InputProps={{
@@ -144,6 +158,10 @@ const Home = () => {
                 <TextField
                   id="input-with-icon-textfield"
                   placeholder="Localisation d'arrivé"
+                  style={{
+                    backgroundColor: "#F3F3F3",
+                    borderRadius: 5,
+                  }}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -160,7 +178,14 @@ const Home = () => {
                   flexDirection: "row",
                 }}
               >
-                <div style={{ width: "50%" }}>
+                <div
+                  style={{
+                    width: "50%",
+                    backgroundColor: "#F3F3F3",
+                    marginRight: "5px",
+                    borderRadius: 5,
+                  }}
+                >
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDateTimePicker
                       defaultValue={dayjs("2022-04-17T15:30")}
@@ -175,13 +200,16 @@ const Home = () => {
                 </div>
                 <div style={{ width: "50%" }}>
                   <Button
-                    variant="contained"
+                    variant="outlined"
                     style={{
-                      backgroundColor: "transparent",
-                      color: "black",
+                      backgroundColor: "black",
+                      color: "white",
                       fontWeight: "bold",
                       height: "100%",
                       width: "100%",
+                      borderWidth: "3px",
+                      borderColor: "white",
+                      borderRadius: 5,
                     }}
                   >
                     Ajouter un retour
@@ -190,12 +218,14 @@ const Home = () => {
               </div>
 
               <div style={{ display: "flex", flexDirection: "row" }}>
-                <div style={{ width: "50%" }}>
+                <div style={{ width: "50%", marginRight: "5px" }}>
                   <FormControl
                     style={{
                       minWidth: "100%",
                       marginBottom: "7px",
                       marginTop: "7px",
+                      backgroundColor: "#F3F3F3",
+                      borderRadius: 5,
                     }}
                   >
                     <Select
@@ -225,7 +255,12 @@ const Home = () => {
                 </div>
                 <div style={{ width: "50%" }}>
                   <TextField
-                    style={{ marginBottom: "7px", marginTop: "7px" }}
+                    style={{
+                      marginBottom: "7px",
+                      marginTop: "7px",
+                      backgroundColor: "#F3F3F3",
+                      borderRadius: 5,
+                    }}
                     id="input-with-icon-textfield"
                     placeholder="Numéro de téléphone"
                     InputProps={{
@@ -244,7 +279,7 @@ const Home = () => {
                 variant="contained"
                 size="large"
                 style={{
-                  backgroundColor: "#F09721",
+                  backgroundColor: "white",
                   color: "black",
                   fontWeight: "bold",
                 }}
