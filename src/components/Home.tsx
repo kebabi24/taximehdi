@@ -68,7 +68,7 @@ const Home = () => {
           style={{ borderRadius: "10px" }}
           className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-white justify-center items-center"
         >
-          <div className=" h-50 md:w-[500px] mx-auto flex flex-col justify-center items-center ">
+          <div className=" h-50 md:w-[400px] mx-auto flex flex-col justify-center items-center ">
             <div
               className="w-full bg-textPrimary mb-5"
               style={{
@@ -88,7 +88,7 @@ const Home = () => {
               className="p-5"
               style={{ display: "flex", flexDirection: "column" }}
             >
-              <div style={{ display: "flex", flexDirection: "row" }}>
+              <div style={{ display: "flex", flexDirection: "column" }}>
                 <TextField
                   style={{ marginBottom: "7px", marginRight: "5px" }}
                   id="input-with-icon-textfield"
@@ -105,6 +105,7 @@ const Home = () => {
                 <TextField
                   id="input-with-icon-textfield"
                   placeholder="Localisation d'arrivé"
+                  style={{ marginBottom: "5px" }}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -118,10 +119,10 @@ const Home = () => {
               <div
                 style={{
                   display: "flex",
-                  flexDirection: "row",
+                  flexDirection: "column",
                 }}
               >
-                <div style={{ width: "50%" }}>
+                <div style={{ marginBottom: "5px" }}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDateTimePicker
                       defaultValue={dayjs("2022-04-17T15:30")}
@@ -134,7 +135,7 @@ const Home = () => {
                     />
                   </LocalizationProvider>
                 </div>
-                <div style={{ width: "50%" }}>
+                <div>
                   <Button
                     variant="contained"
                     style={{
@@ -150,13 +151,13 @@ const Home = () => {
                 </div>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "row" }}>
-                <div style={{ width: "50%" }}>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <div>
                   <FormControl
                     style={{
                       minWidth: "100%",
-                      marginBottom: "7px",
-                      marginTop: "7px",
+
+                      marginTop: "5px",
                     }}
                   >
                     <Select
@@ -184,7 +185,7 @@ const Home = () => {
                     </Select>
                   </FormControl>
                 </div>
-                <div style={{ width: "50%" }}>
+                <div>
                   <TextField
                     style={{ marginBottom: "7px", marginTop: "7px" }}
                     id="input-with-icon-textfield"
