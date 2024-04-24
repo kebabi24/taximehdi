@@ -1,7 +1,7 @@
 import { Carousel } from "flowbite-react";
 import React, { useState, useEffect } from "react";
 import banner from "../assets/banner.svg";
-import photo1 from "../assets/hero.jpg";
+import photo1 from "../assets/hero-002.jpg";
 // motion
 import { motion } from "framer-motion";
 // variants
@@ -60,90 +60,37 @@ const Home = () => {
   };
   return (
     <div
-      className="md:px-14 px-4 md:py-12 max-w-screen-2xl  mx-auto bg-black "
+      className="md:px-14 px-4 py-24 max-w-screen-2xl  mx-auto bg-[url('assets/hero-002.jpg')] "
       id="solutions"
     >
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1  mx-auto gap-12 ">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-10/11 mx-auto gap-12 ">
         <div
-          style={{
-            borderRadius: "10px",
-          }}
-          className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-black justify-center items-center "
+          style={{ borderRadius: "10px" }}
+          className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-white justify-center items-center"
         >
           <div className=" h-50 md:w-[500px] mx-auto flex flex-col justify-center items-center ">
             <div
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                textAlign: "justify",
-                flexWrap: "wrap",
-              }}
-              className=" bg-black p-5"
-            >
-              <span
-                style={{
-                  fontSize: "40px",
-                  fontWeight: "bold",
-                  color: "white",
-                  display: "flex",
-                  flexWrap: "wrap",
-                }}
-              >
-                Allez où vous
-              </span>
-              <span
-                style={{ fontSize: "40px", fontWeight: "bold", color: "white" }}
-              >
-                voulez avec Taxi Mehdi
-              </span>
-              <br />
-              <span
-                style={{
-                  color: "white",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
-                }}
-              >
-                Commandez une course, montez à bord et c'est parti.
-              </span>
-            </div>
-            {/* <div
               className="w-full bg-textPrimary mb-5"
               style={{
                 display: "flex",
                 alignItems: "center",
 
-                // borderStartStartRadius: 10,
-                // borderStartEndRadius: 10,
+                borderStartStartRadius: 10,
+                borderStartEndRadius: 10,
                 height: "100px",
               }}
             >
               <span style={{ fontSize: "32px" }} className="px-10 font-bold ">
                 BOOK NOW!
               </span>
-            </div> */}
+            </div>
             <div
               className="p-5"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-              }}
+              style={{ display: "flex", flexDirection: "column" }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-
-                  marginBottom: "5px",
-                }}
-              >
+              <div style={{ display: "flex", flexDirection: "row" }}>
                 <TextField
-                  style={{
-                    marginRight: "5px",
-                    backgroundColor: "#F3F3F3",
-                    borderRadius: 5,
-                  }}
+                  style={{ marginBottom: "7px", marginRight: "5px" }}
                   id="input-with-icon-textfield"
                   placeholder="Localisation de départ"
                   InputProps={{
@@ -158,10 +105,6 @@ const Home = () => {
                 <TextField
                   id="input-with-icon-textfield"
                   placeholder="Localisation d'arrivé"
-                  style={{
-                    backgroundColor: "#F3F3F3",
-                    borderRadius: 5,
-                  }}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -178,14 +121,7 @@ const Home = () => {
                   flexDirection: "row",
                 }}
               >
-                <div
-                  style={{
-                    width: "50%",
-                    backgroundColor: "#F3F3F3",
-                    marginRight: "5px",
-                    borderRadius: 5,
-                  }}
-                >
+                <div style={{ width: "50%" }}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDateTimePicker
                       defaultValue={dayjs("2022-04-17T15:30")}
@@ -200,16 +136,13 @@ const Home = () => {
                 </div>
                 <div style={{ width: "50%" }}>
                   <Button
-                    variant="outlined"
+                    variant="contained"
                     style={{
-                      backgroundColor: "black",
-                      color: "white",
+                      backgroundColor: "transparent",
+                      color: "black",
                       fontWeight: "bold",
                       height: "100%",
                       width: "100%",
-                      borderWidth: "3px",
-                      borderColor: "white",
-                      borderRadius: 5,
                     }}
                   >
                     Ajouter un retour
@@ -218,14 +151,12 @@ const Home = () => {
               </div>
 
               <div style={{ display: "flex", flexDirection: "row" }}>
-                <div style={{ width: "50%", marginRight: "5px" }}>
+                <div style={{ width: "50%" }}>
                   <FormControl
                     style={{
                       minWidth: "100%",
                       marginBottom: "7px",
                       marginTop: "7px",
-                      backgroundColor: "#F3F3F3",
-                      borderRadius: 5,
                     }}
                   >
                     <Select
@@ -255,12 +186,7 @@ const Home = () => {
                 </div>
                 <div style={{ width: "50%" }}>
                   <TextField
-                    style={{
-                      marginBottom: "7px",
-                      marginTop: "7px",
-                      backgroundColor: "#F3F3F3",
-                      borderRadius: 5,
-                    }}
+                    style={{ marginBottom: "7px", marginTop: "7px" }}
                     id="input-with-icon-textfield"
                     placeholder="Numéro de téléphone"
                     InputProps={{
@@ -279,7 +205,7 @@ const Home = () => {
                 variant="contained"
                 size="large"
                 style={{
-                  backgroundColor: "white",
+                  backgroundColor: "#F09721",
                   color: "black",
                   fontWeight: "bold",
                 }}
@@ -287,14 +213,6 @@ const Home = () => {
                 Réserver maintenant!
               </Button>
             </div>
-          </div>
-        </div>
-        <div
-          style={{ borderRadius: "10px" }}
-          className="flex-col card  text-center  mx-auto md:h-100 rounded-md shadow bg-yellow   flex h-full  justify-center items-center"
-        >
-          <div className=" ">
-            <img src={photo1} alt="" />
           </div>
         </div>
       </div>

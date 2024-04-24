@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import lg from "../assets/logo22.png";
+import lg from "../assets/logooo.png";
 import { FaXmark, FaBars, FaPhone } from "react-icons/fa6";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Link } from "react-scroll";
@@ -36,7 +36,7 @@ const Navbar = () => {
     { link: "Contact", path: "contact" },
   ];
   return (
-    <header className="w-full bg-black md:bg-black  top-0 left-0 right-0 overflow-hidden">
+    <header className="w-full bg-white md:bg-white  top-0 left-0 right-0 overflow-hidden">
       <nav
         className={`py-4 lg:px-14 px-4 ${
           isSticky

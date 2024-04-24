@@ -14,7 +14,7 @@ export default {
         'brandSecondary': "red",
         'neutralSilver': "#F5F7FA",
         'gray900': "#717171",
-        'textPrimary': "white",
+        'textPrimary': "#F09721",
         'bgGreen': "#2B2B2B",
         'bgWhite': "white",
         'bgBlack': "black",
