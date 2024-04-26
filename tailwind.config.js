@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: {
         'neutralSilver': "#F5F7FA",
-        'neutralDGrey': "#4D4D4D",
+        'neutralDGrey': "#EBEAE9",
         'brandPrimary': "#2951D5",
         'brandSecondary': "red",
         'neutralSilver': "#F5F7FA",

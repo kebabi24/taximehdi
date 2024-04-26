@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BsFillDisplayFill } from "react-icons/bs";
 import photo1 from "../assets/1.jpg";
+import HomeIcon from "@mui/icons-material/Home";
+import FlashOnIcon from "@mui/icons-material/FlashOn";
+import RedeemIcon from "@mui/icons-material/Redeem";
+import GpsFixedIcon from "@mui/icons-material/GpsFixed";
 // motion
 import { motion } from "framer-motion";
 // variants
@@ -9,66 +13,31 @@ const Services = () => {
   const solutions = [
     {
       id: 1,
-
+      name: "RAMASSAGE A DOMICILE",
+      icon: <HomeIcon />,
       description:
-        "Accompagnement aux projets de la structure SI, Supply Chain, Production et commerciale",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
     {
       id: 2,
-
+      name: "RESERVATION RAPIDE",
+      icon: <FlashOnIcon />,
       description:
-        "Mise à niveau des formations & rédaction de procédures et instructions",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
     {
       id: 3,
-
-      description: "Mise en place des processus, procédures et instructions",
+      name: "DES BONUS A GAGNER",
+      icon: <RedeemIcon />,
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
     {
       id: 4,
-
+      name: "LOCALISATION GPS",
+      icon: <GpsFixedIcon />,
       description:
-        "Veille à l’application des procédures établies, audit et propositions d’actions amélioratrices",
-    },
-    {
-      id: 5,
-
-      description: "Mise en place de la gestion avancée des entrepôts (WMS)",
-    },
-    {
-      id: 6,
-
-      description: "Mise en place de la gestion de l'assurance Qualité",
-    },
-    {
-      id: 7,
-
-      description:
-        "Diagnostic, Audit fonctionnel des structures exploitation, comptabilité finance, commerciale et logistique",
-    },
-    {
-      id: 8,
-
-      description:
-        "Préparation de la plateforme pour l’intégration d’un système d’information (prototypage des données, des flux), préparation des spécifications, des variantes",
-    },
-    {
-      id: 9,
-
-      description:
-        "Assistance aux grands projets de développement (planification, gestion avancée des stocks, gestion commerciale, gestion des coûts …)",
-    },
-    {
-      id: 10,
-
-      description:
-        "Etablissement et mise en place d’états de gestion et tableaux de bords pour analyse des taches et réalisations (mesures de performances, écarts prévisionnels/ réalisés, évolution ....)",
-    },
-    {
-      id: 11,
-
-      description:
-        "Pilotage des projets de mise en place de systèmes d'information QAD",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
   ];
   const [isShowMore, setIsShowMore] = useState(false);
@@ -79,34 +48,51 @@ const Services = () => {
   };
   return (
     <div
-      className="md:px-14 px-4 py-12 max-w-screen-2xl mx-auto bg-bgGreen"
+      className="md:px-4 px-4 py-16 max-w-screen-2xl  mx-auto bg-[url('assets/bg-road.jpg')]"
       id="services"
     >
-      <div className="flex items-center justify-center">
-        <h1 className="text-5xl font-semibold mb-4 text-white md:w-full leading-snug ">
-          Nos services
+      <div className="text-center ">
+        <h1 className="text-4xl text-textPrimary font-bold">ON VOUS OFRONS </h1>
+        <h1 className="text-4xl text-white font-bold mb-10 ">
+          TOUT CE QUE VOUS DESIRE
         </h1>
       </div>
-      <div className="my-8 md:my-8 py-4 flex flex-col md:flex-row-reverse items-center justify-between gap-12">
-        <div className="flex flex-wrap justify-center items-center">
-          <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
-            {solutions.map((solution) => (
-              <div
-                key={solution.id}
-                className="card px-4 py-8 text-center md:w-[400px] mx-auto md:h-100 rounded-md shadow flex flex-col   flex h-full  justify-center items-center "
-              >
-                <div className="flex justify-items-start items-start">
-                  <BsFillDisplayFill className="h-12 w-12" color="white" />
+      <div className="mt-14 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
+        {solutions.map((solution) => (
+          <>
+            <div
+              key={solution.id}
+              className="card px-4 py-8 text-center md:w-[400px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-transparent justify-center items-center "
+            >
+              <div className="mb-4 h-50  mx-auto flex flex-row justify-center items-center">
+                {/* <img src={solution.logo} alt="" /> */}
+                <div
+                  className=""
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 30,
+                    backgroundColor: "#F09721",
+                    height: "60px",
+                    width: "110px",
+                    marginRight: "15px",
+                  }}
+                >
+                  {solution.icon}
                 </div>
-                <div className="mb-4 h-50  mx-auto">
-                  <p className="text-sm text-bgWhite text-overflow:ellipsis">
+                <div className="flex flex-col">
+                  <div className="font-bold text-xl text-textPrimary mb-5">
+                    {solution.name}
+                  </div>
+                  <div className="text-white font-semibold">
                     {solution.description}
-                  </p>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </>
+        ))}
       </div>
     </div>
   );
