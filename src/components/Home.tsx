@@ -85,10 +85,11 @@ const Home = () => {
               </span>
             </div>
             <div
+              className="pb-5"
               style={{
                 display: "flex",
                 flexDirection: "column",
-                backgroundColor: "red",
+                // backgroundColor: "red",
               }}
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
