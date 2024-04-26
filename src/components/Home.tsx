@@ -77,7 +77,7 @@ const Home = () => {
 
                 borderStartStartRadius: 10,
                 borderStartEndRadius: 10,
-                height: "100px",
+                height: "80px",
               }}
             >
               <span style={{ fontSize: "32px" }} className="px-10 font-bold ">
@@ -85,12 +85,19 @@ const Home = () => {
               </span>
             </div>
             <div
-              className="p-5"
-              style={{ display: "flex", flexDirection: "column" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                backgroundColor: "red",
+              }}
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <TextField
-                  style={{ marginBottom: "7px", marginRight: "5px" }}
+                  style={{
+                    marginBottom: "7px",
+                    marginRight: "5px",
+                    width: "100%",
+                  }}
                   id="input-with-icon-textfield"
                   placeholder="Localisation de départ"
                   InputProps={{
@@ -105,7 +112,7 @@ const Home = () => {
                 <TextField
                   id="input-with-icon-textfield"
                   placeholder="Localisation d'arrivé"
-                  style={{ marginBottom: "5px" }}
+                  style={{ marginBottom: "5px", minWidth: "100%" }}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -122,7 +129,7 @@ const Home = () => {
                   flexDirection: "column",
                 }}
               >
-                <div style={{ marginBottom: "5px" }}>
+                <div style={{ marginBottom: "5px", minWidth: "100%" }}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDateTimePicker
                       defaultValue={dayjs("2022-04-17T15:30")}
@@ -187,7 +194,11 @@ const Home = () => {
                 </div>
                 <div>
                   <TextField
-                    style={{ marginBottom: "7px", marginTop: "7px" }}
+                    style={{
+                      marginBottom: "7px",
+                      marginTop: "7px",
+                      minWidth: "100%",
+                    }}
                     id="input-with-icon-textfield"
                     placeholder="Numéro de téléphone"
                     InputProps={{
