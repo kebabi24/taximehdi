@@ -20,8 +20,12 @@ export default {
         'bgBlack': "black",
         'yellow': "yellow",
         'blackBlack': "#26262C",
+        'backgroundC2': "#FFFAF3",
       }
     },
+    fontFamily: {
+      'outfit': ['Outfit', 'sans-serif'],
+    }
   },
   plugins: [require('flowbite/plugin')],
 }

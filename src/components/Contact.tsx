@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import map from "../assets/map.png";
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
-
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { IoLogoAndroid } from "react-icons/io";
+import { FaApple } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoPhonePortrait } from "react-icons/io5";
+import { MdOutlineMailOutline } from "react-icons/md";
+import { CgWebsite } from "react-icons/cg";
 const Contact = () => {
   const [formData, setFormData] = useState({
     objet: " ",
@@ -44,102 +52,116 @@ const Contact = () => {
   };
   return (
     <div
-      className="md:px-14 px-4 py-8 max-w-screen-2x1 mx-auto bg-blackBlack overflow-hidden"
+      className="md:px-14 px-12 py-8 max-w-screen-2xl mx-auto bg-black overflow-hidden"
       id="contact"
     >
-      <div className="my-24 md:my-8 py-8 flex flex-col md:flex-row-reverse items-center justify-between gap-12">
-        <div className="">
-          <div className="mb-4">
-            <p className="text-bgWhite">
-              Adresse : Coopérative immobilière El Anouar N° 10, Reghaia, Alger{" "}
-            </p>
-            <p className="text-bgWhite">Email: contact@acsiome.tech</p>
-            <p className="text-bgWhite">web: www.acsiome.tech</p>
-            <p className="text-bgWhite">Mob: 0560625473/0560613470</p>
+      <div className="md:px-40 px-12 my-12  py-4 flex flex-col  md:flex-row items-center justify-around gap-12">
+        <div className="card flex flex-col px-4 py-2 w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-black">
+          <span className="font-outfit font-semibold text-white mb-5">
+            A PROPOS TAXI MEHDI
+          </span>
+          <div
+            style={{
+              height: 6,
+              width: "90%",
+              backgroundColor: "#F09721",
+              borderRadius: 2,
+              marginBottom: 20,
+            }}
+          ></div>
+          <span className="font-outfit  text-white mb-7">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when
+          </span>
+          <div className="flex">
+            <span className="font-outfit font-semibold text-textPrimary mr-3">
+              <FaFacebookSquare></FaFacebookSquare>
+            </span>
+            <span className="font-outfit font-semibold text-textPrimary mr-3">
+              <FaInstagramSquare></FaInstagramSquare>
+            </span>
+            <span className="font-outfit font-semibold text-textPrimary mr-3">
+              <FaTwitter></FaTwitter>
+            </span>
           </div>
-          <img className="flex self-center" src={map} alt="" />
         </div>
-        <div className="md:w-1/2 ">
-          <h1 className="text-5xl font-semibold mb-4 text-white md:w-3/4 leading-snug ">
-            Nous contacter
-          </h1>
-          <div className="flex max-w-md flex-col gap-4">
-            <div>
-              {succes && (
-                <h3 className="text-white">Message envoyé avec succés</h3>
-              )}
-              {failed && <h3 className="text-white">Message non envoyé</h3>}
-            </div>
-            <div>
-              <div className="mb-2 block">
-                <Label
-                  className="text-white leading-snug "
-                  htmlFor="base"
-                  value="Object:*"
-                />
-              </div>
-              <TextInput
-                id="base"
-                sizing="md"
-                type="text"
-                name="objet"
-                value={objet}
-                onChange={handleChangeInput}
-              />
-            </div>
-            <div>
-              <div className="mb-2 block">
-                <Label
-                  className="text-white leading-snug "
-                  htmlFor="base"
-                  value="Email:*"
-                />
-              </div>
-              <TextInput
-                id="base"
-                name="email"
-                sizing="md"
-                type="text"
-                value={email}
-                onChange={handleChangeInput}
-              />
-            </div>
-            <div>
-              <div className="mb-2 block">
-                <Label
-                  className="text-white leading-snug "
-                  htmlFor="base"
-                  value="Numéro de téléphone:*"
-                />
-              </div>
-              <TextInput
-                id="base"
-                sizing="md"
-                type="text"
-                name="phone"
-                value={phone}
-                onChange={handleChangeInput}
-              />
-            </div>
-            <div>
-              <div className="mb-2 block">
-                <Label
-                  className="text-white leading-snug "
-                  htmlFor="large"
-                  value="Message"
-                />
-              </div>
-              <Textarea
-                id="large"
-                rows={5}
-                name="message"
-                value={message}
-                onChange={handleChangeInput}
-              />
-            </div>
-            <Button type="submit" onClick={onSubmit}>
-              Envoyer un message
-            </Button>
+        <div className="card flex flex-col px-4 py-2  w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-black">
+          <span className="font-outfit font-semibold text-white mb-5">
+            TELECHARGER
+          </span>
+          <div
+            style={{
+              height: 6,
+              width: "90%",
+              backgroundColor: "#F09721",
+              borderRadius: 2,
+              marginBottom: 20,
+            }}
+          ></div>
+          <span className="font-outfit  text-white mb-5">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry
+          </span>
+          <div className="flex mb-6 items-center ">
+            <span className="font-outfit  text-textPrimary mr-3">
+              Android Utilisateur
+            </span>
+            <span className="font-outfit font-semibold text-white">
+              {" "}
+              <IoLogoAndroid></IoLogoAndroid>
+            </span>
+          </div>
+          <div className="flex items-center ">
+            <span className="font-outfit  text-textPrimary mr-3">
+              iOS Utilisateur
+            </span>
+            <span className="font-outfit font-semibold text-white">
+              {" "}
+              <FaApple></FaApple>
+            </span>
+          </div>
+        </div>
+        <div className="card flex flex-col px-4 py-2 w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-black ">
+          <span className="font-outfit font-semibold text-white mb-5">
+            CONTACT
+          </span>
+          <div
+            style={{
+              height: 6,
+              width: "90%",
+              backgroundColor: "#F09721",
+              borderRadius: 2,
+              marginBottom: 20,
+            }}
+          ></div>
+          <div className="flex items-center ">
+            <span className="font-outfit  text-textPrimary mr-3 ">
+              <FaLocationDot></FaLocationDot>
+            </span>
+            <span className="font-outfit  text-white">
+              Bon accueil, Guelma, Algérie.
+            </span>
+          </div>
+          <div className="flex items-center ">
+            <span className="font-outfit  text-textPrimary mr-3 ">
+              <IoPhonePortrait></IoPhonePortrait>
+            </span>
+            <span className="font-outfit  text-white">+213 6 71 42 14 48</span>
+          </div>
+          <div className="flex items-center items-center ">
+            <span className="font-outfit  text-textPrimary mr-3">
+              <MdOutlineMailOutline></MdOutlineMailOutline>
+            </span>
+            <span className="font-outfit  text-white">
+              contact@taximehdi.com
+            </span>
+          </div>
+          <div className="flex items-center mb-11">
+            <span className="font-outfit  text-textPrimary mr-3">
+              <CgWebsite></CgWebsite>
+            </span>
+            <span className="font-outfit  text-white">www.taximehdi.com</span>
           </div>
         </div>
       </div>

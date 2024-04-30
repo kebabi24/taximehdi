@@ -63,7 +63,7 @@ const Home = () => {
       className="md:px-4 px-4 py-16 max-w-screen-2xl  mx-auto bg-[url('assets/hero-002.jpg')] "
       id="solutions"
     >
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-10/11 mx-auto gap-12 ">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12 ">
         <div
           style={{ borderRadius: "10px" }}
           className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-white justify-center items-center"
@@ -80,7 +80,10 @@ const Home = () => {
                 height: "80px",
               }}
             >
-              <span style={{ fontSize: "32px" }} className="px-10 font-bold ">
+              <span
+                style={{ fontSize: "32px" }}
+                className="font-outfit px-10 font-bold "
+              >
                 BOOK NOW!
               </span>
             </div>
@@ -215,6 +218,7 @@ const Home = () => {
                 </div>
               </div>
               <Button
+                className="font-outfit"
                 variant="contained"
                 size="large"
                 style={{

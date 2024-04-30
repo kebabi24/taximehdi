@@ -51,7 +51,7 @@ const Navbar = () => {
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               <Link
-                className="block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer font-bold"
+                className="font-outfit block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer font-bold"
                 to={path}
                 key={path}
               >
@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
           <div className="md:flex space-x-12 hidden">
             <Link
-              className="flex block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer"
+              className=" font-outfit flex block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer"
               to="/cart"
             >
               <FaPhone className="h-6 w-6" />
@@ -91,7 +91,7 @@ const Navbar = () => {
         >
           {navItems.map(({ link, path }) => (
             <Link
-              className="mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer "
+              className=" font-outfit mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer "
               to={path}
               key={path}
             >

@@ -52,8 +52,10 @@ const Services = () => {
       id="services"
     >
       <div className="text-center ">
-        <h1 className="text-4xl text-textPrimary font-bold">ON VOUS OFRONS </h1>
-        <h1 className="text-4xl text-white font-bold mb-10 ">
+        <h1 className="font-outfit text-4xl text-textPrimary font-bold">
+          ON VOUS OFRONS{" "}
+        </h1>
+        <h1 className="font-outfit text-4xl text-white font-bold mb-10 ">
           TOUT CE QUE VOUS DESIRE
         </h1>
       </div>
@@ -82,10 +84,10 @@ const Services = () => {
                   {solution.icon}
                 </div>
                 <div className="flex flex-col">
-                  <div className="font-bold text-xl text-textPrimary mb-5">
+                  <div className="font-outfit font-bold text-xl text-textPrimary mb-5">
                     {solution.name}
                   </div>
-                  <div className="text-white font-semibold">
+                  <div className="font-outfit text-white font-semibold">
                     {solution.description}
                   </div>
                 </div>
