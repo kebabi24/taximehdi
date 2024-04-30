@@ -52,10 +52,10 @@ const Contact = () => {
   };
   return (
     <div
-      className="md:px-14 px-4 py-8 max-w-screen-2xl mx-auto bg-black overflow-hidden"
+      className="md:px-14  py-8 max-w-screen-2xl mx-auto bg-black overflow-hidden"
       id="contact"
     >
-      <div className="md:px-40 px-8 my-12  py-4 flex flex-col  md:flex-row items-center justify-around gap-12">
+      <div className="md:px-40 px-4 my-12  py-4 flex flex-col  md:flex-row items-center justify-around gap-12">
         <div className="card flex flex-col px-4 py-2 w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-black">
           <span className="font-outfit font-semibold text-white mb-5">
             A PROPOS TAXI MEHDI
