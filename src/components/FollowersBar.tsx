@@ -33,13 +33,19 @@ const FollowersBar = () => {
   ];
   useEffect(() => {
     if (fbFollow < 30) {
-      setFbFollow(fbFollow + 1);
+      setTimeout(() => {
+        setFbFollow(fbFollow + 1);
+      }, 250);
     }
     if (instaFollow < 50) {
-      setInstaFollow(instaFollow + 1);
+      setTimeout(() => {
+        setInstaFollow(instaFollow + 1);
+      }, 250);
     }
     if (usersNum < 90) {
-      setUsersNum(usersNum + 1);
+      setTimeout(() => {
+        setUsersNum(usersNum + 1);
+      }, 250);
     }
   }, [fbFollow, instaFollow, usersNum]);
   return (
