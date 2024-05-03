@@ -11,7 +11,7 @@ const FollowersBar = () => {
   const solutions = [
     {
       id: 1,
-      name: "Cliens satisfait",
+      name: "Utilisateur",
       icon: <TfiUser size={72} color="#F09721" />,
       //   description: "800 K",
       state: usersNum + " K",
