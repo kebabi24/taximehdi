@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
-import qad from "../assets/qad1.png";
-import axiom from "../assets/newlogoo.png";
-import targit from "../assets/tagit.png";
+
 const Informations = () => {
   const [isShowMore1, setIsShowMore1] = useState(false);
   const [isShowMore2, setIsShowMore2] = useState(false);
@@ -15,7 +13,7 @@ const Informations = () => {
     {
       id: 1,
       name: "Télécharger l'application Taxi Mehdi gratuitement!",
-      logo: qad,
+
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
       state: isShowMore1,

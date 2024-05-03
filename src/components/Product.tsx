@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
-import qad from "../assets/qad1.png";
-import axiom from "../assets/newlogoo.png";
 
 const Product = () => {
   const [isShowMore1, setIsShowMore1] = useState(false);
@@ -15,7 +13,7 @@ const Product = () => {
     {
       id: 1,
       name: "ECONOMY CLASS",
-      logo: qad,
+
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
       state: isShowMore1,
@@ -24,7 +22,7 @@ const Product = () => {
     {
       id: 2,
       name: "STANDARD CLASS",
-      logo: qad,
+
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
       state: isShowMore2,
@@ -33,7 +31,7 @@ const Product = () => {
     {
       id: 3,
       name: "BUSINESS CLASS",
-      logo: axiom,
+
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
       state: isShowMore3,

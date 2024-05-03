@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
-import qad from "../assets/qad1.png";
+
 import young from "../assets/young.jpg";
 
 const Testimonials = () => {
@@ -15,7 +15,7 @@ const Testimonials = () => {
     {
       id: 1,
       name: "ECONOMY CLASS",
-      logo: qad,
+      logo: young,
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       state: isShowMore1,
@@ -24,7 +24,7 @@ const Testimonials = () => {
     {
       id: 2,
       name: "STANDARD CLASS",
-      logo: qad,
+      logo: young,
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       state: isShowMore2,
@@ -33,7 +33,7 @@ const Testimonials = () => {
     {
       id: 1,
       name: "ECONOMY CLASS",
-      logo: qad,
+      logo: young,
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       state: isShowMore1,
@@ -42,7 +42,7 @@ const Testimonials = () => {
     {
       id: 2,
       name: "STANDARD CLASS",
-      logo: qad,
+      logo: young,
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       state: isShowMore2,

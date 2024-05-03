@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import Items from "./components/Items";
 import Services from "./components/Services";
 import Call from "./components/Call";
+import FollowersBar from "./components/FollowersBar";
 function App() {
   return (
     <>
@@ -23,7 +24,9 @@ function App() {
       <Informations></Informations>
       <Testimonials></Testimonials>
       <Call></Call>
+      <FollowersBar></FollowersBar>
       <Contact></Contact>
+
       {/* <About></About>
       <Goals></Goals>
       <Team></Team>
