@@ -60,21 +60,21 @@ const Home = () => {
   };
   return (
     <div
-      className="md:px-4 px-4 py-16 max-w-screen-2xl  mx-auto bg-[url('assets/hero-002.jpg')] "
+      className=" py-16 max-w-screen-2xl  mx-auto bg-[url('assets/hero-002.jpg')] "
       id="solutions"
     >
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12 ">
+      <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12 ">
         <div
           style={{ borderRadius: "10px" }}
-          className="card  text-center  mx-auto md:h-100 rounded-md shadow   flex h-full bg-white justify-center items-center"
+          className="card mx-10 text-center md:w-[400px] md:h-100  shadow cursor-pointer  flex h-full bg-white justify-center items-center"
         >
-          <div className=" h-50 md:w-[400px] mx-auto flex flex-col justify-center items-center ">
+          <div className=" h-50 md:w-[600px] w-full flex flex-col justify-center items-center ">
             <div
-              className="w-full bg-textPrimary mb-5"
+              className="w-full mb-5 bg-gradient-to-t from-[#EFCB3C] to-[#F7E498]"
               style={{
                 display: "flex",
                 alignItems: "center",
-
+                width: "100%",
                 borderStartStartRadius: 10,
                 borderStartEndRadius: 10,
                 height: "80px",
@@ -133,7 +133,14 @@ const Home = () => {
                   flexDirection: "column",
                 }}
               >
-                <div style={{ marginBottom: "5px", minWidth: "100%" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flex: 1,
+                    marginBottom: "5px",
+                    minWidth: "100%",
+                  }}
+                >
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDateTimePicker
                       defaultValue={dayjs("2022-04-17T15:30")}
@@ -220,14 +227,14 @@ const Home = () => {
               <Button
                 className="font-outfit"
                 variant="contained"
-                size="large"
                 style={{
-                  backgroundColor: "#F09721",
-                  color: "black",
+                  backgroundColor: "#313131",
+                  color: "white",
                   fontWeight: "bold",
+                  height: "55px",
                 }}
               >
-                Réserver maintenant!
+                BOOK NOW!
               </Button>
             </div>
           </div>
