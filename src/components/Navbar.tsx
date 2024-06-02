@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import lg from "../assets/logooo.png";
+import lg from "../assets/log.png";
 import { FaXmark, FaBars, FaPhone } from "react-icons/fa6";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { FaTelegramPlane } from "react-icons/fa";
+import Button from "@mui/material/Button";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Link } from "react-scroll";
+import { Outlet, Link as LinkDom } from "react-router-dom";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -28,78 +32,100 @@ const Navbar = () => {
 
   //navitemss array
   const navItems = [
-    { link: "Qui sommes-nous", path: "about" },
+    { link: "QUI SOMMES-NOUS", path: "about" },
 
-    { link: "Services", path: "services" },
-
-    { link: "Nos partenaires", path: "partners" },
-    { link: "Contact", path: "contact" },
+    { link: "SERVICES", path: "services" },
   ];
   return (
-    <header className="w-full bg-white md:bg-white  top-0 left-0 right-0 overflow-hidden">
+    <header className="  mb-7 lg:ml-24 lg:mr-24 top-0 left-0 right-0 overflow-hidden rounded-lg drop-shadow-xl">
       <nav
-        className={`py-4 lg:px-14 px-4 ${
+        className={` flex flex-row justify-between py-2  px-4 ${
           isSticky
-            ? "sticky top-0 left-0 right-0 border-b bg-white duration-300"
+            ? "sticky top-0 left-0 right-0 border-b bg-white duration-300 z-40"
             : ""
         }`}
       >
-        <div className="flex justify-between items-center text-base gap-8">
-          <a>
-            <img src={lg} alt="" />
-          </a>
+        <a>
+          <img src={lg} alt="" style={{ width: "150px" }} />
+        </a>
+        <div className="flex  items-center text-base gap-8">
+          <ul className="md:flex space-x-4 hidden">
+            <Link
+              className=" font-outfit flex block text-base text-bgWhite hover:text-textPrimary first:font-medium cursor-pointer"
+              to="/cart"
+            >
+              <IoLogoWhatsapp className="h-6 w-6 text-bgWhite" />
+            </Link>
+            <Link
+              className=" font-outfit flex block text-base text-bgWhite hover:text-textPrimary first:font-medium cursor-pointer"
+              to="/cart"
+            >
+              <FaTelegramPlane className="h-6 w-6 text-bgWhite" />
+            </Link>
+
+            <Link
+              className=" font-outfit flex block text-base text-bgWhite hover:text-textPrimary first:font-medium cursor-pointer"
+              to="/cart"
+            >
+              <span>+213 6 7142 1448</span>
+            </Link>
+          </ul>
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               <Link
-                className="font-outfit block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer font-bold"
+                className="font-outfit block text-base text-bgWhite hover:text-textPrimary underline underline-offset-4 cursor-pointer font-bold"
                 to={path}
                 key={path}
               >
                 {link}
               </Link>
             ))}
+            <LinkDom
+              className="font-outfit block text-base text-bgWhite hover:text-textPrimary underline underline-offset-4 cursor-pointer font-bold"
+              to={`signin`}
+            >
+              SE CONNECTER / S'INSCRIRE
+            </LinkDom>
           </ul>
+
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
               className="text-neutralDGrey focus:outline-none focus:text-gray-500"
             >
               {isMenuOpen ? (
-                <FaXmark className="h-6 w-6" />
+                <FaXmark color="white" className="h-6 w-6" />
               ) : (
-                <FaBars className="h-6 w-6" />
+                <FaBars color="white" className="h-6 w-6" />
               )}
             </button>
           </div>
-          <div className="md:flex space-x-12 hidden">
-            <Link
-              className=" font-outfit flex block text-base text-textPrimary hover:text-textPrimary first:font-medium cursor-pointer"
-              to="/cart"
-            >
-              <FaPhone className="h-6 w-6" />
-              <span>(213) 6 71 42 14 48</span>
-            </Link>
-          </div>
         </div>
         {/* nav items for mobile devices */}
-        <div
-          className={` px-4 mt-24 py-5 bg-textPrimary ${
-            isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
-          }`}
-          style={{ zIndex: 99 }}
-          onScroll={toggleMenu}
-        >
-          {navItems.map(({ link, path }) => (
-            <Link
-              className=" font-outfit mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer "
-              to={path}
-              key={path}
-            >
-              {link}
-            </Link>
-          ))}
-        </div>
       </nav>
+      <div
+        className={` px-4  py-5 bg-textPrimary ${
+          isMenuOpen ? "block  top-0 right-0 left-0" : "hidden"
+        }`}
+        style={{ zIndex: 99 }}
+        onScroll={toggleMenu}
+      >
+        {navItems.map(({ link, path }) => (
+          <Link
+            className=" font-outfit mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer "
+            to={path}
+            key={path}
+          >
+            {link}
+          </Link>
+        ))}
+        <LinkDom
+          className="font-outfit mt-4 block text-base text-bgWhite hover:text-textPrimary text-center underline underline-offset-4 cursor-pointer font-bold"
+          to={`signin`}
+        >
+          SE CONNECTER / S'INSCRIRE
+        </LinkDom>
+      </div>
     </header>
   );
 };

@@ -9,11 +9,13 @@ export default {
     extend: {
       colors: {
         'neutralSilver': "#F5F7FA",
-        'neutralDGrey': "#EBEAE9",
+        'neutralDGrey': "#F6F7F8",
+        'grey': "#6F7F8F",
         'brandPrimary': "#2951D5",
         'brandSecondary': "red",
         'neutralSilver': "#F5F7FA",
         'gray900': "#717171",
+        'gray800': "#373F47",
         'textPrimary': "#F09721",
         'bgGreen': "#2B2B2B",
         'bgWhite': "white",
@@ -21,10 +23,15 @@ export default {
         'yellow': "yellow",
         'blackBlack': "#26262C",
         'backgroundC2': "#FFFAF3",
+        'contained': "#1976D2",
+      },
+      margin: {
+        '26': '83px',
       }
     },
     fontFamily: {
       'outfit': ['Outfit', 'sans-serif'],
+      'opensans': ['Open Sans', 'sans-serif'],
     }
   },
   plugins: [require('flowbite/plugin')],

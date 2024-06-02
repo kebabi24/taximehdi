@@ -30,15 +30,25 @@ import Button from "@mui/material/Button";
 import { Box, ListItemIcon, ListItemText } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SvgIcon from "@mui/material/SvgIcon";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+import Stack from "@mui/material/Stack";
+import Autocomplete from "@mui/material/Autocomplete";
+import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
   const [type, setType] = React.useState("");
   const [isShowMore1, setIsShowMore1] = useState(false);
-  const [isShowMore2, setIsShowMore2] = useState(false);
-  const [isShowMore3, setIsShowMore3] = useState(false);
-  const [isShowMore4, setIsShowMore4] = useState(false);
-  const [isShowMore5, setIsShowMore5] = useState(false);
-  const [isShowMore6, setIsShowMore6] = useState(false);
-  const [isShowMore7, setIsShowMore7] = useState(false);
+  const [returnButton, setReturnButton] = useState(false);
+  let navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
   const solutions = [
     {
       id: 1,
@@ -58,12 +68,16 @@ const Home = () => {
   const handleChange = (event: SelectChangeEvent) => {
     setType(event.target.value);
   };
+  const handleReturnButtonClick = () => {
+    setReturnButton(!returnButton);
+  };
   return (
     <div
-      className=" py-16 max-w-screen-2xl  mx-auto bg-[url('assets/hero-002.jpg')] "
+      className=" py-8 max-w-screen-2xl  mx-auto bg-[url('assets/hero.jpg')] bg-stretch bg-no-repeat"
       id="solutions"
     >
-      <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12 ">
+      <Navbar />
+      <div className="py-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12 ">
         <div
           style={{ borderRadius: "10px" }}
           className="card mx-10 text-center md:w-[400px] md:h-100  shadow cursor-pointer  flex h-full bg-white justify-center items-center"
@@ -96,36 +110,55 @@ const Home = () => {
               }}
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <TextField
-                  style={{
-                    marginBottom: "7px",
-                    marginRight: "5px",
-                    width: "100%",
-                  }}
-                  id="input-with-icon-textfield"
-                  placeholder="Localisation de départ"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <LoginIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  variant="outlined"
-                />
-                <TextField
-                  id="input-with-icon-textfield"
-                  placeholder="Localisation d'arrivé"
-                  style={{ marginBottom: "5px", minWidth: "100%" }}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <LogoutIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  variant="outlined"
-                />
+                <Stack spacing={2}>
+                  <Autocomplete
+                    freeSolo
+                    id="free-solo-2-demo"
+                    disableClearable
+                    options={top100Films.map((option) => option.title)}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        style={{ marginBottom: "5px", minWidth: "100%" }}
+                        required
+                        placeholder="Localisation de départ"
+                        InputProps={{
+                          ...params.InputProps,
+                          type: "search",
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <LoginIcon />
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+                    )}
+                  />
+                </Stack>
+                <Stack spacing={2}>
+                  <Autocomplete
+                    freeSolo
+                    id="free-solo-2-demo"
+                    disableClearable
+                    options={top100Films.map((option) => option.title)}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        style={{ marginBottom: "5px", minWidth: "100%" }}
+                        placeholder="Localisation d'arrivé"
+                        InputProps={{
+                          ...params.InputProps,
+                          type: "search",
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <LoginIcon />
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+                    )}
+                  />
+                </Stack>
               </div>
               <div
                 style={{
@@ -153,20 +186,45 @@ const Home = () => {
                     />
                   </LocalizationProvider>
                 </div>
-                <div>
-                  <Button
-                    variant="contained"
+                {returnButton && (
+                  <div
                     style={{
-                      backgroundColor: "transparent",
-                      color: "black",
-                      fontWeight: "bold",
-                      height: "100%",
-                      width: "100%",
+                      display: "flex",
+                      flex: 1,
+                      marginBottom: "5px",
+                      minWidth: "100%",
                     }}
                   >
-                    Ajouter un retour
-                  </Button>
-                </div>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DesktopDateTimePicker
+                        defaultValue={dayjs("2022-04-17T15:30")}
+                        slotProps={{
+                          // Targets the `InputAdornment` component.
+                          inputAdornment: {
+                            position: "start",
+                          },
+                        }}
+                      />
+                    </LocalizationProvider>
+                  </div>
+                )}
+                {!returnButton && (
+                  <div>
+                    <Button
+                      variant="contained"
+                      style={{
+                        backgroundColor: "transparent",
+                        color: "black",
+                        fontWeight: "bold",
+                        height: "100%",
+                        width: "100%",
+                      }}
+                      onClick={handleReturnButtonClick}
+                    >
+                      Ajouter un retour
+                    </Button>
+                  </div>
+                )}
               </div>
 
               <div style={{ display: "flex", flexDirection: "column" }}>
@@ -233,6 +291,7 @@ const Home = () => {
                   fontWeight: "bold",
                   height: "55px",
                 }}
+                onClick={() => navigate("/book")}
               >
                 BOOK NOW!
               </Button>
@@ -240,8 +299,24 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Backdrop
+        sx={{
+          color: "#fff",
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+        }}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };
-
+// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
+const top100Films = [
+  { title: "Aéroport d'Annaba", year: 1994 },
+  { title: "Guelma, Guelma", year: 1972 },
+  { title: "Aéroport de Constantine", year: 1974 },
+  { title: "Skikda, Skikda", year: 2008 },
+];
 export default Home;

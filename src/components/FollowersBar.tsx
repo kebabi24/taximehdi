@@ -50,7 +50,7 @@ const FollowersBar = () => {
   }, [fbFollow, instaFollow, usersNum]);
   return (
     <div
-      className="md:px-14 px-4 py-32 max-w-screen-2xl mx-auto bg-backgroundC2 overflow-hidden o"
+      className="md:px-14 px-4 py-32 max-w-screen-2xl mx-auto bg-white overflow-hidden o"
       id="solutions"
     >
       <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">

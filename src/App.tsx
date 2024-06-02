@@ -16,15 +16,15 @@ import FollowersBar from "./components/FollowersBar";
 function App() {
   return (
     <>
-      <Navbar />
       <Home />
+      <FollowersBar></FollowersBar>
+      <Services></Services>
       <Product></Product>
 
-      <Services></Services>
       <Informations></Informations>
       <Testimonials></Testimonials>
       <Call></Call>
-      <FollowersBar></FollowersBar>
+
       <Contact></Contact>
 
       {/* <About></About>
