@@ -252,7 +252,7 @@ const BookInfo = () => {
                     }}
                   >
                     <p className="font-opensans font-semibold text-gray800 ">
-                      Indiquer le nombre de passager
+                      Nombre de passager
                     </p>
                     <p className="text-xs text-grey font-opensans  ">
                       Inclus les enfants
@@ -413,7 +413,7 @@ const BookInfo = () => {
                     }}
                   >
                     <p className="font-opensans font-semibold text-gray800 ">
-                      Par exemple : "je vais ramener avec moi mon vélo"
+                      Ajouter une note
                     </p>
                     <p className="text-xs text-grey font-opensans  ">
                       Pour fournir le véhicule qui vous convient
