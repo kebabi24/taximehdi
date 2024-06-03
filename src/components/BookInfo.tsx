@@ -303,7 +303,7 @@ const BookInfo = () => {
                     className="ml-5 "
                     style={{
                       display: "flex",
-                      width: "65%",
+                      width: "60%",
 
                       flexDirection: "column",
                       alignItems: "flex-start",
@@ -319,7 +319,7 @@ const BookInfo = () => {
                   <div
                     style={{
                       display: "flex",
-                      width: "35%",
+                      width: "40%",
 
                       justifyContent: "center",
                       alignItems: "center",
@@ -383,7 +383,7 @@ const BookInfo = () => {
                     <input
                       style={{
                         borderWidth: 2,
-                        width: "95%",
+                        width: "88%",
                         padding: 10,
                         borderRadius: 6,
                       }}
@@ -407,7 +407,7 @@ const BookInfo = () => {
                     <input
                       style={{
                         borderWidth: 2,
-                        width: "95%",
+                        width: "88%",
                         padding: 10,
                         borderRadius: 6,
                       }}
