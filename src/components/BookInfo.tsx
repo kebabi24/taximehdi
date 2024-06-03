@@ -415,7 +415,7 @@ const BookInfo = () => {
                       <input
                         style={{
                           borderWidth: 2,
-                          width: "43%",
+                          minWidth: "43%",
                           padding: 10,
                           borderRadius: 6,
                         }}
@@ -451,7 +451,7 @@ const BookInfo = () => {
                       <input
                         style={{
                           borderWidth: 2,
-                          width: "43%",
+                          minWidth: "43%",
                           padding: 10,
                           borderRadius: 6,
                         }}
