@@ -19,7 +19,7 @@ function LoginPage() {
           <div className="px-36 py-3 w-full h-1/4">
             <img src={lg} alt="" style={{ width: "150px" }} />
           </div>
-          <div className="flex flex-col w-full h-full items-center  ">
+          <div className="flex flex-col w-full h-full items-center overflow-hidden ">
             <p className="text-xl font-bold">
               {signin
                 ? "Connectez-vous a votre compte"
