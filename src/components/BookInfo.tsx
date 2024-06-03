@@ -202,7 +202,7 @@ const BookInfo = () => {
   );
   return (
     <div
-      className="md:px-24 py-4 md:py-4 max-w-screen-2xl mx-auto  "
+      className="md:px-24 py-4 md:py-4 max-w-screen-2xl mx-auto  overflow-x-hidden"
       id="solutions"
     >
       <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1   gap-8 mx-auto md:w-9/12">
