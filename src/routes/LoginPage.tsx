@@ -28,17 +28,17 @@ function LoginPage() {
             <p className="mb-5">{signin ? "Connectez avec" : "Créer avec"}</p>
             <div className="flex  p-3">
               <Button
-                style={{ marginRight: 12, minWidth: 130, minHeight: 40 }}
+                style={{ marginRight: 12, minWidth: 90, minHeight: 40 }}
                 startIcon={<FaFacebookSquare />}
                 variant="outlined"
               ></Button>
               <Button
-                style={{ marginRight: 12, minWidth: 130, minHeight: 40 }}
+                style={{ marginRight: 12, minWidth: 90, minHeight: 40 }}
                 startIcon={<FaInstagramSquare />}
                 variant="outlined"
               ></Button>
               <Button
-                style={{ marginRight: 12, minWidth: 130, minHeight: 40 }}
+                style={{ marginRight: 12, minWidth: 90, minHeight: 40 }}
                 startIcon={<FaTwitter />}
                 variant="outlined"
               ></Button>
@@ -50,21 +50,21 @@ function LoginPage() {
               <TextField
                 id="outlined-basic"
                 label="Nom et prénom"
-                style={{ width: 420, marginBottom: 15 }}
+                style={{ width: 300, marginBottom: 15 }}
               />
             )}
             <TextField
               id="outlined-basic"
               label="Email ou numéro de téléphone"
               variant="outlined"
-              style={{ width: 420, marginBottom: 15 }}
+              style={{ width: 300, marginBottom: 15 }}
             />
             {!signin && (
               <TextField
                 id="outlined-basic"
                 label="Numéro de téléphone"
                 variant="outlined"
-                style={{ width: 420, marginBottom: 15 }}
+                style={{ width: 300, marginBottom: 15 }}
               />
             )}
             <TextField
@@ -72,11 +72,11 @@ function LoginPage() {
               label="Mot de passe"
               type="password"
               autoComplete="current-password"
-              style={{ width: 420, marginBottom: 15 }}
+              style={{ width: 300, marginBottom: 15 }}
             />
 
             <Button
-              style={{ minWidth: 420, minHeight: 40, marginBottom: 15 }}
+              style={{ minWidth: 300, minHeight: 40, marginBottom: 15 }}
               variant="contained"
               onClick={handleScreen}
             >
