@@ -214,7 +214,7 @@ const BookInfo = () => {
               <div className="flex w-full h-full mb-2 self-start">
                 <Stepper
                   alternativeLabel
-                  activeStep={1}
+                  activeStep={2}
                   connector={<QontoConnector />}
                   style={{ width: "100%", left: 0, right: 0 }}
                 >
@@ -231,14 +231,14 @@ const BookInfo = () => {
                 <h4 className="font-opensans font-extrabold text-gray800  font-size-32 mb-5 text-md ml-5 self-start">
                   Détails de transfere
                 </h4>
-                <div className="flex flex-row items-center  ml-5 mb-48">
+                <div className="flex flex-row items-center  ml-5 mb-4">
                   <IoMdTime color={"#717171"} size={20} />
                   <h2 className="font-opensans  text-grey  text-sm ml-1 ">
                     Délais du trajet : 30min
                   </h2>
                 </div>
                 <div
-                  className="md:ml-24 ml-5 mb-8"
+                  className=" ml-5 mb-8"
                   style={{
                     display: "flex",
                     width: "100%",
@@ -253,11 +253,11 @@ const BookInfo = () => {
                   <input
                     style={{
                       borderWidth: 2,
-                      width: "82%",
+                      width: "88%",
                       padding: 10,
                       borderRadius: 6,
                     }}
-                    placeholder="Jhon Smith"
+                    placeholder="Aéroport d'annaba"
                     name="myInput"
                   />
                 </div>
@@ -387,9 +387,45 @@ const BookInfo = () => {
                         padding: 10,
                         borderRadius: 6,
                       }}
-                      placeholder="Jhon Smith"
+                      placeholder="Taxi Mehdi"
                       name="myInput"
                     />
+                  </div>
+                  <div
+                    className="ml-5 mb-4"
+                    style={{
+                      display: "flex",
+                      width: "100%",
+
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <label className="text-xs text-grey font-opensans mb-2 font-semibold">
+                      Email *
+                    </label>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "100%",
+
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      <input
+                        style={{
+                          borderWidth: 2,
+                          width: "43%",
+                          padding: 10,
+                          borderRadius: 6,
+                        }}
+                        placeholder="kebabiabdel@gmail.com"
+                        name="myInput"
+                      />
+                      <p className="text-xs text-grey font-opensans  md:ml-5">
+                        Pour vous envoyer votre confirmation de réservation.
+                      </p>
+                    </div>
                   </div>
                   <div
                     className="ml-5 "
@@ -402,18 +438,30 @@ const BookInfo = () => {
                     }}
                   >
                     <label className="text-xs text-grey font-opensans mb-2 font-semibold">
-                      Nom et prénoms *
+                      Numéro de téléphone *
                     </label>
-                    <input
+                    <div
                       style={{
-                        borderWidth: 2,
-                        width: "88%",
-                        padding: 10,
-                        borderRadius: 6,
+                        display: "flex",
+                        width: "100%",
+
+                        alignItems: "flex-start",
                       }}
-                      placeholder="Jhon Smith"
-                      name="myInput"
-                    />
+                    >
+                      <input
+                        style={{
+                          borderWidth: 2,
+                          width: "43%",
+                          padding: 10,
+                          borderRadius: 6,
+                        }}
+                        placeholder="0773066634"
+                        name="myInput"
+                      />
+                      <p className="text-xs text-grey font-opensans  ml-5">
+                        Pour vous contacter en cas d'urgence.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -511,6 +559,7 @@ const BookInfo = () => {
                   <Button
                     className="font-opensans"
                     variant="contained"
+                    disabled
                     style={{
                       backgroundColor: "#313131",
                       color: "white",
@@ -521,6 +570,20 @@ const BookInfo = () => {
                     Appliquer
                   </Button>
                 </div>
+              </div>
+              <div className="flex flex-col  bg-white  shadow rounded-xl shadow-lg mb-5 align-start">
+                <Button
+                  className="font-opensans"
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#313131",
+                    color: "white",
+                    fontWeight: "bold",
+                    height: "50px",
+                  }}
+                >
+                  Continuer
+                </Button>
               </div>
             </div>
           </div>
@@ -541,10 +604,13 @@ const BookInfo = () => {
                 </div>
               </div>
 
-              <div className="flex  md:w-12/13">
-                <h4 className="font-outfit font-bold text-black font-size-32 mt-1 text-2xl">
-                  A partir de 200 DZD A partir de 200 DZD A partir de 200 DZD
-                </h4>
+              <div className="flex  md:w-12/13 p-4">
+                <div>
+                  <h4 className="p-2" style={{ backgroundColor: "#F6F7F8" }}>
+                    Le prix compris la récupération jusqu'a le dépot a la
+                    estination
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
