@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
 import {
+  Button,
+  Divider,
   FormControlLabel,
   Step,
   StepConnector,
@@ -68,7 +70,7 @@ const BookInfo = () => {
         color: "#fff",
         "& + .MuiSwitch-track": {
           backgroundColor:
-            theme.palette.mode === "dark" ? "#2ECA45" : "#65C466",
+            theme.palette.mode === "dark" ? "#2ECA45" : "#F09721",
           opacity: 1,
           border: 0,
         },
@@ -225,18 +227,76 @@ const BookInfo = () => {
                   ))}
                 </Stepper>
               </div>
-              <div className="flex flex-col bg-white p-3 shadow rounded-xl shadow-lg mb-5 align-start">
+              <div className="flex flex-col bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
                 <h4 className="font-opensans font-extrabold text-gray800  font-size-32 mb-5 text-md ml-5 self-start">
                   Détails de transfere
                 </h4>
-                <div className="flex flex-row items-center  ml-5">
+                <div className="flex flex-row items-center  ml-5 mb-48">
                   <IoMdTime color={"#717171"} size={20} />
                   <h2 className="font-opensans  text-grey  text-sm ml-1 ">
                     Délais du trajet : 30min
                   </h2>
                 </div>
+                <div
+                  className="ml-24 mb-8"
+                  style={{
+                    display: "flex",
+                    width: "100%",
+
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <label className="text-grey text-xs font-opensans mb-2 font-semibold">
+                    Destination : addresse ou le nom d'hotel *
+                  </label>
+                  <input
+                    style={{
+                      borderWidth: 2,
+                      width: "82%",
+                      padding: 10,
+                      borderRadius: 6,
+                    }}
+                    placeholder="Jhon Smith"
+                    name="myInput"
+                  />
+                </div>
+                <Divider sx={{ minWidth: "100%", marginBottom: 2 }} />
+                <div className="flex w-full mb-2">
+                  <div
+                    className="ml-5 "
+                    style={{
+                      display: "flex",
+                      width: "75%",
+
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <p className="font-opensans font-semibold text-gray800 ">
+                      Ajouter une chaise bébé
+                    </p>
+                    <p className="text-xs text-grey font-opensans ">
+                      Ceci est obligatoire
+                    </p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "25%",
+
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                    }}
+                  >
+                    <FormControlLabel
+                      control={<IOSSwitch sx={{ m: 1 }} />}
+                      label=""
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col  bg-white p-3 shadow rounded-xl shadow-lg mb-5 align-start">
+              <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
                 <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-5 self-start">
                   Passengers
                 </h4>
@@ -245,7 +305,7 @@ const BookInfo = () => {
                     className="ml-5 "
                     style={{
                       display: "flex",
-                      width: "75%",
+                      width: "70%",
 
                       flexDirection: "column",
                       alignItems: "flex-start",
@@ -261,9 +321,9 @@ const BookInfo = () => {
                   <div
                     style={{
                       display: "flex",
-                      width: "25%",
+                      width: "30%",
 
-                      justifyContent: "flex-end",
+                      justifyContent: "center",
                       alignItems: "center",
                     }}
                   >
@@ -304,7 +364,7 @@ const BookInfo = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col  bg-white p-3 shadow rounded-xl shadow-lg mb-5 align-start">
+              <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
                 <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
                   Informations du passager
                 </h4>
@@ -359,7 +419,7 @@ const BookInfo = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col  bg-white p-3 shadow rounded-xl shadow-lg mb-5 align-start">
+              <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
                 <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
                   Services additionelle
                 </h4>
@@ -397,7 +457,7 @@ const BookInfo = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col  bg-white p-3 shadow rounded-xl shadow-lg mb-5 align-start">
+              <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
                 <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
                   Notes
                 </h4>
@@ -435,10 +495,34 @@ const BookInfo = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col  bg-white p-3 shadow rounded-xl shadow-lg mb-5 align-start">
+              <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
                 <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
                   Code promo
                 </h4>
+                <div className="flex ml-5 mb-4">
+                  <input
+                    style={{
+                      borderWidth: 2,
+                      width: "50%",
+                      padding: 10,
+                      borderRadius: 6,
+                      marginRight: 20,
+                    }}
+                    name="myInput"
+                  />
+                  <Button
+                    className="font-opensans"
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#313131",
+                      color: "white",
+                      fontWeight: "bold",
+                      height: "45px",
+                    }}
+                  >
+                    Appliquer
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -470,16 +554,6 @@ const BookInfo = () => {
       </div>
     </div>
   );
-};
-const blue = {
-  100: "#daecff",
-  200: "#b6daff",
-  300: "#66b2ff",
-  400: "#3399ff",
-  500: "#007fff",
-  600: "#0072e5",
-  700: "#0059B2",
-  800: "#004c99",
 };
 
 const grey = {
@@ -528,13 +602,13 @@ const StyledInput = styled("input")(
     text-align: center;
   
     &:hover {
-      border-color: ${blue[400]};
+      border-color: #F09721};
     }
   
     &:focus {
-      border-color: ${blue[400]};
+      border-color: #F09721};
       box-shadow: 0 0 0 3px ${
-        theme.palette.mode === "dark" ? blue[700] : blue[200]
+        theme.palette.mode === "dark" ? "#F09721" : "#F09721"
       };
     }
   
@@ -567,8 +641,8 @@ const StyledButton = styled("button")(
   
     &:hover {
       cursor: pointer;
-      background: ${theme.palette.mode === "dark" ? blue[700] : blue[500]};
-      border-color: ${theme.palette.mode === "dark" ? blue[500] : blue[400]};
+      background: ${theme.palette.mode === "dark" ? "#F09721" : "#F09721"};
+      border-color: ${theme.palette.mode === "dark" ? "#F09721" : "#F09721"};
       color: ${grey[50]};
     }
   
