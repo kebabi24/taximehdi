@@ -238,7 +238,7 @@ const BookInfo = () => {
                   </h2>
                 </div>
                 <div
-                  className="ml-24 mb-8"
+                  className="md:ml-24 ml-5 mb-8"
                   style={{
                     display: "flex",
                     width: "100%",
@@ -274,11 +274,9 @@ const BookInfo = () => {
                     }}
                   >
                     <p className="font-opensans font-semibold text-gray800 ">
-                      Ajouter une chaise bébé
+                      Ajouter un retour
                     </p>
-                    <p className="text-xs text-grey font-opensans ">
-                      Ceci est obligatoire
-                    </p>
+                    <p className="text-xs text-grey font-opensans ">100 DZD</p>
                   </div>
                   <div
                     style={{
@@ -305,7 +303,7 @@ const BookInfo = () => {
                     className="ml-5 "
                     style={{
                       display: "flex",
-                      width: "70%",
+                      width: "65%",
 
                       flexDirection: "column",
                       alignItems: "flex-start",
@@ -321,7 +319,7 @@ const BookInfo = () => {
                   <div
                     style={{
                       display: "flex",
-                      width: "30%",
+                      width: "35%",
 
                       justifyContent: "center",
                       alignItems: "center",
