@@ -17,14 +17,14 @@ function App() {
   return (
     <>
       <Home />
-      <FollowersBar></FollowersBar>
-      <Services></Services>
+
       <Product></Product>
-
+      <FollowersBar></FollowersBar>
       <Informations></Informations>
-      <Testimonials></Testimonials>
-      <Call></Call>
+      <Services></Services>
 
+      <Call></Call>
+      <Testimonials></Testimonials>
       <Contact></Contact>
 
       {/* <About></About>
