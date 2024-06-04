@@ -2,15 +2,46 @@ import Home from "../components/Home";
 import lg from "../assets/logo-noir.png";
 import LoginIcon from "@mui/icons-material/Login";
 import { Button, TextField } from "@mui/material";
-import Divider from "@mui/material/Divider";
+import Divider, { dividerClasses } from "@mui/material/Divider";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { useState } from "react";
+import useToken from "../core/hooks/tokens";
+interface ValidationErrors {
+  email?: string;
+  password?: string;
+  global?: string;
+  // Add other potential error properties here
+}
 function LoginPage() {
   const [signin, setSignIn] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState<ValidationErrors>({});
+  const { setToken } = useToken();
   const handleScreen = () => {
     setSignIn(!signin);
+  };
+  const handleSubmitLogin = (e: any) => {
+    e.preventDefault();
+    setErrors({});
+    let validationErrors: ValidationErrors = {};
+    if (!email.includes("@"))
+      validationErrors.email = "veuillez entrer un email valide";
+
+    if (password.length < 6)
+      validationErrors.password =
+        "votre mot de passe doit contenir au moins 7 caractere";
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    try {
+      console.log("try login");
+    } catch (error) {
+      setErrors({ global: "Vos informations sont incorrecte" });
+    }
   };
   return (
     <>
@@ -46,6 +77,7 @@ function LoginPage() {
             <Divider style={{ width: "55%", marginBottom: 10 }}>
               Ou utilisez email
             </Divider>
+            {errors.global && <div className="alert">{errors.global}</div>}
             {!signin && (
               <TextField
                 id="outlined-basic"
@@ -53,35 +85,50 @@ function LoginPage() {
                 style={{ width: 300, marginBottom: 15 }}
               />
             )}
-            <TextField
-              id="outlined-basic"
-              label="Email ou numéro de téléphone"
-              variant="outlined"
-              style={{ width: 300, marginBottom: 15 }}
-            />
-            {!signin && (
+            <form
+              style={{ display: "flex", flexDirection: "column" }}
+              onSubmit={handleSubmitLogin}
+            >
               <TextField
+                type="email"
                 id="outlined-basic"
-                label="Numéro de téléphone"
+                label="Email"
                 variant="outlined"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 style={{ width: 300, marginBottom: 15 }}
               />
-            )}
-            <TextField
-              id="outlined-password-input"
-              label="Mot de passe"
-              type="password"
-              autoComplete="current-password"
-              style={{ width: 300, marginBottom: 15 }}
-            />
 
-            <Button
-              style={{ minWidth: 300, minHeight: 40, marginBottom: 15 }}
-              variant="contained"
-              onClick={handleScreen}
-            >
-              {signin ? "Connectez-vous" : "Créer mon compte"}
-            </Button>
+              <TextField
+                id="outlined-password-input"
+                label="Mot de passe"
+                type="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ width: 300, marginBottom: 5 }}
+              />
+              {errors.password && (
+                <p className="text-xs text-grey font-opensans mb-2">
+                  {errors.password}
+                </p>
+              )}
+              {!signin && (
+                <TextField
+                  id="outlined-basic"
+                  label="Numéro de téléphone"
+                  variant="outlined"
+                  style={{ width: 300, marginBottom: 15 }}
+                />
+              )}
+              <Button
+                style={{ minWidth: 300, minHeight: 40, marginBottom: 15 }}
+                variant="contained"
+                type="submit"
+              >
+                {signin ? "Connectez-vous" : "Créer mon compte"}
+              </Button>
+            </form>
             <a className="mb-10 text-contained ">
               {signin && " Vous avez oublié votre mot de passe? Click!"}
             </a>

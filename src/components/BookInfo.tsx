@@ -589,8 +589,8 @@ const BookInfo = () => {
           </div>
         </>
         <>
-          <div className="card flex">
-            <div className=" h-44 md:mt-26 shadow flex flex-col bg-white rounded-xl shadow-lg">
+          <div className="card flex flex-col">
+            <div className=" h-42 md:mt-26 shadow flex flex-col bg-white rounded-xl shadow-lg">
               {/* <img src={solution.logo} alt="" /> */}
               <div className="flex p-3 shadow bg-gradient-to-t from-[#EFCB3C] to-[#F7E498] rounded-tl-xl rounded-tr-xl shadow-lg">
                 <div className="flex p-1 items-center justify-center bg-white mr-2 h-8 w-8 rounded-3xl self-center">
@@ -606,12 +606,23 @@ const BookInfo = () => {
 
               <div className="flex  md:w-12/13 p-4">
                 <div>
-                  <h4 className="p-2" style={{ backgroundColor: "#F6F7F8" }}>
+                  <h4
+                    className="p-2"
+                    style={{ backgroundColor: "#F6F7F8", borderRadius: 10 }}
+                  >
                     Le prix compris la récupération jusqu'a le dépot a la
                     estination
                   </h4>
                 </div>
               </div>
+            </div>
+            <div className="pl-4 pr-4 h-16 mt-4 shadow flex items-center place-content-between bg-white rounded-xl shadow-lg">
+              <p className="font-opensans text-md font-extrabold text-gray800">
+                TOTAL:
+              </p>
+              <p className="font-opensans text-md font-extrabold text-textPrimary ">
+                1200 DA
+              </p>
             </div>
           </div>
         </>

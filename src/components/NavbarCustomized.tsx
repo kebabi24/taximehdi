@@ -57,13 +57,13 @@ const NavbarCustomized = () => {
               className=" font-outfit flex block text-base text-bgGreen hover:text-bgGreen first:font-medium cursor-pointer"
               to="/cart"
             >
-              <IoLogoWhatsapp className="h-6 w-6 text-bgGreen" />
+              <IoLogoWhatsapp className="h-6 w-6 text-textPrimary" />
             </Link>
             <Link
               className=" font-outfit flex block text-base text-bgGreen hover:text-textPrimary first:font-medium cursor-pointer"
               to="/cart"
             >
-              <FaTelegramPlane className="h-6 w-6 text-bgGreen" />
+              <FaTelegramPlane className="h-6 w-6 text-textPrimary" />
             </Link>
 
             <Link
