@@ -50,7 +50,7 @@ const FollowersBar = () => {
   }, [fbFollow, instaFollow, usersNum]);
   return (
     <div
-      className="md:px-14 px-4 py-32   w-full overflow-hidden bg-[url('assets/waves-numbers.jpg')]"
+      className="md:px-14 px-4 py-32   w-full overflow-hidden bg-[url('assets/waves-numbers.jpg')] bg-cover bg-no-repeat bg-center"
       id="solutions"
     >
       <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
