@@ -48,7 +48,7 @@ const Services = () => {
   };
   return (
     <div
-      className="md:px-4 px-4 py-16 max-w-screen-2xl  mx-auto bg-[url('assets/bg-road.jpg')]"
+      className="md:px-4 px-4 py-16 w-full bg-[url('assets/bg-road.jpg')] bg-cover bg-no-repeat"
       id="services"
     >
       <div className="text-center ">

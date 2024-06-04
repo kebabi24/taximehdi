@@ -73,7 +73,7 @@ const Home = () => {
   };
   return (
     <div
-      className=" py-8 max-w-screen-2xl  mx-auto bg-[url('assets/hero.jpg')] bg-stretch bg-no-repeat"
+      className=" py-8  w-full   bg-[url('assets/hero.jpg')] bg-cover bg-no-repeat"
       id="solutions"
     >
       <Navbar />

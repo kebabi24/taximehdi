@@ -62,7 +62,7 @@ const Testimonials = () => {
 
   return (
     <div
-      className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto overflow-hidden bg-[url('assets/testii.png')] bg-gray-900 bg-opacity-50"
+      className="md:px-14 px-4 py-16 w-full overflow-hidden bg-[url('assets/testii.png')] bg-cover bg-no-repeat bg-gray-900 bg-opacity-50"
       id="solutions"
     >
       <div className="text-center ">
