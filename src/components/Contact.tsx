@@ -52,7 +52,7 @@ const Contact = () => {
   };
   return (
     <div
-      className="md:px-14  py-8 max-w-screen-2xl mx-auto bg-black overflow-hidden"
+      className="md:px-14  py-8 w-full bg-black overflow-hidden"
       id="contact"
     >
       <div className="md:px-40 px-4 my-12  py-4 flex flex-col  md:flex-row items-center justify-around gap-12">

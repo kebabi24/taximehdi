@@ -6,7 +6,7 @@ import axiom from "../assets/newlogoo.png";
 const Call = () => {
   return (
     <div
-      className="md:px-14 px-4 p-12 max-w-screen-2xl mx-auto bg-textPrimary overflow-hidden"
+      className="md:px-14 px-4 p-12 w-full bg-textPrimary overflow-hidden"
       id="solutions"
     >
       <div className="text-center  ">

@@ -18,7 +18,7 @@ const FollowersBar = () => {
       icon: <TfiUser size={72} color="#F09721" />,
       //   description: "800 K",
       state: usersNum + " K",
-      bg: "stripe-1",
+      bg: 1,
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ const FollowersBar = () => {
       icon: <FaFacebookSquare size={72} color="#0866FF" />,
       //   description: "12 K",
       state: fbFollow + " K",
-      bg: "stripe-2",
+      bg: 2,
     },
     {
       id: 3,
@@ -34,24 +34,24 @@ const FollowersBar = () => {
       icon: <FaInstagramSquare size={72} color="#F09721" />,
       //   description: "24 K",
       state: instaFollow + " K",
-      bg: "stripe-3",
+      bg: 3,
     },
   ];
   useEffect(() => {
     if (fbFollow < 30) {
       setTimeout(() => {
         setFbFollow(fbFollow + 1);
-      }, 250);
+      }, 10);
     }
     if (instaFollow < 50) {
       setTimeout(() => {
         setInstaFollow(instaFollow + 1);
-      }, 250);
+      }, 10);
     }
     if (usersNum < 90) {
       setTimeout(() => {
         setUsersNum(usersNum + 1);
-      }, 250);
+      }, 10);
     }
   }, [fbFollow, instaFollow, usersNum]);
   return (
@@ -68,11 +68,11 @@ const FollowersBar = () => {
         </h1>
       </div>
       <div className=" grid lg:grid-cols-3 md:grid-cols-2   grid-cols-2 md:w-11/12 mx-auto gap-12">
-        {solutions.map((solution) => (
+        {solutions.map((solution, index) => (
           <>
             <div
-              key={solution.id}
-              className="card px-4 py-8  md:w-[350px] bg-[url('assets/stripe-1.png')] bg-contain bg-no-repeat mx-auto md:h-100  shadow cursor-pointer  flex h-full  justify-center items-center "
+              key={index}
+              className={`card px-4 py-8  md:w-[350px] bg-[url('assets/stripe-1.png')]  bg-contain bg-no-repeat mx-auto md:h-100  shadow cursor-pointer  flex h-full  justify-center items-center `}
             >
               <div className="mb-4 h-50  mx-auto flex flex-col justify-center items-center">
                 <h4 className="font-outfit font-bold text-black font-size-64  text-4xl mb-4">

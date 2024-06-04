@@ -31,6 +31,8 @@ const BookInfo = () => {
   const [isShowMore5, setIsShowMore5] = useState(false);
   const [isShowMore6, setIsShowMore6] = useState(false);
   const [isShowMore7, setIsShowMore7] = useState(false);
+  const [noteCheck, setNoteCheck] = useState(false);
+  const [suppCheck, setSuppCheck] = useState(false);
   const solutions = [
     {
       id: 1,
@@ -340,7 +342,7 @@ const BookInfo = () => {
                     }}
                   >
                     <p className="font-opensans font-semibold text-gray800 ">
-                      Ajouter une chaise bébé
+                      Ajouter un bébé à bord
                     </p>
                     <p className="text-xs text-grey font-opensans ">
                       Ceci est obligatoire
@@ -497,7 +499,13 @@ const BookInfo = () => {
                     }}
                   >
                     <FormControlLabel
-                      control={<IOSSwitch sx={{ m: 1 }} />}
+                      control={
+                        <IOSSwitch
+                          sx={{ m: 1 }}
+                          checked={suppCheck}
+                          onChange={() => setSuppCheck(!suppCheck)}
+                        />
+                      }
                       label=""
                     />
                   </div>
@@ -535,11 +543,43 @@ const BookInfo = () => {
                     }}
                   >
                     <FormControlLabel
-                      control={<IOSSwitch sx={{ m: 1 }} />}
+                      control={
+                        <IOSSwitch
+                          sx={{ m: 1 }}
+                          checked={noteCheck}
+                          onChange={() => setNoteCheck(!noteCheck)}
+                        />
+                      }
                       label=""
                     />
                   </div>
                 </div>
+                {noteCheck && (
+                  <div className="flex w-full mb-5">
+                    <div
+                      className="ml-5 "
+                      style={{
+                        display: "flex",
+                        width: "88%",
+
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      <textarea
+                        name="note"
+                        rows={4}
+                        style={{
+                          borderWidth: 2,
+                          minWidth: "98%",
+                          padding: 10,
+                          borderRadius: 6,
+                        }}
+                        placeholder="vous pouvez ajouter une note au chauffeur"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
               <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
                 <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
