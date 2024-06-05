@@ -51,7 +51,7 @@ const Product = () => {
 
   return (
     <div
-      className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto bg-white overflow-hidden"
+      className="md:px-14 px-4 py-16 w-full bg-yellow overflow-hidden"
       id="solutions"
     >
       <div className="text-center ">
@@ -60,7 +60,7 @@ const Product = () => {
           OFFRES
         </h1>
       </div>
-      <div className="mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
+      <div className="mt-14 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
         {solutions.map((solution) => (
           <>
             <div
