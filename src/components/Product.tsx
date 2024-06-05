@@ -60,7 +60,7 @@ const Product = () => {
           OFFRES
         </h1>
       </div>
-      <div className="mt-14 grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12">
+      <div className="mt-14 grid px-80 lg:grid-cols-2 md:grid-cols-2 grid-cols-1  bg-bgGreen">
         {solutions.map((solution) => (
           <>
             <div
