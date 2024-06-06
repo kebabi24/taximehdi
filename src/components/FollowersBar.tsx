@@ -74,26 +74,51 @@ const FollowersBar = () => {
             </h1>
           </div>
           <div className=" grid lg:grid-cols-3 md:grid-cols-2   grid-cols-2 md:w-11/12 mx-auto gap-12">
-            {solutions.map((solution, index) => (
-              <>
-                <div
-                  key={index}
-                  className={`card px-4 py-8  md:w-[350px] bg-[url('assets/stripe-1.png')]  bg-contain bg-no-repeat mx-auto md:h-100  shadow cursor-pointer  flex h-full  justify-center items-center `}
-                >
-                  <div className="mb-4 h-50  mx-auto flex flex-col justify-center items-center">
-                    <h4 className="font-outfit font-bold text-black font-size-64  text-4xl mb-4">
-                      {solution.icon}
-                    </h4>
-                    <p className="font-outfit font-bold text-textPrimary drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] text-overflow:ellipsis text-6xl">
-                      {solution.state}
-                    </p>
-                    <h4 className="font-outfit font-bold text-[#C1C1C1] font-size-32 mt-4 text-2xl">
-                      {solution.name}
-                    </h4>
-                  </div>
-                </div>
-              </>
-            ))}
+            <div
+              className={`card px-4 py-8  md:w-[350px] bg-[url('assets/stripe-1.png')]  bg-contain bg-no-repeat mx-auto md:h-100  shadow cursor-pointer  flex h-full  justify-center items-center `}
+            >
+              <div className="mb-4 h-50  mx-auto flex flex-col justify-center items-center">
+                <h4 className="font-outfit font-bold text-black font-size-64  text-4xl mb-4">
+                  <TfiUser size={72} color="#F09721" />
+                </h4>
+                <p className="font-outfit font-bold text-textPrimary drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] text-overflow:ellipsis text-6xl">
+                  {usersNum + " K"}
+                </p>
+                <h4 className="font-outfit font-bold text-[#C1C1C1] font-size-32 mt-4 text-2xl">
+                  {"Facebook"}
+                </h4>
+              </div>
+            </div>
+            <div
+              className={`card px-4 py-8  md:w-[350px] bg-[url('assets/stripe-2.png')]  bg-contain bg-no-repeat mx-auto md:h-100  shadow cursor-pointer  flex h-full  justify-center items-center `}
+            >
+              <div className="mb-4 h-50  mx-auto flex flex-col justify-center items-center">
+                <h4 className="font-outfit font-bold text-black font-size-64  text-4xl mb-4">
+                  <FaFacebookSquare size={72} color="#0866FF" />
+                </h4>
+                <p className="font-outfit font-bold text-textPrimary drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] text-overflow:ellipsis text-6xl">
+                  {fbFollow + " K"}
+                </p>
+                <h4 className="font-outfit font-bold text-[#C1C1C1] font-size-32 mt-4 text-2xl">
+                  {"Utilisateur"}
+                </h4>
+              </div>
+            </div>
+            <div
+              className={`card px-4 py-8  md:w-[350px] bg-[url('assets/stripe-3.png')]  bg-contain bg-no-repeat mx-auto md:h-100  shadow cursor-pointer  flex h-full  justify-center items-center `}
+            >
+              <div className="mb-4 h-50  mx-auto flex flex-col justify-center items-center">
+                <h4 className="font-outfit font-bold text-black font-size-64  text-4xl mb-4">
+                  <FaInstagramSquare size={72} color="#F09721" />
+                </h4>
+                <p className="font-outfit font-bold text-textPrimary drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] text-overflow:ellipsis text-6xl">
+                  {instaFollow + " K"}
+                </p>
+                <h4 className="font-outfit font-bold text-[#C1C1C1] font-size-32 mt-4 text-2xl">
+                  {"Instagram"}
+                </h4>
+              </div>
+            </div>
           </div>
         </div>
       )}
