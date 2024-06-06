@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
+import { Divider } from "@mui/material";
+import { IoIosSpeedometer } from "react-icons/io";
+import { MdCleaningServices } from "react-icons/md";
 
 const Product = () => {
   const [isShowMore1, setIsShowMore1] = useState(false);
@@ -12,8 +15,8 @@ const Product = () => {
   const solutions = [
     {
       id: 1,
-      name: "ECONOMY CLASS",
-
+      name: "Simple",
+      bgcolor: "bg1",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
       state: isShowMore1,
@@ -21,8 +24,8 @@ const Product = () => {
     },
     {
       id: 2,
-      name: "STANDARD CLASS",
-
+      name: "Standard",
+      bgcolor: "bg2",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
       state: isShowMore2,
@@ -30,8 +33,8 @@ const Product = () => {
     },
     {
       id: 3,
-      name: "BUSINESS CLASS",
-
+      name: "Confort",
+      bgcolor: "bg3",
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
       state: isShowMore3,
@@ -51,37 +54,103 @@ const Product = () => {
 
   return (
     <div
-      className="md:px-14 px-4 py-16 w-full bg-yellow overflow-hidden"
+      className="md:px-14 px-4 py-16    bg-bgB overflow-hidden"
       id="solutions"
     >
       <div className="text-center ">
         <h1 className="font-outfit text-4xl text-textPrimary font-bold">NOS</h1>
-        <h1 className="font-outfit text-4xl text-black font-bold mb-10 ">
+        <h1 className="font-outfit text-4xl text-bgWhite font-bold mb-10 ">
           OFFRES
         </h1>
       </div>
-      <div className="mt-14 grid px-80 lg:grid-cols-2 md:grid-cols-2 grid-cols-1  bg-bgGreen">
-        {solutions.map((solution) => (
-          <>
-            <div
-              key={solution.id}
-              className="card px-4 py-8 text-center md:w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-backgroundC2 justify-center items-center "
-            >
-              <div className="mb-4 h-50  mx-auto flex flex-col justify-center items-center">
-                {/* <img src={solution.logo} alt="" /> */}
-                <h4 className="font-outfit font-bold text-black font-size-32 mb-5 text-2xl">
-                  {solution.name}
-                </h4>
-                <p className="font-outfit text-sm text-neutralDgrey text-overflow:ellipsis">
-                  {solution.description}
-                </p>
-                <h4 className="font-outfit font-bold text-black font-size-32 mt-10 text-2xl">
-                  A partir de 200 DZD
-                </h4>
+      <div className="md:px-40 px-8 mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 ">
+        <>
+          <div className="card px-4 py-6  md:w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-white rounded-lg ">
+            <div className="mb-4 h-50 px-4  mx-auto flex flex-col ">
+              <div
+                className={`text-center p-1 h-8 w-20 bg-bg1 rounded-md mb-8 text-bgWhite font-semibold`}
+              >
+                <p>Simple</p>
+              </div>
+              <div
+                className={`flex flex-col p-1 h-10 w-56  rounded-md text-2xl  text-black font-bold`}
+              >
+                <p>≈ 200 DZD</p>
+              </div>
+              <p className="font-outfit text-xs text-grey mb-8 font-opensans ">
+                Pas de crédite carte obligatoire
+              </p>
+              <Divider sx={{ minWidth: "100%", marginBottom: 3 }} />
+              <div className="flex w-full p-1 mb-2 ">
+                <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                <p>Des chauffeurs ponctuelles & a l'heure</p>
+              </div>
+
+              <div className="flex w-full p-1 ">
+                <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                <p>Des chauffeurs ponctuelles & a l'heure</p>
               </div>
             </div>
-          </>
-        ))}
+          </div>
+        </>
+        <>
+          <div className="card px-4 py-6  md:w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-white rounded-lg ">
+            <div className="mb-4 h-50 px-4  mx-auto flex flex-col ">
+              <div
+                className={`text-center p-1 h-8 w-20 bg-bg2 rounded-md mb-8 text-bgGreen font-semibold`}
+              >
+                <p>Standard</p>
+              </div>
+              <div
+                className={`flex flex-col p-1 h-10 w-56  rounded-md  text-2xl  text-black font-bold`}
+              >
+                <p>≈ 200 DZD</p>
+              </div>
+              <p className="font-outfit text-xs text-grey mb-8 font-opensans ">
+                Pas de crédite carte obligatoire
+              </p>
+              <Divider sx={{ minWidth: "100%", marginBottom: 2 }} />
+              <div className="flex w-full p-1 mb-2 ">
+                <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                <p>Des chauffeurs ponctuelles & a l'heure</p>
+              </div>
+
+              <div className="flex w-full p-1 ">
+                <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                <p>Des chauffeurs ponctuelles & a l'heure</p>
+              </div>
+            </div>
+          </div>
+        </>
+        <>
+          <div className="card px-4 py-6  md:w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-white rounded-lg ">
+            <div className="mb-4 h-50 px-4  mx-auto flex flex-col ">
+              <div
+                className={`text-center p-1 h-8 w-20 bg-bg3 rounded-md mb-8 text-bgWhite font-semibold`}
+              >
+                <p>Confort</p>
+              </div>
+              <div
+                className={`flex flex-col p-1 h-10 w-56  rounded-md  text-2xl  text-black font-bold`}
+              >
+                <p>≈ 200 DZD</p>
+              </div>
+              <p className="font-outfit text-xs text-grey mb-8 font-opensans ">
+                Pas de crédite carte obligatoire
+              </p>
+              <Divider sx={{ minWidth: "100%", marginBottom: 2 }} />
+              <div className="flex w-full p-1 mb-2 ">
+                <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                <p>Des chauffeurs ponctuelles & a l'heure</p>
+              </div>
+
+              <div className="flex w-full p-1 ">
+                <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                <p>Des chauffeurs ponctuelles & a l'heure</p>
+              </div>
+            </div>
+          </div>
+        </>
       </div>
     </div>
   );
