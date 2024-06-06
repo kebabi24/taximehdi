@@ -13,29 +13,29 @@ import Items from "./components/Items";
 import Services from "./components/Services";
 import Call from "./components/Call";
 import FollowersBar from "./components/FollowersBar";
+import { useInView } from "react-intersection-observer";
+import { InView } from "react-intersection-observer";
 function App() {
+  const { ref, inView, entry } = useInView({
+    threshold: 0.25,
+  });
   return (
-    <>
-      <Home />
+    <InView>
+      {({ inView, ref, entry }) => (
+        <div ref={ref}>
+          <Home />
 
-      <Product></Product>
-      <FollowersBar></FollowersBar>
-      <Informations></Informations>
-      <Services></Services>
+          <Product></Product>
+          <FollowersBar></FollowersBar>
+          <Informations></Informations>
+          <Services></Services>
 
-      <Call></Call>
-      <Testimonials></Testimonials>
-      <Contact></Contact>
-
-      {/* <About></About>
-      <Goals></Goals>
-      <Team></Team>
-
-    
-      <Items></Items>
-      <Partner></Partner>
-      <Contact></Contact> */}
-    </>
+          <Call></Call>
+          <Testimonials></Testimonials>
+          <Contact></Contact>
+        </div>
+      )}
+    </InView>
   );
 }
 
