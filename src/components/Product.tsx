@@ -54,7 +54,7 @@ const Product = () => {
 
   return (
     <div
-      className="md:px-14 px-4 py-16    bg-bgB overflow-hidden"
+      className="md:px-14  py-16  mr-10 ml-10 mt-10 mb-10  bg-bgB overflow-hidden rounded-2xl  "
       id="solutions"
     >
       <div className="text-center ">
@@ -63,7 +63,7 @@ const Product = () => {
           OFFRES
         </h1>
       </div>
-      <div className="md:px-40 px-8 mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 ">
+      <div className="md:px-40 px-8 mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-24 ">
         <>
           <div className="card px-4 py-6  md:w-[350px] mx-auto md:h-100  shadow cursor-pointer  flex h-full bg-white rounded-lg ">
             <div className="mb-4 h-50 px-4  mx-auto flex flex-col ">
