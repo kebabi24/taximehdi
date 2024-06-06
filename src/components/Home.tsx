@@ -80,7 +80,7 @@ const Home = () => {
       <div className="py-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12 ">
         <div
           style={{ borderRadius: "10px" }}
-          className="card mx-10 text-center md:w-[400px] w-screen md:h-100  shadow cursor-pointer  flex h-full bg-white justify-center items-center overflow-hidden"
+          className="card mx-10 text-center md:w-[400px]  md:h-100  shadow cursor-pointer  flex h-full bg-white justify-center items-center overflow-hidden"
         >
           <div className=" h-50 md:w-[600px] w-full flex flex-col justify-center items-center ">
             <div
