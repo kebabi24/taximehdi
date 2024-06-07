@@ -63,7 +63,7 @@ const Product = () => {
           OFFRES
         </h1>
       </div>
-      <div className=" px-8 mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 ">
+      <div className=" md:px-8 mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 ">
         <>
           <div className="card px-2 py-6   md:h-100  shadow  flex h-full bg-white rounded-lg ">
             <div className="mb-4 h-50 md:px-4    flex flex-col ">
