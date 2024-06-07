@@ -80,9 +80,9 @@ const Home = () => {
       <div className="md:px-20 py-5 grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1 ">
         <div
           style={{ borderRadius: "10px" }}
-          className="card md:mx-10 text-center md:w-[400px]  md:h-100  shadow cursor-pointer  flex h-full  justify-center items-center overflow-hidden bg-bgGreen"
+          className="card md:mx-10 mx-2 text-center md:w-[400px]  md:h-100  shadow cursor-pointer  flex h-full  justify-center items-center overflow-hidden bg-bgGreen"
         >
-          <div className=" h-50 md:w-[600px] w-full flex flex-col justify-center items-center bg-yellow">
+          <div className=" h-50 md:w-[600px] w-full flex flex-col justify-center items-center ">
             <div
               className="w-full mb-5 bg-gradient-to-t from-[#EFCB3C] to-[#F7E498]"
               style={{
@@ -102,7 +102,7 @@ const Home = () => {
               </span>
             </div>
             <div
-              className="p-5"
+              className="pb-5"
               style={{
                 display: "flex",
                 flexDirection: "column",
