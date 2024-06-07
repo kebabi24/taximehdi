@@ -66,7 +66,7 @@ const Product = () => {
       <div className=" px-8 mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 ">
         <>
           <div className="card px-4 py-6   md:h-100  shadow  flex h-full bg-white rounded-lg ">
-            <div className="mb-4 h-50 px-4   flex flex-col ">
+            <div className="mb-4 h-50 md:px-4 px-1   flex flex-col ">
               <div
                 className={`text-center p-1 h-8 w-20 bg-bg1 rounded-md mb-8 text-bgWhite font-semibold`}
               >
@@ -95,7 +95,7 @@ const Product = () => {
         </>
         <>
           <div className="card px-4 py-6   md:h-100  shadow  flex h-full bg-white rounded-lg ">
-            <div className="mb-4 h-50 px-4  mx-auto flex flex-col ">
+            <div className="mb-4 h-50 md:px-4 px-1  mx-auto flex flex-col ">
               <div
                 className={`text-center p-1 h-8 w-20 bg-bg2 rounded-md mb-8 text-bgGreen font-semibold`}
               >
@@ -124,7 +124,7 @@ const Product = () => {
         </>
         <>
           <div className="card px-4 py-6   md:h-100  shadow   flex h-full bg-white rounded-lg ">
-            <div className="mb-4 h-50 px-4  mx-auto flex flex-col ">
+            <div className="mb-4 h-50 md:px-4 px-1  mx-auto flex flex-col ">
               <div
                 className={`text-center p-1 h-8 w-20 bg-bg3 rounded-md mb-8 text-bgWhite font-semibold`}
               >
