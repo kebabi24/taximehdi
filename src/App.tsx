@@ -23,6 +23,7 @@ function App() {
     <InView>
       {({ inView, ref, entry }) => (
         <div ref={ref}>
+          
           <Home />
 
           <Product></Product>

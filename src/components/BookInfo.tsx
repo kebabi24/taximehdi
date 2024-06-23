@@ -206,12 +206,12 @@ const BookInfo = () => {
   );
   return (
     <div
-      className="md:px-24 py-4 md:py-4 max-w-screen-2xl mx-auto  overflow-hidden"
+      className="py-4 md:py-4   overflow-hidden"
       id="solutions"
     >
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1   gap-8 mx-auto md:w-9/12">
+      <div className="flex flex-wrap justify-center">
         <>
-          <div className="card  py-4 text-center md:col-span-2 md:h-100   flex h-full  ">
+          <div className="p-4 ">
             <div className="mb-4 h-50  flex flex-col w-full   ">
               <div className="flex w-full h-full mb-2 self-start">
                 <Stepper
@@ -629,8 +629,8 @@ const BookInfo = () => {
           </div>
         </>
         <>
-          <div className="card flex flex-col">
-            <div className=" h-42 md:mt-26 shadow flex flex-col bg-white rounded-xl shadow-lg">
+          <div className="p-4 max-w-sm">
+            <div className=" h-42 md:mt-[65px] shadow flex flex-col bg-white rounded-xl shadow-lg">
               {/* <img src={solution.logo} alt="" /> */}
               <div className="flex p-3 shadow bg-gradient-to-t from-[#EFCB3C] to-[#F7E498] rounded-tl-xl rounded-tr-xl shadow-lg">
                 <div className="flex p-1 items-center justify-center bg-white mr-2 h-8 w-8 rounded-3xl self-center">
@@ -650,8 +650,7 @@ const BookInfo = () => {
                     className="p-2"
                     style={{ backgroundColor: "#F6F7F8", borderRadius: 10 }}
                   >
-                    Le prix compris la récupération jusqu'a le dépot a la
-                    estination
+                
                   </h4>
                 </div>
               </div>
