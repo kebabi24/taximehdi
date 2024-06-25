@@ -6,8 +6,9 @@ import Divider, { dividerClasses } from "@mui/material/Divider";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import useToken from "../core/hooks/tokens";
+import { useAuth } from "../core/context/AuthContext";
 interface ValidationErrors {
   email?: string;
   password?: string;
@@ -19,9 +20,18 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<ValidationErrors>({});
+  const auth = useAuth();
   const { setToken } = useToken();
   const handleScreen = () => {
     setSignIn(!signin);
+  };
+  const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (email !== "" && password !== "") {
+      auth.loginAuth && auth.loginAuth({username: email, password:password});
+      return;
+    }
+    alert("please provide a valid input");
   };
   const handleSubmitLogin = (e: any) => {
     e.preventDefault();
@@ -87,10 +97,10 @@ function LoginPage() {
             )}
             <form
               style={{ display: "flex", flexDirection: "column" }}
-              onSubmit={handleSubmitLogin}
+              onSubmit={handleSubmit}
             >
               <TextField
-                type="email"
+                type="text"
                 id="outlined-basic"
                 label="Email"
                 variant="outlined"
