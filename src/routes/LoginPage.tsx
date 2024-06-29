@@ -19,40 +19,22 @@ function LoginPage() {
   const [signin, setSignIn] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState<ValidationErrors>({});
-  const auth = useAuth();
+  const { loginAuth } = useAuth();
   const { setToken } = useToken();
-  const handleScreen = () => {
-    setSignIn(!signin);
+  const handleChange = (e: any) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if (email !== "" && password !== "") {
-      auth.loginAuth && auth.loginAuth({username: email, password:password});
-      return;
-    }
-    alert("please provide a valid input");
-  };
-  const handleSubmitLogin = (e: any) => {
-    e.preventDefault();
-    setErrors({});
-    let validationErrors: ValidationErrors = {};
-    if (!email.includes("@"))
-      validationErrors.email = "veuillez entrer un email valide";
+    const { username, password } = formData;
 
-    if (password.length < 6)
-      validationErrors.password =
-        "votre mot de passe doit contenir au moins 7 caractere";
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-    try {
-      console.log("try login");
-    } catch (error) {
-      setErrors({ global: "Vos informations sont incorrecte" });
+    if (username && password) {
+      loginAuth && (await loginAuth({ username, password }));
     }
   };
+
   return (
     <>
       <div className="flex flex-col sm:flex-row h-screen">
@@ -102,10 +84,11 @@ function LoginPage() {
               <TextField
                 type="text"
                 id="outlined-basic"
-                label="Email"
+                label="Username"
+                name="username"
                 variant="outlined"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.username}
+                onChange={handleChange}
                 style={{ width: 300, marginBottom: 15 }}
               />
 
@@ -113,9 +96,10 @@ function LoginPage() {
                 id="outlined-password-input"
                 label="Mot de passe"
                 type="password"
+                name="password"
                 autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={formData.password}
+                onChange={handleChange}
                 style={{ width: 300, marginBottom: 5 }}
               />
               {errors.password && (

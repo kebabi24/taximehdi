@@ -23,36 +23,13 @@ import AddIcon from "@mui/icons-material/Add";
 import { IoMdTime } from "react-icons/io";
 import { IoCarSportSharp } from "react-icons/io5";
 import Check from "@mui/icons-material/Check";
-const BookInfo = () => {
-  const [isShowMore1, setIsShowMore1] = useState(false);
-  const [isShowMore2, setIsShowMore2] = useState(false);
-  const [isShowMore3, setIsShowMore3] = useState(false);
-  const [isShowMore4, setIsShowMore4] = useState(false);
-  const [isShowMore5, setIsShowMore5] = useState(false);
-  const [isShowMore6, setIsShowMore6] = useState(false);
-  const [isShowMore7, setIsShowMore7] = useState(false);
+interface stateProps {
+  state: any;
+}
+const BookInfo = (props: stateProps) => {
   const [noteCheck, setNoteCheck] = useState(false);
   const [suppCheck, setSuppCheck] = useState(false);
-  const solutions = [
-    {
-      id: 1,
-      name: "ECONOMY CLASS",
 
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
-      state: isShowMore1,
-      toggle: (key: boolean) => toggleReadMoreLess1(key),
-    },
-    {
-      id: 2,
-      name: "STANDARD CLASS",
-
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
-      state: isShowMore2,
-      toggle: (key: boolean) => toggleReadMoreLess2(key),
-    },
-  ];
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch
       focusVisibleClassName=".Mui-focusVisible"
@@ -108,15 +85,7 @@ const BookInfo = () => {
       }),
     },
   }));
-  const toggleReadMoreLess1 = (state: boolean) => {
-    setIsShowMore1(!state);
-  };
-  const toggleReadMoreLess2 = (state: boolean) => {
-    setIsShowMore2(!state);
-  };
-  const toggleReadMoreLess3 = (state: boolean) => {
-    setIsShowMore3(!state);
-  };
+
   const NumberInput = React.forwardRef(function CustomNumberInput(
     props: NumberInputProps,
     ref: React.ForwardedRef<HTMLDivElement>
@@ -209,7 +178,7 @@ const BookInfo = () => {
       className="md:px-24 py-4 md:py-4 max-w-screen-2xl mx-auto  overflow-hidden"
       id="solutions"
     >
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1   gap-8 mx-auto md:w-9/12">
+      <div className="flex flex-wrap gap-4">
         <>
           <div className="card  py-4 text-center md:col-span-2 md:h-100   flex h-full  ">
             <div className="mb-4 h-50  flex flex-col w-full   ">
@@ -645,14 +614,26 @@ const BookInfo = () => {
               </div>
 
               <div className="flex  md:w-12/13 p-4">
-                <div>
-                  <h4
-                    className="p-2"
-                    style={{ backgroundColor: "#F6F7F8", borderRadius: 10 }}
+                <div className="flex flex-col items-center justify-center  w-[10%] h-[80px]">
+                  <div className="bg-grey rounded-xl w-[50%] h-[25%]"></div>
+                  <div className="bg-grey rounded-xl w-[15%] h-[100%]"></div>
+                  <div className="bg-grey rounded-xl w-[50%] h-[25%]"></div>
+                </div>
+                <div className="flex flex-col   h-[80px] w-[90%]">
+                  <div
+                    style={{ marginTop: -5 }}
+                    className="  rounded-xl w-[100%] h-[25%]"
                   >
-                    Le prix compris la récupération jusqu'a le dépot a la
-                    estination
-                  </h4>
+                    <span className="font-opensans text-sm">
+                      {props.state.depart}
+                    </span>
+                  </div>
+                  <div className="rounded-xl w-[15%] h-[100%]"></div>
+                  <div className="rounded-xl w-[100%] h-[25%]">
+                    <span className="font-opensans text-sm">
+                      {props.state.destination}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

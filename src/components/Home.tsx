@@ -36,10 +36,12 @@ import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
-
+import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 const Home = () => {
   const [type, setType] = React.useState("");
   const [isShowMore1, setIsShowMore1] = useState(false);
+  const [depart, setDepart] = useState("");
+  const [destination, setDestination] = useState("");
   const [returnButton, setReturnButton] = useState(false);
   let navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
@@ -48,6 +50,14 @@ const Home = () => {
   };
   const handleOpen = () => {
     setOpen(true);
+  };
+  const handleDepartChange = (e: any) => {
+    console.log(e.target.value);
+    setDepart(e.target.value);
+  };
+  const handleDestinationChange = (e: any) => {
+    console.log(e.target.value);
+    setDestination(e.target.value);
   };
   const solutions = [
     {
@@ -73,7 +83,7 @@ const Home = () => {
   };
   return (
     <div
-      className=" py-8  w-full   bg-[url('assets/hero.jpg')] bg-cover bg-no-repeat overflow-hidden"
+      className=" py-8  w-full h-screen  bg-[url('assets/hero.jpg')] bg-cover bg-no-repeat overflow-hidden"
       id="solutions"
     >
       <Navbar />
@@ -101,92 +111,77 @@ const Home = () => {
                 BOOK NOW!
               </span>
             </div>
-            <div
-              className="pb-5"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                // backgroundColor: "red",
-              }}
-            >
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <Stack spacing={2}>
-                  <Autocomplete
-                    freeSolo
-                    id="free-solo-2-demo"
-                    disableClearable
-                    options={top100Films.map((option) => option.title)}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        style={{ marginBottom: "5px", minWidth: "100%" }}
-                        required
-                        placeholder="Localisation de départ"
-                        InputProps={{
-                          ...params.InputProps,
-                          type: "search",
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <LoginIcon />
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-                    )}
-                  />
-                </Stack>
-                <Stack spacing={2}>
-                  <Autocomplete
-                    freeSolo
-                    id="free-solo-2-demo"
-                    disableClearable
-                    options={top100Films.map((option) => option.title)}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        style={{ marginBottom: "5px", minWidth: "100%" }}
-                        placeholder="Localisation d'arrivé"
-                        InputProps={{
-                          ...params.InputProps,
-                          type: "search",
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              <LoginIcon />
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-                    )}
-                  />
-                </Stack>
-              </div>
+            <form>
               <div
+                className="pb-5"
                 style={{
                   display: "flex",
                   flexDirection: "column",
+                  // backgroundColor: "red",
                 }}
               >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <Stack spacing={2}>
+                    <Autocomplete
+                      freeSolo
+                      id="free-solo-2-demo"
+                      disableClearable
+                      options={top100Films.map((option) => option.title)}
+                      onChange={(event, value) => setDepart(value)}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          style={{ marginBottom: "5px", minWidth: "100%" }}
+                          required
+                          placeholder="Localisation de départ"
+                          value={depart}
+                          onChange={handleDepartChange}
+                          InputProps={{
+                            ...params.InputProps,
+                            type: "search",
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <LoginIcon />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                      )}
+                    />
+                  </Stack>
+                  <Stack spacing={2}>
+                    <Autocomplete
+                      freeSolo
+                      id="free-solo-2-demo"
+                      disableClearable
+                      onChange={(event, value) => setDestination(value)}
+                      options={top100Films.map((option) => option.title)}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          style={{ marginBottom: "5px", minWidth: "100%" }}
+                          placeholder="Localisation d'arrivé"
+                          value={destination}
+                          InputProps={{
+                            ...params.InputProps,
+                            type: "search",
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <LoginIcon />
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                      )}
+                    />
+                  </Stack>
+                </div>
                 <div
                   style={{
                     display: "flex",
-                    flex: 1,
-                    marginBottom: "5px",
-                    minWidth: "100%",
+                    flexDirection: "column",
                   }}
                 >
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DesktopDateTimePicker
-                      defaultValue={dayjs("2022-04-17T15:30")}
-                      slotProps={{
-                        // Targets the `InputAdornment` component.
-                        inputAdornment: {
-                          position: "start",
-                        },
-                      }}
-                    />
-                  </LocalizationProvider>
-                </div>
-                {returnButton && (
                   <div
                     style={{
                       display: "flex",
@@ -207,95 +202,125 @@ const Home = () => {
                       />
                     </LocalizationProvider>
                   </div>
-                )}
-                {!returnButton && (
-                  <div>
-                    <Button
-                      variant="contained"
+                  {returnButton && (
+                    <div
                       style={{
-                        backgroundColor: "transparent",
-                        color: "black",
-                        fontWeight: "bold",
-                        height: "100%",
-                        width: "100%",
+                        display: "flex",
+                        flex: 1,
+                        marginBottom: "5px",
+                        minWidth: "100%",
                       }}
-                      onClick={handleReturnButtonClick}
                     >
-                      Ajouter un retour
-                    </Button>
+                      <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DesktopDateTimePicker
+                          defaultValue={dayjs("2022-04-17T15:30")}
+                          slotProps={{
+                            // Targets the `InputAdornment` component.
+                            inputAdornment: {
+                              position: "start",
+                            },
+                          }}
+                        />
+                      </LocalizationProvider>
+                    </div>
+                  )}
+                  {!returnButton && (
+                    <div>
+                      <Button
+                        variant="contained"
+                        style={{
+                          backgroundColor: "transparent",
+                          color: "black",
+                          fontWeight: "bold",
+                          height: "100%",
+                          width: "100%",
+                        }}
+                        onClick={handleReturnButtonClick}
+                      >
+                        Ajouter un retour
+                      </Button>
+                    </div>
+                  )}
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div>
+                    <FormControl
+                      style={{
+                        minWidth: "100%",
+
+                        marginTop: "5px",
+                      }}
+                    >
+                      <Select
+                        value={type}
+                        onChange={handleChange}
+                        style={{ minWidth: "100%" }}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        placeholder="Type de véhicule"
+                        renderValue={(value) => {
+                          console.log(value);
+                          return (
+                            <Box sx={{ display: "flex" }}>
+                              <SvgIcon>
+                                <LocalTaxiIcon />
+                              </SvgIcon>
+                              {value}
+                            </Box>
+                          );
+                        }}
+                      >
+                        <MenuItem value={"Simple"}>Simple</MenuItem>
+                        <MenuItem value={"Confort"}>Confort</MenuItem>
+                        <MenuItem value={"Van"}>Van</MenuItem>
+                      </Select>
+                    </FormControl>
                   </div>
-                )}
-              </div>
-
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <div>
-                  <FormControl
-                    style={{
-                      minWidth: "100%",
-
-                      marginTop: "5px",
-                    }}
-                  >
-                    <Select
-                      value={type}
-                      onChange={handleChange}
-                      style={{ minWidth: "100%" }}
-                      displayEmpty
-                      inputProps={{ "aria-label": "Without label" }}
-                      placeholder="Type de véhicule"
-                      renderValue={(value) => {
-                        console.log(value);
-                        return (
-                          <Box sx={{ display: "flex" }}>
-                            <SvgIcon>
-                              <LocalTaxiIcon />
-                            </SvgIcon>
-                            {value}
-                          </Box>
-                        );
+                  <div>
+                    <TextField
+                      style={{
+                        marginBottom: "7px",
+                        marginTop: "7px",
+                        minWidth: "100%",
                       }}
-                    >
-                      <MenuItem value={"Simple"}>Simple</MenuItem>
-                      <MenuItem value={"Confort"}>Confort</MenuItem>
-                      <MenuItem value={"Van"}>Van</MenuItem>
-                    </Select>
-                  </FormControl>
+                      id="input-with-icon-textfield"
+                      placeholder="Numéro de téléphone"
+                      InputProps={{
+                        inputMode: "tel",
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <LocalPhoneIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      variant="outlined"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <TextField
-                    style={{
-                      marginBottom: "7px",
-                      marginTop: "7px",
-                      minWidth: "100%",
-                    }}
-                    id="input-with-icon-textfield"
-                    placeholder="Numéro de téléphone"
-                    InputProps={{
-                      inputMode: "tel",
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <LocalPhoneIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                    variant="outlined"
-                  />
-                </div>
+                <Button
+                  className="font-outfit"
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#313131",
+                    color: "white",
+                    fontWeight: "bold",
+                    height: "55px",
+                  }}
+                  onClick={() =>
+                    navigate("/book", {
+                      state: {
+                        id: 7,
+                        depart: depart,
+                        destination: destination,
+                      },
+                    })
+                  }
+                >
+                  BOOK NOW!
+                </Button>
               </div>
-              <Button
-                className="font-outfit"
-                variant="contained"
-                style={{
-                  backgroundColor: "#313131",
-                  color: "white",
-                  fontWeight: "bold",
-                  height: "55px",
-                }}
-                onClick={() => navigate("/book")}
-              >
-                BOOK NOW!
-              </Button>
-            </div>
+            </form>
           </div>
         </div>
       </div>

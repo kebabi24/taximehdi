@@ -7,10 +7,11 @@ import Button from "@mui/material/Button";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Link } from "react-scroll";
 import { Outlet, Link as LinkDom } from "react-router-dom";
+import { useAuth } from "../core/context/AuthContext";
 const NavbarCustomized = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-
+  const { user } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -87,7 +88,9 @@ const NavbarCustomized = () => {
               className="font-outfit block text-base text-bgGreen hover:text-textPrimary underline underline-offset-4 cursor-pointer font-bold"
               to={`./signin`}
             >
-              SE CONNECTER / S'INSCRIRE
+              {user
+                ? "BIENVENUE " + user.username
+                : "SE CONNECTER / S'INSCRIRE"}
             </LinkDom>
           </ul>
 
@@ -126,7 +129,7 @@ const NavbarCustomized = () => {
           className="font-outfit mt-4 block text-base text-bgWhite hover:text-textPrimary text-center underline underline-offset-4 cursor-pointer font-bold"
           to={`./signin`}
         >
-          SE CONNECTER / S'INSCRIRE
+          {user ? "BIENVENUE " + user.username : "SE CONNECTER / S'INSCRIRE"}
         </LinkDom>
       </div>
     </header>
