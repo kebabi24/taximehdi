@@ -28,6 +28,7 @@ export default {
         'bg1': "#E7700D",
         'bg2': "#C8CCD0",
         'bg3': "#3B4045",
+        'bg4': "#B6CEC7",
       },
       margin: {
         '26': '83px',
