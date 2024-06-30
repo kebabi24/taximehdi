@@ -90,7 +90,7 @@ const Product = () => {
             initial="hidden"
             animate="visible"
             ref={ref}
-            className="container md:pl-36 md:pr-36 px-4 mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 "
+            className=" md:pl-36 md:pr-36 px-4 mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 "
           >
             {inView && (
               <motion.li

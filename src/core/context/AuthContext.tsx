@@ -29,9 +29,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
   const [screen, setScreen] = useState("auth");
   const [user, setUser] = useState<AuthData | undefined>(undefined);
-  useEffect(() => {
-    navigate("/");
-  }, [user]);
+  // useEffect(() => {
+  //   navigate("/");
+  // }, [user]);
   const loginAuth = async (data: AuthData) => {
     try {
       const res = await axios.post(
@@ -45,6 +45,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         }
       );
       setUser(res.data.user);
+      localStorage.setItem("user", JSON.stringify(res.data.user))
+      // localStorage.removeItem("user")
     } catch (e) {
       console.log(e);
     }

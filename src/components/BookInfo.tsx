@@ -30,6 +30,26 @@ const BookInfo = (props: stateProps) => {
   const [noteCheck, setNoteCheck] = useState(false);
   const [suppCheck, setSuppCheck] = useState(false);
   const [step, setStep] = useState(0);
+  const [backActif, setBAckActif] = useState(false);
+  const [tripData, setTripData] = useState({
+    dest:"",
+    addReturn: false,
+    passengerNumber:1,
+    addBaby: false,
+    userName:"",
+    email:"",
+    phone:"",
+    addServices:false,
+    addNotes:false,
+    promo:false,
+    note:""
+  });
+  const handleChange = (e: any) => {
+    setTripData({ ...tripData, [e.target.name]: e.target.value });
+  };
+  const handleChangeChecked = (e: any) => {
+    setTripData({ ...tripData, [e.target.name]: e.target.checked });
+  };
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch
       focusVisibleClassName=".Mui-focusVisible"
@@ -87,6 +107,7 @@ const BookInfo = (props: stateProps) => {
   }));
   const handleSubmit = () => {
     setStep(step + 1);
+    console.log(tripData)
   };
   const NumberInput = React.forwardRef(function CustomNumberInput(
     props: NumberInputProps,
@@ -176,10 +197,7 @@ const BookInfo = (props: stateProps) => {
     })
   );
   return (
-    <div
-      className="md:px-24 py-4 md:py-4   overflow-hidden"
-      id="solutions"
-    >
+    <div className="md:px-24 py-4 md:py-4   overflow-hidden" id="solutions ">
       <div className="flex flex-wrap gap-4 justify-center  md:w-[100%] ">
         <>
           <div className="card  py-4 text-center md:col-span-2 md:h-100   flex h-full  md:w-[35%] w-[100%] ">
@@ -233,7 +251,9 @@ const BookInfo = (props: stateProps) => {
                           borderRadius: 6,
                         }}
                         placeholder="Aéroport d'annaba"
-                        name="myInput"
+                        value={tripData.dest}
+                        onChange={handleChange}
+                        name="dest"
                       />
                     </div>
                     <Divider sx={{ minWidth: "100%", marginBottom: 2 }} />
@@ -265,7 +285,14 @@ const BookInfo = (props: stateProps) => {
                         }}
                       >
                         <FormControlLabel
-                          control={<IOSSwitch sx={{ m: 1 }} />}
+                          control={
+                            <IOSSwitch
+                            onChange={handleChangeChecked}
+                              checked={tripData.addReturn}
+                              name="addReturn"
+                              sx={{ m: 1 }}
+                            />
+                          }
                           label=""
                         />
                       </div>
@@ -274,6 +301,359 @@ const BookInfo = (props: stateProps) => {
                   <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
                     <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-5 self-start">
                       Passengers
+                    </h4>
+                    <div className="flex w-full mb-5">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "60%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Nombre de passager
+                        </p>
+                        <p className="text-xs text-grey font-opensans  ">
+                          Inclus les enfants
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "40%",
+
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <NumberInput
+                          aria-label="Quantity Input"
+                          min={1}
+                          max={99}
+                          onChange={handleChange}
+                          value={tripData.passengerNumber}
+                          
+                        />
+                      </div>
+                    </div>
+                    <div className="flex w-full mb-2">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "75%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Ajouter un bébé à bord
+                        </p>
+                        <p className="text-xs text-grey font-opensans ">
+                          Ceci est obligatoire
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                        }}
+                      >
+                        <FormControlLabel
+                          control={<IOSSwitch name="addBaby"   onChange={handleChangeChecked} checked={tripData.addBaby} sx={{ m: 1 }} />}
+                          label=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
+                      Informations du passager
+                    </h4>
+                    <div className="flex w-full mb-5 flex-col">
+                      <div
+                        className="ml-5 mb-4"
+                        style={{
+                          display: "flex",
+                          width: "100%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <label className="text-xs text-grey font-opensans mb-2 font-semibold">
+                          Nom et prénoms *
+                        </label>
+                        <input
+                          style={{
+                            borderWidth: 2,
+                            width: "88%",
+                            padding: 10,
+                            borderRadius: 6,
+                          }}
+                          value={tripData.userName}
+                          onChange={handleChange}
+                          placeholder="Taxi Mehdi"
+                          name="userName"
+                        />
+                      </div>
+                      <div
+                        className="ml-5 mb-4"
+                        style={{
+                          display: "flex",
+                          width: "100%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <label className="text-xs text-grey font-opensans mb-2 font-semibold">
+                          Email *
+                        </label>
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100%",
+
+                            alignItems: "flex-start",
+                          }}
+                        >
+                          <input
+                            style={{
+                              borderWidth: 2,
+                              minWidth: "43%",
+                              padding: 10,
+                              borderRadius: 6,
+                            }}
+                            value={tripData.email}
+                            onChange={handleChange}
+                            placeholder="kebabiabdel@gmail.com"
+                            name="email"
+                          />
+                          <p className="text-xs text-grey font-opensans  md:ml-5">
+                            Pour vous envoyer votre confirmation de réservation.
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "100%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <label className="text-xs text-grey font-opensans mb-2 font-semibold">
+                          Numéro de téléphone *
+                        </label>
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100%",
+
+                            alignItems: "flex-start",
+                          }}
+                        >
+                          <input
+                            style={{
+                              borderWidth: 2,
+                              minWidth: "43%",
+                              padding: 10,
+                              borderRadius: 6,
+                            }}
+                            value={tripData.phone}
+                            onChange={handleChange}
+                            name="phone"
+                            placeholder="0773066634"
+                            
+                          />
+                          <p className="text-xs text-grey font-opensans  ml-5">
+                            Pour vous contacter en cas d'urgence.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
+                      Services additionelle
+                    </h4>
+                    <div className="flex w-full mb-5">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "75%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Boire de l'eau
+                        </p>
+                        <p className="text-xs text-grey font-opensans  ">
+                          Bouteille d'eau 50 DZD
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                        }}
+                      >
+                        <FormControlLabel
+                          control={
+                            <IOSSwitch
+                              sx={{ m: 1 }}
+                              checked={tripData.addServices}
+                              onChange={handleChangeChecked}
+                              name="addServices"
+                              
+                            />
+                          }
+                          label=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
+                      Notes
+                    </h4>
+                    <div className="flex w-full mb-5">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "75%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Ajouter une note
+                        </p>
+                        <p className="text-xs text-grey font-opensans  ">
+                          Pour fournir le véhicule qui vous convient
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                        }}
+                      >
+                        <FormControlLabel
+                          control={
+                            <IOSSwitch
+                              sx={{ m: 1 }}
+                              name="addNotes"
+                              checked={tripData.addNotes}
+                              onChange={handleChangeChecked}
+                            />
+                          }
+                          label=""
+                        />
+                      </div>
+                    </div>
+                    {tripData.addNotes && (
+                      <div className="flex w-full mb-5">
+                        <div
+                          className="ml-5 "
+                          style={{
+                            display: "flex",
+                            width: "88%",
+
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                          }}
+                        >
+                          <textarea
+                            name="note"
+                            rows={4}
+                            style={{
+                              borderWidth: 2,
+                              minWidth: "98%",
+                              padding: 10,
+                              borderRadius: 6,
+                            }}
+                            onChange={handleChange}
+                            value={tripData.note}
+                            placeholder="vous pouvez ajouter une note au chauffeur"
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
+                      Code promo
+                    </h4>
+                    <div className="flex ml-5 mb-4">
+                      <input
+                        style={{
+                          borderWidth: 2,
+                          width: "50%",
+                          padding: 10,
+                          borderRadius: 6,
+                          marginRight: 20,
+                        }}
+                        name="myInput"
+                      />
+                      <Button
+                        className="font-opensans"
+                        variant="contained"
+                        disabled
+                        style={{
+                          backgroundColor: "#313131",
+                          color: "white",
+                          fontWeight: "bold",
+                          height: "45px",
+                        }}
+                      >
+                        Appliquer
+                      </Button>
+                    </div>
+                  </div>
+                </>
+              )}
+              {step === 1 && (
+                <>
+                  <div className="flex  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 ">
+                    <div className="w-[80%]  flex justify-start items-start">
+                      <h4 className="font-opensans font-extrabold text-gray800  font-size-32  text-md ml-5 ">
+                        Détails de transfere
+                      </h4>
+                    </div>
+                    <div className="w-[20%]">
+                      <a
+                        onClick={() => setStep(step - 1)}
+                        className="font-opensans  text-gray800 font-semibold cursor-pointer   text-sm ml-5 self-start"
+                      >
+                        Modifier
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-5 self-start">
+                      Récapitulatif de votre course
                     </h4>
                     <div className="flex w-full mb-5">
                       <div
@@ -343,301 +723,58 @@ const BookInfo = (props: stateProps) => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                    <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
-                      Informations du passager
-                    </h4>
-                    <div className="flex w-full mb-5 flex-col">
-                      <div
-                        className="ml-5 mb-4"
-                        style={{
-                          display: "flex",
-                          width: "100%",
-
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <label className="text-xs text-grey font-opensans mb-2 font-semibold">
-                          Nom et prénoms *
-                        </label>
-                        <input
-                          style={{
-                            borderWidth: 2,
-                            width: "88%",
-                            padding: 10,
-                            borderRadius: 6,
-                          }}
-                          placeholder="Taxi Mehdi"
-                          name="myInput"
-                        />
-                      </div>
-                      <div
-                        className="ml-5 mb-4"
-                        style={{
-                          display: "flex",
-                          width: "100%",
-
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <label className="text-xs text-grey font-opensans mb-2 font-semibold">
-                          Email *
-                        </label>
-                        <div
-                          style={{
-                            display: "flex",
-                            width: "100%",
-
-                            alignItems: "flex-start",
-                          }}
-                        >
-                          <input
-                            style={{
-                              borderWidth: 2,
-                              minWidth: "43%",
-                              padding: 10,
-                              borderRadius: 6,
-                            }}
-                            placeholder="kebabiabdel@gmail.com"
-                            name="myInput"
-                          />
-                          <p className="text-xs text-grey font-opensans  md:ml-5">
-                            Pour vous envoyer votre confirmation de réservation.
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        className="ml-5 "
-                        style={{
-                          display: "flex",
-                          width: "100%",
-
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <label className="text-xs text-grey font-opensans mb-2 font-semibold">
-                          Numéro de téléphone *
-                        </label>
-                        <div
-                          style={{
-                            display: "flex",
-                            width: "100%",
-
-                            alignItems: "flex-start",
-                          }}
-                        >
-                          <input
-                            style={{
-                              borderWidth: 2,
-                              minWidth: "43%",
-                              padding: 10,
-                              borderRadius: 6,
-                            }}
-                            placeholder="0773066634"
-                            name="myInput"
-                          />
-                          <p className="text-xs text-grey font-opensans  ml-5">
-                            Pour vous contacter en cas d'urgence.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                    <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
-                      Services additionelle
-                    </h4>
-                    <div className="flex w-full mb-5">
-                      <div
-                        className="ml-5 "
-                        style={{
-                          display: "flex",
-                          width: "75%",
-
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <p className="font-opensans font-semibold text-gray800 ">
-                          Boire de l'eau
-                        </p>
-                        <p className="text-xs text-grey font-opensans  ">
-                          Bouteille d'eau 50 DZD
-                        </p>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          width: "25%",
-
-                          justifyContent: "flex-end",
-                          alignItems: "center",
-                        }}
-                      >
-                        <FormControlLabel
-                          control={
-                            <IOSSwitch
-                              sx={{ m: 1 }}
-                              checked={suppCheck}
-                              onChange={() => setSuppCheck(!suppCheck)}
-                            />
-                          }
-                          label=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                    <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
-                      Notes
-                    </h4>
-                    <div className="flex w-full mb-5">
-                      <div
-                        className="ml-5 "
-                        style={{
-                          display: "flex",
-                          width: "75%",
-
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <p className="font-opensans font-semibold text-gray800 ">
-                          Ajouter une note
-                        </p>
-                        <p className="text-xs text-grey font-opensans  ">
-                          Pour fournir le véhicule qui vous convient
-                        </p>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          width: "25%",
-
-                          justifyContent: "flex-end",
-                          alignItems: "center",
-                        }}
-                      >
-                        <FormControlLabel
-                          control={
-                            <IOSSwitch
-                              sx={{ m: 1 }}
-                              checked={noteCheck}
-                              onChange={() => setNoteCheck(!noteCheck)}
-                            />
-                          }
-                          label=""
-                        />
-                      </div>
-                    </div>
-                    {noteCheck && (
-                      <div className="flex w-full mb-5">
-                        <div
-                          className="ml-5 "
-                          style={{
-                            display: "flex",
-                            width: "88%",
-
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                          }}
-                        >
-                          <textarea
-                            name="note"
-                            rows={4}
-                            style={{
-                              borderWidth: 2,
-                              minWidth: "98%",
-                              padding: 10,
-                              borderRadius: 6,
-                            }}
-                            placeholder="vous pouvez ajouter une note au chauffeur"
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                    <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
-                      Code promo
-                    </h4>
-                    <div className="flex ml-5 mb-4">
-                      <input
-                        style={{
-                          borderWidth: 2,
-                          width: "50%",
-                          padding: 10,
-                          borderRadius: 6,
-                          marginRight: 20,
-                        }}
-                        name="myInput"
-                      />
-                      <Button
-                        className="font-opensans"
-                        variant="contained"
-                        disabled
-                        style={{
-                          backgroundColor: "#313131",
-                          color: "white",
-                          fontWeight: "bold",
-                          height: "45px",
-                        }}
-                      >
-                        Appliquer
-                      </Button>
-                    </div>
-                  </div>
                 </>
               )}
-              {step === 1 && (
+              {step === 2 && (
                 <>
-                  <div className="flex flex-col  bg-white pt-4  shadow rounded-xl shadow-lg mb-5 align-start">
-                    <div className="flex w-full mb-5 flex-col">
-                      <div
-                        className="ml-5 mb-4"
-                        style={{
-                          display: "flex",
-                          width: "100%",
-
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                        }}
+                  <div className="flex  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 ">
+                    <div className="w-[80%]  flex justify-start items-start">
+                      <h4 className="font-opensans font-extrabold text-gray800  font-size-32  text-md ml-5 ">
+                        Confirmation de votre course
+                      </h4>
+                    </div>
+                    <div className="w-[20%]">
+                      <a
+                        onClick={() => setStep(step - 1)}
+                        className="font-opensans  text-gray800 font-semibold cursor-pointer   text-sm ml-5 self-start"
                       >
-                        <div
-                          style={{
-                            display: "flex",
-                            width: "100%",
-
-                            alignItems: "flex-start",
-                          }}
-                        >
-                      
-                          <p className="text-xs text-grey font-opensans  md:ml-5">
-                            Pour vous envoyer votre confirmation de réservation.
-                          </p>
-                        </div>
-                      </div>
+                        Modifier
+                      </a>
                     </div>
                   </div>
                 </>
               )}
               <div className="flex flex-col  bg-white  shadow rounded-xl shadow-lg mb-5 align-start">
-                <Button
-                  onClick={handleSubmit}
-                  className="font-opensans"
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#313131",
-                    color: "white",
-                    fontWeight: "bold",
-                    height: "50px",
-                  }}
-                >
-                  Continuer
-                </Button>
+                {step !== 2 && (
+                  <Button
+                    onClick={handleSubmit}
+                    className="font-opensans"
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#313131",
+                      color: "white",
+                      fontWeight: "bold",
+                      height: "50px",
+                    }}
+                  >
+                    Continuer
+                  </Button>
+                )}
+                {step === 2 && (
+                  <Button
+                    onClick={handleSubmit}
+                    className="font-opensans"
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#313131",
+                      color: "white",
+                      fontWeight: "bold",
+                      height: "50px",
+                    }}
+                  >
+                    Confirmer
+                  </Button>
+                )}
               </div>
             </div>
           </div>
