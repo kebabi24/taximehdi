@@ -22,6 +22,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { IoMdTime } from "react-icons/io";
 import { IoCarSportSharp } from "react-icons/io5";
+import { FaCheck } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
 import Check from "@mui/icons-material/Check";
 interface stateProps {
   state: any;
@@ -32,17 +34,17 @@ const BookInfo = (props: stateProps) => {
   const [step, setStep] = useState(0);
   const [backActif, setBAckActif] = useState(false);
   const [tripData, setTripData] = useState({
-    dest:"",
+    dest: "",
     addReturn: false,
-    passengerNumber:1,
+    passengerNumber: 1,
     addBaby: false,
-    userName:"",
-    email:"",
-    phone:"",
-    addServices:false,
-    addNotes:false,
-    promo:false,
-    note:""
+    userName: "",
+    email: "",
+    phone: "",
+    addServices: false,
+    addNotes: false,
+    promo: false,
+    note: "",
   });
   const handleChange = (e: any) => {
     setTripData({ ...tripData, [e.target.name]: e.target.value });
@@ -107,7 +109,7 @@ const BookInfo = (props: stateProps) => {
   }));
   const handleSubmit = () => {
     setStep(step + 1);
-    console.log(tripData)
+    console.log(tripData);
   };
   const NumberInput = React.forwardRef(function CustomNumberInput(
     props: NumberInputProps,
@@ -128,6 +130,7 @@ const BookInfo = (props: stateProps) => {
           },
           decrementButton: {
             children: <RemoveIcon fontSize="small" />,
+            className: "decrement",
           },
         }}
         {...props}
@@ -158,7 +161,7 @@ const BookInfo = (props: stateProps) => {
       borderRadius: 1,
     },
   }));
-  const steps = ["1. Informations", "2. Récapitulatif", "3. Confirmation"];
+  const steps = ["1. Informations", "2. Confirmation"];
   function QontoStepIcon(props: StepIconProps) {
     const { active, completed, className } = props;
 
@@ -200,7 +203,7 @@ const BookInfo = (props: stateProps) => {
     <div className="md:px-24 py-4 md:py-4   overflow-hidden" id="solutions ">
       <div className="flex flex-wrap gap-4 justify-center  md:w-[100%] ">
         <>
-          <div className="card  py-4 text-center md:col-span-2 md:h-100   flex h-full  md:w-[35%] w-[100%] ">
+          <div className="card  py-4 text-center md:col-span-2 md:h-100   flex h-full  md:w-[40%] w-[100%] ">
             <div className="mb-4 h-50  flex flex-col w-full   ">
               <div className="flex w-full h-full mb-2 self-start">
                 <Stepper
@@ -287,7 +290,7 @@ const BookInfo = (props: stateProps) => {
                         <FormControlLabel
                           control={
                             <IOSSwitch
-                            onChange={handleChangeChecked}
+                              onChange={handleChangeChecked}
                               checked={tripData.addReturn}
                               name="addReturn"
                               sx={{ m: 1 }}
@@ -333,9 +336,7 @@ const BookInfo = (props: stateProps) => {
                           aria-label="Quantity Input"
                           min={1}
                           max={99}
-                          onChange={handleChange}
                           value={tripData.passengerNumber}
-                          
                         />
                       </div>
                     </div>
@@ -367,7 +368,14 @@ const BookInfo = (props: stateProps) => {
                         }}
                       >
                         <FormControlLabel
-                          control={<IOSSwitch name="addBaby"   onChange={handleChangeChecked} checked={tripData.addBaby} sx={{ m: 1 }} />}
+                          control={
+                            <IOSSwitch
+                              name="addBaby"
+                              onChange={handleChangeChecked}
+                              checked={tripData.addBaby}
+                              sx={{ m: 1 }}
+                            />
+                          }
                           label=""
                         />
                       </div>
@@ -474,7 +482,6 @@ const BookInfo = (props: stateProps) => {
                             onChange={handleChange}
                             name="phone"
                             placeholder="0773066634"
-                            
                           />
                           <p className="text-xs text-grey font-opensans  ml-5">
                             Pour vous contacter en cas d'urgence.
@@ -521,7 +528,6 @@ const BookInfo = (props: stateProps) => {
                               checked={tripData.addServices}
                               onChange={handleChangeChecked}
                               name="addServices"
-                              
                             />
                           }
                           label=""
@@ -655,40 +661,6 @@ const BookInfo = (props: stateProps) => {
                     <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-5 self-start">
                       Récapitulatif de votre course
                     </h4>
-                    <div className="flex w-full mb-5">
-                      <div
-                        className="ml-5 "
-                        style={{
-                          display: "flex",
-                          width: "60%",
-
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                        }}
-                      >
-                        <p className="font-opensans font-semibold text-gray800 ">
-                          Nombre de passager
-                        </p>
-                        <p className="text-xs text-grey font-opensans  ">
-                          Inclus les enfants
-                        </p>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          width: "40%",
-
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <NumberInput
-                          aria-label="Quantity Input"
-                          min={1}
-                          max={99}
-                        />
-                      </div>
-                    </div>
                     <div className="flex w-full mb-2">
                       <div
                         className="ml-5 "
@@ -701,13 +673,19 @@ const BookInfo = (props: stateProps) => {
                         }}
                       >
                         <p className="font-opensans font-semibold text-gray800 ">
-                          Ajouter un bébé à bord
+                          Informations Client
                         </p>
-                        <p className="text-xs text-grey font-opensans ">
-                          Ceci est obligatoire
+                        <p className="text-xs text-grey font-opensans mb-2">
+                          Nom et prénoms : {tripData.userName}
+                        </p>
+                        <p className="text-xs text-grey font-opensans mb-2">
+                          Email : {tripData.email}
+                        </p>
+                        <p className="text-xs text-grey font-opensans mb-2">
+                          Numéro de téléphone : {tripData.phone}
                         </p>
                       </div>
-                      <div
+                      {/* <div
                         style={{
                           display: "flex",
                           width: "25%",
@@ -720,6 +698,225 @@ const BookInfo = (props: stateProps) => {
                           control={<IOSSwitch sx={{ m: 1 }} />}
                           label=""
                         />
+                      </div> */}
+                    </div>
+                    <div className="flex w-full mb-5">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "60%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Destination
+                        </p>
+                        <p className="text-xs text-grey font-opensans  ">
+                          {tripData.dest}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex w-full mb-2">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "70%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Ajout d'un retour
+                        </p>
+                        {/* <p className="text-xs text-grey font-opensans ">
+                          Ceci est obligatoire
+                        </p> */}
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        {tripData.addReturn ? (
+                          <FaCheck color="#F09721" size={24} />
+                        ) : (
+                          <IoClose color="red" size={24} />
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex w-full mb-2">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "70%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Nombre de passager
+                        </p>
+                        {/* <p className="text-xs text-grey font-opensans ">
+                          Ceci est obligatoire
+                        </p> */}
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <span>1 personne</span>
+                      </div>
+                    </div>
+                    <div className="flex w-full mb-2">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "70%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Bébé a bord
+                        </p>
+                        {/* <p className="text-xs text-grey font-opensans ">
+                          Ceci est obligatoire
+                        </p> */}
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        {tripData.addBaby ? (
+                          <FaCheck color="#F09721" size={24} />
+                        ) : (
+                          <IoClose color="red" size={24} />
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex w-full mb-2">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "70%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Service supplémentaire
+                        </p>
+                        <p className="text-xs text-grey font-opensans ">
+                          Bouteille d'eau
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        {tripData.addServices ? (
+                          <FaCheck color="#F09721" size={24} />
+                        ) : (
+                          <IoClose color="red" size={24} />
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex w-full mb-2">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "70%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Note à retenir
+                        </p>
+                        <p className="text-xs text-grey font-opensans ">
+                          {tripData.note}
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        {tripData.addNotes ? (
+                          <FaCheck color="#F09721" size={24} />
+                        ) : (
+                          <IoClose color="red" size={24} />
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex w-full mb-2">
+                      <div
+                        className="ml-5 "
+                        style={{
+                          display: "flex",
+                          width: "70%",
+
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <p className="font-opensans font-semibold text-gray800 ">
+                          Promo
+                        </p>
+                        {/* <p className="text-xs text-grey font-opensans ">
+                          Ceci est obligatoire
+                        </p> */}
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "25%",
+
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        {tripData.promo ? (
+                          <FaCheck color="#F09721" size={24} />
+                        ) : (
+                          <IoClose color="red" size={24} />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -745,7 +942,7 @@ const BookInfo = (props: stateProps) => {
                 </>
               )}
               <div className="flex flex-col  bg-white  shadow rounded-xl shadow-lg mb-5 align-start">
-                {step !== 2 && (
+                {step !== 1 && (
                   <Button
                     onClick={handleSubmit}
                     className="font-opensans"
@@ -760,7 +957,7 @@ const BookInfo = (props: stateProps) => {
                     Continuer
                   </Button>
                 )}
-                {step === 2 && (
+                {step === 1 && (
                   <Button
                     onClick={handleSubmit}
                     className="font-opensans"
@@ -780,8 +977,8 @@ const BookInfo = (props: stateProps) => {
           </div>
         </>
         <>
-          <div className="card flex flex-col">
-            <div className=" h-46 md:mt-26 shadow flex flex-col bg-white rounded-xl shadow-lg">
+          <div className="card flex flex-col ">
+            <div className=" h-46 md:mt-20 shadow flex flex-col bg-white rounded-xl shadow-lg">
               {/* <img src={solution.logo} alt="" /> */}
               <div className="flex p-3 shadow bg-gradient-to-t from-[#EFCB3C] to-[#F7E498] rounded-tl-xl rounded-tr-xl shadow-lg">
                 <div className="flex p-1 items-center justify-center bg-white mr-2 h-8 w-8 rounded-3xl self-center">
@@ -797,7 +994,7 @@ const BookInfo = (props: stateProps) => {
 
               <div className="flex  md:w-12/13 p-4">
                 <div className="flex bg-neutralDGrey flex-row rounded-md p-1 w-full h-[100%]">
-                  <div className="flex flex-col justify-center items-center p-1 w-[30px] h-[60px]">
+                  <div className="flex flex-col justy-center items-center p-1 w-[30px] h-[60px]">
                     <div className="bg-bg4 w-[10px] h-[10px] rounded-xl"></div>
                     <div className="bg-bg4 w-[1px] h-[35px] rounded-xl"></div>
                     <div className="bg-bg4 w-[10px] h-[10px] rounded-xl"></div>
