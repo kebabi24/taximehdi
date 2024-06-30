@@ -177,12 +177,12 @@ const BookInfo = (props: stateProps) => {
   );
   return (
     <div
-      className="md:px-24 py-4 md:py-4 max-w-screen-2xl mx-auto  overflow-hidden"
+      className="md:px-24 py-4 md:py-4   overflow-hidden"
       id="solutions"
     >
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 justify-center  md:w-[100%] ">
         <>
-          <div className="card  py-4 text-center md:col-span-2 md:h-100   flex h-full  ">
+          <div className="card  py-4 text-center md:col-span-2 md:h-100   flex h-full  md:w-[35%] w-[100%] ">
             <div className="mb-4 h-50  flex flex-col w-full   ">
               <div className="flex w-full h-full mb-2 self-start">
                 <Stepper
@@ -614,16 +614,7 @@ const BookInfo = (props: stateProps) => {
                             alignItems: "flex-start",
                           }}
                         >
-                          <input
-                            style={{
-                              borderWidth: 2,
-                              minWidth: "43%",
-                              padding: 10,
-                              borderRadius: 6,
-                            }}
-                            placeholder="kebabiabdel@gmail.com"
-                            name="myInput"
-                          />
+                      
                           <p className="text-xs text-grey font-opensans  md:ml-5">
                             Pour vous envoyer votre confirmation de réservation.
                           </p>
