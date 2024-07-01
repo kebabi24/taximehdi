@@ -1056,7 +1056,7 @@ const BookInfo = (props: stateProps) => {
         </div>
       )}
       {endStep !== -1 && (
-        <div className="flex flex-col md:py-36 flex-wrap  justify-center items-center  md:w-[100%]">
+        <div className="flex flex-col md:py-36 flex-wrap  justify-center items-center h-dvh  md:w-[100%]">
           <motion.div
             className="box"
             initial={{ opacity: 0, scale: 0.5 }}
@@ -1080,7 +1080,7 @@ const BookInfo = (props: stateProps) => {
           >
             <FaCheck color="#F09721" size={78} />
           </motion.div>
-          <p className="font-opensans  text-gray800 ">
+          <p className="font-opensans  text-gray800 text-justify self-center ">
             Nous vous remercions d'avoir choisi TAXI MEHDI pour votre voyage
           </p>
 
