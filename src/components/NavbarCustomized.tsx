@@ -89,7 +89,7 @@ const NavbarCustomized = () => {
             ))}
             <LinkDom
               className="font-outfit block text-base text-bgGreen hover:text-textPrimary underline underline-offset-4 cursor-pointer font-bold"
-              to={`./signin`}
+              to={`/login`}
             >
               {userLoggedIn
                 ? "BIENVENUE " + userLoggedIn.username
@@ -130,7 +130,7 @@ const NavbarCustomized = () => {
         ))}
         <LinkDom
           className="font-outfit mt-4 block text-base text-bgWhite hover:text-textPrimary text-center underline underline-offset-4 cursor-pointer font-bold"
-          to={`./signin`}
+          to={`/login`}
         >
           {userLoggedIn ? "BIENVENUE " + userLoggedIn.username : "SE CONNECTER / S'INSCRIRE"}
         </LinkDom>

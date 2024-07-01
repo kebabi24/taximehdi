@@ -46,6 +46,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       );
       setUser(res.data.user);
       localStorage.setItem("user", JSON.stringify(res.data.user))
+      navigate("/");
       // localStorage.removeItem("user")
     } catch (e) {
       console.log(e);
