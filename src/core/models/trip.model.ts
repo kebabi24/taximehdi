@@ -30,6 +30,8 @@ type Trip = {
   email?: string;
 
   phone?: string;
+
+  userId: string
 };
 
 export default Trip;

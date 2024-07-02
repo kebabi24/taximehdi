@@ -28,12 +28,17 @@ import Check from "@mui/icons-material/Check";
 import Trip from "../core/models/trip.model";
 import { motion } from "framer-motion";
 import "./styles.css";
+import axios from "axios";
 interface stateProps {
   state: any;
 }
 const BookInfo = (props: stateProps) => {
   const [step, setStep] = useState(0);
+  
   const [endStep, setEndStep] = useState(-1);
+  const objUser = localStorage.getItem("user");
+  const userLoggedIn = objUser  ? JSON.parse(objUser) : null
+  console.log(userLoggedIn)
   const [tripData, setTripData] = useState<Trip>({
     userName: "",
 
@@ -45,9 +50,9 @@ const BookInfo = (props: stateProps) => {
 
     destination: "",
 
-    departureTime: "",
+    departureTime: "2024-07-02 10:30:00-07",
 
-    returnTime: "",
+    returnTime: "2024-07-02 10:30:00-07",
 
     return: false,
 
@@ -64,7 +69,10 @@ const BookInfo = (props: stateProps) => {
     withNote: false,
 
     tripNote: "",
+
+    userId: ""
   });
+
   const handleChange = (e: any) => {
     setTripData({ ...tripData, [e.target.name]: e.target.value });
   };
@@ -128,10 +136,27 @@ const BookInfo = (props: stateProps) => {
   }));
   const handleSubmit = () => {
     setStep(step + 1);
+    setTripData({...tripData, userId: userLoggedIn.id})
     console.log(tripData);
   };
-  const confirmOrder = () => {
-    setEndStep(99);
+  const confirmOrder = async () => {
+ 
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/api/v1/trips/newTrip",
+        tripData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      setEndStep(99);
+     
+    } catch (e) {
+      console.log(e);
+    }
   };
   const NumberInput = React.forwardRef(function CustomNumberInput(
     props: NumberInputProps,
@@ -222,7 +247,7 @@ const BookInfo = (props: stateProps) => {
     })
   );
   return (
-    <div className="md:px-24 py-4 md:py-4   overflow-hidden" id="solutions ">
+    <div className="md:px-24 py-4 md:py-4   " id="solutions ">
       {endStep == -1 && (
         <div className="flex flex-wrap gap-4 justify-center  md:w-[100%]">
           <>
@@ -969,6 +994,8 @@ const BookInfo = (props: stateProps) => {
                   {step !== 1 && (
                     <Button
                       onClick={handleSubmit}
+                      onMouseEnter={()=> console.log("enter")}
+                      onMouseLeave={()=> console.log("leave")}
                       className="font-opensans"
                       variant="contained"
                       style={{
@@ -1056,7 +1083,7 @@ const BookInfo = (props: stateProps) => {
         </div>
       )}
       {endStep !== -1 && (
-        <div className="flex flex-col md:py-36 flex-wrap justify-center items-center h-dvh  md:w-[100%]">
+        <div className="flex flex-col py-36 flex-wrap  items-center  md:w-[100%] ">
           <motion.div
             className="box"
             initial={{ opacity: 0, scale: 0.5 }}
