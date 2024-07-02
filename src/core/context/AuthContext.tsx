@@ -19,6 +19,7 @@ interface AuthContextType {
   user?: AuthData;
   loginAuth?: (data: AuthData) => Promise<void>;
   logoutAuth?: () => Promise<void>;
+  loginError?: boolean;
 }
 interface AuthProviderProps {
   children: ReactNode;
@@ -28,7 +29,9 @@ const AuthContext = createContext<AuthContextType>({});
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
   const [screen, setScreen] = useState("auth");
+  const [loginError, setLoginError] = useState(false);
   const [user, setUser] = useState<AuthData | undefined>(undefined);
+
   // useEffect(() => {
   //   navigate("/");
   // }, [user]);
@@ -44,12 +47,20 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
           },
         }
       );
+      console.log(res);
       setUser(res.data.user);
-      localStorage.setItem("user", JSON.stringify(res.data.user))
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      if (res.data.user.username === "admin") {
+        navigate("/");
+      } else {
+        navigate("/dashboard");
+      }
+
       navigate("/");
-      // localStorage.removeItem("user")
+      // localStorage.removeItem("user");
     } catch (e) {
       console.log(e);
+      setLoginError(true);
     }
   };
 
@@ -65,7 +76,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loginAuth, logoutAuth }}>
+    <AuthContext.Provider value={{ user, loginAuth, logoutAuth, loginError }}>
       {children}
     </AuthContext.Provider>
   );

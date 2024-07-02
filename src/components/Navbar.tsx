@@ -12,8 +12,8 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const objUser = localStorage.getItem("user");
-  const userLoggedIn = objUser  ? JSON.parse(objUser) : null
-  console.log(userLoggedIn)
+  const userLoggedIn = objUser ? JSON.parse(objUser) : null;
+
   const { user } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -129,7 +129,9 @@ const Navbar = () => {
           className="font-outfit mt-4 block text-base text-bgWhite hover:text-textPrimary text-center underline underline-offset-4 cursor-pointer font-bold"
           to={`login`}
         >
-          {userLoggedIn ? "BIENVENUE " + userLoggedIn.username : "SE CONNECTER / S'INSCRIRE"}
+          {userLoggedIn
+            ? "BIENVENUE " + userLoggedIn.username
+            : "SE CONNECTER / S'INSCRIRE"}
         </LinkDom>
       </div>
     </header>

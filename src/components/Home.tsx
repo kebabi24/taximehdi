@@ -12,13 +12,14 @@ import TextField from "@mui/material/TextField";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
 import { DesktopDateTimePicker } from "@mui/x-date-pickers/DesktopDateTimePicker";
+
 import { StaticDateTimePicker } from "@mui/x-date-pickers/StaticDateTimePicker";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -41,6 +42,10 @@ const Home = () => {
   const [type, setType] = React.useState("");
   const [isShowMore1, setIsShowMore1] = useState(false);
   const [depart, setDepart] = useState("");
+  const [selectedDepartDate, setSelectedDepartDate] = useState(dayjs());
+  const [selectedReturnDate, setSelectedReturnDate] = useState(dayjs());
+  const [departTime, setDepartTime] = useState("");
+  const [returnTime, setReturnTime] = useState("");
   const [destination, setDestination] = useState("");
   const [returnButton, setReturnButton] = useState(false);
   let navigate = useNavigate();
@@ -59,20 +64,17 @@ const Home = () => {
     console.log(e.target.value);
     setDestination(e.target.value);
   };
-  const solutions = [
-    {
-      id: 1,
-      name: "QAD ERP",
-      // logo: qad,
-      description:
-        "la solution ERP QAD est un outil de gestion intégré de toute l’activité de l’entreprise, éditée par QAD USA, ce produit est mis en place en Algérie pour de grande entreprises industrielles dans divers secteurs d’activité, principalement l’agro-alimentaire, mais aussi la transformation de produit plastique, produit de bien-être, et dans l’électronique.  ",
-      state: isShowMore1,
-      toggle: (key: boolean) => toggleReadMoreLess1(key),
-    },
-  ];
 
-  const toggleReadMoreLess1 = (state: boolean) => {
-    setIsShowMore1(!state);
+  const handleDepartDateChange = (date: any) => {
+    setSelectedDepartDate(date);
+    setDepartTime(date.format("YYYY-MM-DD HH:mm:ssZ"));
+    // console.log(typeof date.format("YYYY-MM-DD HH:mm:ssZ")); // Output formatted date
+  };
+
+  const handleReturnDateChange = (date: any) => {
+    setSelectedReturnDate(date);
+    setReturnTime(date.format("YYYY-MM-DD HH:mm:ssZ"));
+    // console.log(typeof date.format("YYYY-MM-DD HH:mm:ssZ")); // Output formatted date
   };
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -192,13 +194,15 @@ const Home = () => {
                   >
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DesktopDateTimePicker
-                        defaultValue={dayjs("2022-04-17T15:30")}
+                        defaultValue={dayjs(new Date())}
                         slotProps={{
                           // Targets the `InputAdornment` component.
                           inputAdornment: {
                             position: "start",
                           },
                         }}
+                        value={selectedDepartDate}
+                        onChange={handleDepartDateChange}
                       />
                     </LocalizationProvider>
                   </div>
@@ -213,13 +217,15 @@ const Home = () => {
                     >
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DesktopDateTimePicker
-                          defaultValue={dayjs("2022-04-17T15:30")}
+                          defaultValue={dayjs(new Date())}
                           slotProps={{
                             // Targets the `InputAdornment` component.
                             inputAdornment: {
                               position: "start",
                             },
                           }}
+                          value={selectedReturnDate}
+                          onChange={handleReturnDateChange}
                         />
                       </LocalizationProvider>
                     </div>
@@ -310,9 +316,10 @@ const Home = () => {
                   onClick={() =>
                     navigate("/book", {
                       state: {
-                        id: 7,
                         depart: depart,
                         destination: destination,
+                        departureTime: departTime,
+                        returnTime: returnTime,
                       },
                     })
                   }

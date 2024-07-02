@@ -34,11 +34,11 @@ interface stateProps {
 }
 const BookInfo = (props: stateProps) => {
   const [step, setStep] = useState(0);
-  
+
   const [endStep, setEndStep] = useState(-1);
   const objUser = localStorage.getItem("user");
-  const userLoggedIn = objUser  ? JSON.parse(objUser) : null
-  console.log(userLoggedIn)
+  const userLoggedIn = objUser ? JSON.parse(objUser) : null;
+  console.log(props.state);
   const [tripData, setTripData] = useState<Trip>({
     userName: "",
 
@@ -50,9 +50,9 @@ const BookInfo = (props: stateProps) => {
 
     destination: "",
 
-    departureTime: "2024-07-02 10:30:00-07",
+    departureTime: props.state.departureTime,
 
-    returnTime: "2024-07-02 10:30:00-07",
+    returnTime: props.state.returnTime,
 
     return: false,
 
@@ -70,7 +70,7 @@ const BookInfo = (props: stateProps) => {
 
     tripNote: "",
 
-    userId: ""
+    userId: "",
   });
 
   const handleChange = (e: any) => {
@@ -136,11 +136,9 @@ const BookInfo = (props: stateProps) => {
   }));
   const handleSubmit = () => {
     setStep(step + 1);
-    setTripData({...tripData, userId: userLoggedIn.id})
-    console.log(tripData);
+    setTripData({ ...tripData, userId: userLoggedIn.id });
   };
   const confirmOrder = async () => {
- 
     try {
       const res = await axios.post(
         "http://localhost:3000/api/v1/trips/newTrip",
@@ -153,7 +151,6 @@ const BookInfo = (props: stateProps) => {
         }
       );
       setEndStep(99);
-     
     } catch (e) {
       console.log(e);
     }
@@ -994,8 +991,6 @@ const BookInfo = (props: stateProps) => {
                   {step !== 1 && (
                     <Button
                       onClick={handleSubmit}
-                      onMouseEnter={()=> console.log("enter")}
-                      onMouseLeave={()=> console.log("leave")}
                       className="font-opensans"
                       variant="contained"
                       style={{
@@ -1103,7 +1098,6 @@ const BookInfo = (props: stateProps) => {
               alignItems: "center",
               justifyContent: "center",
               marginBottom: 30,
-           
             }}
           >
             <FaCheck color="#F09721" size={78} />
@@ -1113,7 +1107,8 @@ const BookInfo = (props: stateProps) => {
           </p>
 
           <p className="p-3 ml-5 mr-5  font-opensans  text-gray800  self-center ">
-            un reçu de confirmation de votre commande sera envoyé à {tripData.email} 
+            un reçu de confirmation de votre commande sera envoyé à{" "}
+            {tripData.email}
           </p>
 
           <p className="font-opensans  text-gray800 ">A trés bientot.</p>

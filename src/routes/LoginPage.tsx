@@ -21,7 +21,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState<ValidationErrors>({});
-  const { loginAuth } = useAuth();
+  const { loginAuth, loginError } = useAuth();
   const { setToken } = useToken();
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,7 +31,10 @@ function LoginPage() {
     const { username, password } = formData;
 
     if (username && password) {
-      loginAuth && (await loginAuth({ username, password }));
+      if (loginAuth) {
+        const result = await loginAuth({ username, password });
+        console.log(result);
+      }
     }
   };
 
@@ -69,7 +72,11 @@ function LoginPage() {
             <Divider style={{ width: "55%", marginBottom: 10 }}>
               Ou utilisez email
             </Divider>
-            {errors.global && <div className="alert">{errors.global}</div>}
+            {loginError && (
+              <div className="alert">
+                <span>Veuillez vérifier vos informations</span>
+              </div>
+            )}
             {!signin && (
               <TextField
                 id="outlined-basic"
