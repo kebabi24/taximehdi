@@ -1056,7 +1056,7 @@ const BookInfo = (props: stateProps) => {
         </div>
       )}
       {endStep !== -1 && (
-        <div className="flex flex-col md:py-36 flex-wrap  justify-center items-center h-dvh  md:w-[100%]">
+        <div className="flex flex-col md:py-36 flex-wrap justify-center items-center h-dvh  md:w-[100%]">
           <motion.div
             className="box"
             initial={{ opacity: 0, scale: 0.5 }}
@@ -1076,12 +1076,17 @@ const BookInfo = (props: stateProps) => {
               alignItems: "center",
               justifyContent: "center",
               marginBottom: 30,
+           
             }}
           >
             <FaCheck color="#F09721" size={78} />
           </motion.div>
-          <p className="font-opensans  text-gray800 text-justify self-center ">
+          <p className="ml-5 mr-5 font-opensans  text-gray800 font-semibold  self-center ">
             Nous vous remercions d'avoir choisi TAXI MEHDI pour votre voyage
+          </p>
+
+          <p className="p-3 ml-5 mr-5  font-opensans  text-gray800  self-center ">
+            un reçu de confirmation de votre commande sera envoyé à {tripData.email} 
           </p>
 
           <p className="font-opensans  text-gray800 ">A trés bientot.</p>
