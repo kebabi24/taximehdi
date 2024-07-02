@@ -247,17 +247,17 @@ const BookInfo = (props: stateProps) => {
                 {step === 0 && (
                   <>
                     <div className="flex flex-col bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                      <h4 className="font-opensans font-extrabold text-gray800  font-size-32 mb-5 text-md ml-5 self-start">
+                      <h4 className="font-opensans font-extrabold text-gray800  font-size-32 mb-5 text-md ml-3 self-start">
                         Détails de transfere
                       </h4>
-                      <div className="flex flex-row items-center  ml-5 mb-4">
+                      <div className="flex flex-row items-center  ml-3 mb-4">
                         <IoMdTime color={"#717171"} size={20} />
                         <h2 className="font-opensans  text-grey  text-sm ml-1 ">
                           Délais du trajet : 30min
                         </h2>
                       </div>
                       <div
-                        className=" ml-5 mb-8"
+                        className=" ml-3 mb-8"
                         style={{
                           display: "flex",
                           width: "100%",
@@ -272,23 +272,23 @@ const BookInfo = (props: stateProps) => {
                         <input
                           style={{
                             borderWidth: 2,
-                            width: "88%",
+                            width: "94%",
                             padding: 10,
                             borderRadius: 6,
                           }}
                           placeholder="Aéroport d'annaba"
                           value={tripData.destination}
                           onChange={handleChange}
-                          name="dest"
+                          name="destination"
                         />
                       </div>
                       <Divider sx={{ minWidth: "100%", marginBottom: 2 }} />
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
-                            width: "75%",
+                            width: "72%",
 
                             flexDirection: "column",
                             alignItems: "flex-start",
@@ -325,12 +325,12 @@ const BookInfo = (props: stateProps) => {
                       </div>
                     </div>
                     <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                      <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-5 self-start">
+                      <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-3 self-start">
                         Passengers
                       </h4>
                       <div className="flex w-full mb-5">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "60%",
@@ -365,10 +365,10 @@ const BookInfo = (props: stateProps) => {
                       </div>
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
-                            width: "75%",
+                            width: "72%",
 
                             flexDirection: "column",
                             alignItems: "flex-start",
@@ -405,12 +405,12 @@ const BookInfo = (props: stateProps) => {
                       </div>
                     </div>
                     <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                      <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
+                      <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-3 self-start">
                         Informations du passager
                       </h4>
                       <div className="flex w-full mb-5 flex-col">
                         <div
-                          className="ml-5 mb-4"
+                          className="ml-3 mb-4"
                           style={{
                             display: "flex",
                             width: "100%",
@@ -425,7 +425,7 @@ const BookInfo = (props: stateProps) => {
                           <input
                             style={{
                               borderWidth: 2,
-                              width: "88%",
+                              width: "93%",
                               padding: 10,
                               borderRadius: 6,
                             }}
@@ -436,7 +436,7 @@ const BookInfo = (props: stateProps) => {
                           />
                         </div>
                         <div
-                          className="ml-5 mb-4"
+                          className="ml-3 mb-4"
                           style={{
                             display: "flex",
                             width: "100%",
@@ -468,14 +468,14 @@ const BookInfo = (props: stateProps) => {
                               placeholder="kebabiabdel@gmail.com"
                               name="email"
                             />
-                            <p className="text-xs text-grey font-opensans  md:ml-5">
+                            <p className="text-xs text-grey font-opensans  md:ml-3">
                               Pour vous envoyer votre confirmation de
                               réservation.
                             </p>
                           </div>
                         </div>
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "100%",
@@ -507,7 +507,7 @@ const BookInfo = (props: stateProps) => {
                               name="phone"
                               placeholder="0773066634"
                             />
-                            <p className="text-xs text-grey font-opensans  ml-5">
+                            <p className="text-xs text-grey font-opensans  ml-3">
                               Pour vous contacter en cas d'urgence.
                             </p>
                           </div>
@@ -515,15 +515,15 @@ const BookInfo = (props: stateProps) => {
                       </div>
                     </div>
                     <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                      <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
+                      <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-3 self-start">
                         Services additionelle
                       </h4>
                       <div className="flex w-full mb-5">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
-                            width: "75%",
+                            width: "72%",
 
                             flexDirection: "column",
                             alignItems: "flex-start",
@@ -560,15 +560,15 @@ const BookInfo = (props: stateProps) => {
                       </div>
                     </div>
                     <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                      <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
+                      <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-3 self-start">
                         Notes
                       </h4>
                       <div className="flex w-full mb-5">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
-                            width: "75%",
+                            width: "72%",
 
                             flexDirection: "column",
                             alignItems: "flex-start",
@@ -606,7 +606,7 @@ const BookInfo = (props: stateProps) => {
                       {tripData.withNote && (
                         <div className="flex w-full mb-5">
                           <div
-                            className="ml-5 "
+                            className="ml-3 "
                             style={{
                               display: "flex",
                               width: "88%",
@@ -633,10 +633,10 @@ const BookInfo = (props: stateProps) => {
                       )}
                     </div>
                     <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                      <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-5 self-start">
+                      <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-3 self-start">
                         Code promo
                       </h4>
-                      <div className="flex ml-5 mb-4">
+                      <div className="flex ml-3 mb-4">
                         <input
                           style={{
                             borderWidth: 2,
@@ -668,26 +668,26 @@ const BookInfo = (props: stateProps) => {
                   <>
                     <div className="flex  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 ">
                       <div className="w-[80%]  flex justify-start items-start">
-                        <h4 className="font-opensans font-extrabold text-gray800  font-size-32  text-md ml-5 ">
+                        <h4 className="font-opensans font-extrabold text-gray800  font-size-32  text-md ml-3 ">
                           Détails de transfere
                         </h4>
                       </div>
                       <div className="w-[20%]">
                         <a
                           onClick={() => setStep(step - 1)}
-                          className="font-opensans  text-gray800 font-semibold cursor-pointer   text-sm ml-5 self-start"
+                          className="font-opensans  text-gray800 font-semibold cursor-pointer   text-sm ml-3 self-start"
                         >
                           Modifier
                         </a>
                       </div>
                     </div>
                     <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
-                      <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-5 self-start">
+                      <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-3 self-start">
                         Récapitulatif de votre course
                       </h4>
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "75%",
@@ -726,7 +726,7 @@ const BookInfo = (props: stateProps) => {
                       </div>
                       <div className="flex w-full mb-5">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "60%",
@@ -745,7 +745,7 @@ const BookInfo = (props: stateProps) => {
                       </div>
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "70%",
@@ -779,7 +779,7 @@ const BookInfo = (props: stateProps) => {
                       </div>
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "70%",
@@ -809,7 +809,7 @@ const BookInfo = (props: stateProps) => {
                       </div>
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "70%",
@@ -843,7 +843,7 @@ const BookInfo = (props: stateProps) => {
                       </div>
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "70%",
@@ -877,7 +877,7 @@ const BookInfo = (props: stateProps) => {
                       </div>
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "70%",
@@ -911,7 +911,7 @@ const BookInfo = (props: stateProps) => {
                       </div>
                       <div className="flex w-full mb-2">
                         <div
-                          className="ml-5 "
+                          className="ml-3 "
                           style={{
                             display: "flex",
                             width: "70%",
@@ -950,14 +950,14 @@ const BookInfo = (props: stateProps) => {
                   <>
                     <div className="flex  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 ">
                       <div className="w-[80%]  flex justify-start items-start">
-                        <h4 className="font-opensans font-extrabold text-gray800  font-size-32  text-md ml-5 ">
+                        <h4 className="font-opensans font-extrabold text-gray800  font-size-32  text-md ml-3 ">
                           Confirmation de votre course
                         </h4>
                       </div>
                       <div className="w-[20%]">
                         <a
                           onClick={() => setStep(step - 1)}
-                          className="font-opensans  text-gray800 font-semibold cursor-pointer   text-sm ml-5 self-start"
+                          className="font-opensans  text-gray800 font-semibold cursor-pointer   text-sm ml-3 self-start"
                         >
                           Modifier
                         </a>
