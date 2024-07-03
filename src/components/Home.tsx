@@ -39,14 +39,18 @@ import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import TestNavbar from "./TestNavbar";
-TestNavbar
+TestNavbar;
 const Home = () => {
   const [type, setType] = React.useState("");
   const [error, setError] = useState(false);
   const [depart, setDepart] = useState("");
   const [selectDate, setSelectDate] = useState(true);
-  const [selectedDepartDate, setSelectedDepartDate] = useState(dayjs(new Date()));
-  const [selectedReturnDate, setSelectedReturnDate] = useState(dayjs(new Date()));
+  const [selectedDepartDate, setSelectedDepartDate] = useState(
+    dayjs(new Date())
+  );
+  const [selectedReturnDate, setSelectedReturnDate] = useState(
+    dayjs(new Date())
+  );
   const [departTime, setDepartTime] = useState("");
   const [returnTime, setReturnTime] = useState("");
   const [destination, setDestination] = useState("");
@@ -69,18 +73,16 @@ const Home = () => {
   };
 
   const handleDepartDateChange = (date: any) => {
-    setSelectDate(false)
-    setError(false)
+    setSelectDate(false);
+    setError(false);
     setSelectedDepartDate(date);
     setDepartTime(date.format("YYYY-MM-DD HH:mm:ssZ"));
-    
   };
 
   const handleReturnDateChange = (date: any) => {
     // setSelectDate(true)
     setSelectedReturnDate(date);
     setReturnTime(date.format("YYYY-MM-DD HH:mm:ssZ"));
- 
   };
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -90,27 +92,26 @@ const Home = () => {
     setReturnButton(!returnButton);
   };
   const handleBooking = () => {
-    if(selectDate) {
-      setError(true)
-    } else{
-       navigate("/book", {
-      state: {
-        depart: depart,
-        destination: destination,
-        departureTime: departTime,
-        returnTime: returnButton ?returnTime:null,
-      },
-    })
+    if (selectDate) {
+      setError(true);
+    } else {
+      navigate("/book", {
+        state: {
+          depart: depart,
+          destination: destination,
+          departureTime: departTime,
+          returnTime: returnButton ? returnTime : null,
+        },
+      });
     }
-   
   };
-  
+
   return (
     <div
       className=" py-8  w-full h-screen  bg-[url('assets/hero.jpg')] bg-cover bg-no-repeat overflow-hidden"
       id="solutions"
     >
-      <TestNavbar />
+      <Navbar />
       <div className="md:px-20 py-5 grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1 ">
         <div
           style={{ borderRadius: "10px" }}
@@ -206,7 +207,11 @@ const Home = () => {
                     flexDirection: "column",
                   }}
                 >
-                   {error && <span className="self-start text-xs text-red font-opensans">veuillez séléctionné une date</span>}
+                  {error && (
+                    <span className="self-start text-xs text-red font-opensans">
+                      veuillez séléctionné une date
+                    </span>
+                  )}
                   <div
                     style={{
                       display: "flex",
@@ -215,9 +220,7 @@ const Home = () => {
                       minWidth: "100%",
                     }}
                   >
-                           
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-              
                       <DesktopDateTimePicker
                         defaultValue={dayjs(new Date())}
                         slotProps={{
@@ -225,13 +228,12 @@ const Home = () => {
                           inputAdornment: {
                             position: "start",
                           },
-                          textField:{
-                            required:true
-                          }
+                          textField: {
+                            required: true,
+                          },
                         }}
                         value={selectedDepartDate}
                         onChange={handleDepartDateChange}
-                        
                       />
                     </LocalizationProvider>
                   </div>

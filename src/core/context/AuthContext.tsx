@@ -51,12 +51,12 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       setUser(res.data.user);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       if (res.data.user.username === "admin") {
-        navigate("/");
-      } else {
         navigate("/dashboard");
+      } else {
+        navigate("/");
       }
 
-      navigate("/");
+      // navigate("/");
       // localStorage.removeItem("user");
     } catch (e) {
       console.log(e);
