@@ -13,7 +13,7 @@ const NavbarCustomized = () => {
   const [isSticky, setIsSticky] = useState(false);
   const objUser = localStorage.getItem("user");
   const userLoggedIn = objUser  ? JSON.parse(objUser) : null
-  console.log(userLoggedIn)
+  
   const { user } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

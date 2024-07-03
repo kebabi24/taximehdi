@@ -29,6 +29,7 @@ import Trip from "../core/models/trip.model";
 import { motion } from "framer-motion";
 import "./styles.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 interface stateProps {
   state: any;
 }
@@ -36,6 +37,8 @@ const BookInfo = (props: stateProps) => {
   const [step, setStep] = useState(0);
 
   const [endStep, setEndStep] = useState(-1);
+  const [tripsAdded, setTripsAdded] = useState(false);
+  let navigate = useNavigate();
   const objUser = localStorage.getItem("user");
   const userLoggedIn = objUser ? JSON.parse(objUser) : null;
   console.log(props.state);
@@ -79,6 +82,13 @@ const BookInfo = (props: stateProps) => {
   const handleChangeChecked = (e: any) => {
     setTripData({ ...tripData, [e.target.name]: e.target.checked });
   };
+  useEffect(()=>{
+    const trip = localStorage.getItem('tripsAdded');
+    if (trip) {
+      localStorage.removeItem('tripsAdded');
+      navigate('/')
+    }
+  }, [tripsAdded])
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch
       focusVisibleClassName=".Mui-focusVisible"
@@ -151,6 +161,8 @@ const BookInfo = (props: stateProps) => {
         }
       );
       setEndStep(99);
+      localStorage.setItem("tripsAdded",  JSON.stringify(res.data.id))
+    
     } catch (e) {
       console.log(e);
     }

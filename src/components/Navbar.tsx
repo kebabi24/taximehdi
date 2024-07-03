@@ -8,17 +8,26 @@ import Button from "@mui/material/Button";
 import { Link } from "react-scroll";
 import { Outlet, Link as LinkDom } from "react-router-dom";
 import { useAuth } from "../core/context/AuthContext";
+import { Variants } from "framer-motion";
+const itemVariants: Variants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 }
+  },
+  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
+};
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const objUser = localStorage.getItem("user");
-  const userLoggedIn = objUser ? JSON.parse(objUser) : null;
-
+  const userLoggedIn = objUser  ? JSON.parse(objUser) : null
+  console.log(userLoggedIn)
   const { user } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -129,9 +138,7 @@ const Navbar = () => {
           className="font-outfit mt-4 block text-base text-bgWhite hover:text-textPrimary text-center underline underline-offset-4 cursor-pointer font-bold"
           to={`login`}
         >
-          {userLoggedIn
-            ? "BIENVENUE " + userLoggedIn.username
-            : "SE CONNECTER / S'INSCRIRE"}
+          {userLoggedIn ? "BIENVENUE " + userLoggedIn.username : "SE CONNECTER / S'INSCRIRE"}
         </LinkDom>
       </div>
     </header>
