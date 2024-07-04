@@ -18,113 +18,14 @@ function App() {
   return (
     <InView>
       {({ inView, ref, entry }) => (
-        <div className="bg-red" ref={ref}>
+        <div className="flex" ref={ref}>
+     
+
+        <div className="flex justify-center h-24 bg-yellow ">
           <Navigation></Navigation>
-          <div className="bg-yellow">
-            <span>new thnings</span>
+      
           </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
-          <div className="bg-yellow">
-            <span>new thnings</span>
-          </div>
+   
       
         </div>
       )}
