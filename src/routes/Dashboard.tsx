@@ -12,6 +12,9 @@ const Dashboard: React.FC = () => {
   return (
     <div className="App">
       <Example></Example>
+      <div className="md:ml-[320px] mt-[90px] ml-[20px]">
+        <span>text</span>
+      </div>
     </div>
   );
 };
