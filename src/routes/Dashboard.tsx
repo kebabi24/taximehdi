@@ -13,7 +13,7 @@ const Dashboard: React.FC = () => {
     <div className="App">
       <Example></Example>
       <div className="md:ml-[320px] mt-[90px] ml-[20px]">
-        <span>text</span>
+        <span>teext</span>
       </div>
     </div>
   );
