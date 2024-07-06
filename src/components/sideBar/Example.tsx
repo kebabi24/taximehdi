@@ -4,7 +4,7 @@ import { motion, sync, useCycle } from "framer-motion";
 import { useDimensions } from "./use-dimensions.ts";
 import { MenuToggle } from "./MenuToggle.tsx";
 import { Navigation } from "./Navigation.tsx";
-
+import "../styles.css";
 const sidebar = {
   open: (height = 1000) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -26,13 +26,13 @@ const sidebar = {
 };
 
 export const Example = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isOpen, toggleOpen] = useCycle(true, false);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
   return (
     <motion.nav
-      initial={false}
+      initial={true}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}

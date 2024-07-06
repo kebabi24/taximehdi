@@ -8,12 +8,15 @@ import Button from "@mui/material/Button";
 import { Link } from "react-scroll";
 import { Outlet, Link as LinkDom } from "react-router-dom";
 import { useAuth } from "../core/context/AuthContext";
-const NavbarCustomized = () => {
+interface NavbarCustomizedProps {
+  sidebarButton?: () => void;
+}
+const NavbarCustomized = (props: NavbarCustomizedProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const objUser = localStorage.getItem("user");
-  const userLoggedIn = objUser  ? JSON.parse(objUser) : null
-  
+  const userLoggedIn = objUser ? JSON.parse(objUser) : null;
+
   const { user } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -41,10 +44,7 @@ const NavbarCustomized = () => {
     { link: "SERVICES", path: "services" },
   ];
   return (
-    <header
-      className=" relative  top-0 left-0 right-0 overflow-hidden  bg-bgWhite shadow-lg "
-      style={{ zIndex: 99 }}
-    >
+    <header className="   top-0 left-0 right-0 overflow-hidden  bg-bgWhite shadow-lg ">
       <nav
         className={` flex flex-row justify-between py-6  px-4 ${
           isSticky
@@ -132,7 +132,9 @@ const NavbarCustomized = () => {
           className="font-outfit mt-4 block text-base text-bgWhite hover:text-textPrimary text-center underline underline-offset-4 cursor-pointer font-bold"
           to={`/login`}
         >
-          {userLoggedIn ? "BIENVENUE " + userLoggedIn.username : "SE CONNECTER / S'INSCRIRE"}
+          {userLoggedIn
+            ? "BIENVENUE " + userLoggedIn.username
+            : "SE CONNECTER / S'INSCRIRE"}
         </LinkDom>
       </div>
     </header>
