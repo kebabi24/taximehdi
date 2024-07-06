@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import Book from "./routes/book.tsx";
+import Book from "./routes/Book.tsx";
 import LoginPage from "./routes/LoginPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";

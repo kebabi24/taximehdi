@@ -4,7 +4,7 @@ import AuthProvider from "./core/context/AuthContext.tsx";
 import LoginPage from "./routes/LoginPage.tsx";
 import Home from "./routes/Home.tsx";
 import Dashboard from "./routes/Dashboard.tsx";
-import Book from "./routes/book.tsx";
+import Book from "./routes/Book.tsx";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
