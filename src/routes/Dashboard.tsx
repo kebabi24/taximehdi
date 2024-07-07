@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Example from "../components/Sidebar";
+import Example from "../components/Services";
 
 const Dashboard: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
