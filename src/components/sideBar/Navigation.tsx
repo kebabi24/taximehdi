@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import { MenuItem } from "./MenuItem.tsx";
+import { MenuItem } from "../../../src/components/sidebar/MenuItem.tsx";
 
 const variants = {
   open: {
