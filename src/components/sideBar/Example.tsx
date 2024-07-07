@@ -1,9 +1,9 @@
 import * as React from "react";
 import { useRef } from "react";
 import { motion, sync, useCycle } from "framer-motion";
-import { useDimensions } from "../../../src/components/sidebar/use-dimensions.ts";
-import { MenuToggle } from "../../../src/components/sidebar/MenuToggle.tsx";
-import { Navigation } from "../../../src/components/sidebar/Navigation.tsx";
+import { useDimensions } from "./use-dimensions";
+import { MenuToggle } from "./MenuToggle";
+import { Navigation } from "./Navigation";
 import "../styles.css";
 const sidebar = {
   open: (height = 1000) => ({
