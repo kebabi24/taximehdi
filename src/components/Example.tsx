@@ -26,13 +26,13 @@ const sidebar = {
 };
 
 const Example = () => {
-  const [isOpen, toggleOpen] = useCycle(true, false);
+  const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
   return (
     <motion.nav
-      initial={true}
+      initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
