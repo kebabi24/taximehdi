@@ -46,6 +46,7 @@ export const MenuItem = ({ i }) => {
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
+      className="liNav"
     >
       <div className="icon-placeholder" style={style}>
         {icons[i]}
