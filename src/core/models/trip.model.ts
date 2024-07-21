@@ -21,6 +21,8 @@ type Trip = {
 
   promoCode?: string;
 
+  type: string;
+
   withNote?: boolean;
 
   tripNote?: string;
@@ -31,7 +33,7 @@ type Trip = {
 
   phone?: string;
 
-  userId: string
+  userId: string;
 };
 
 export default Trip;

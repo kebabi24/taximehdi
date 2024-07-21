@@ -6,13 +6,6 @@ import { MdCleaningServices } from "react-icons/md";
 import { InView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 const Product = () => {
-  const [isShowMore1, setIsShowMore1] = useState(false);
-  const [isShowMore2, setIsShowMore2] = useState(false);
-  const [isShowMore3, setIsShowMore3] = useState(false);
-  const [isShowMore4, setIsShowMore4] = useState(false);
-  const [isShowMore5, setIsShowMore5] = useState(false);
-  const [isShowMore6, setIsShowMore6] = useState(false);
-  const [isShowMore7, setIsShowMore7] = useState(false);
   const [insideView, setInsideView] = useState(false);
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -31,45 +24,6 @@ const Product = () => {
       y: 0,
       opacity: 1,
     },
-  };
-  const solutions = [
-    {
-      id: 1,
-      name: "Simple",
-      bgcolor: "bg1",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
-      state: isShowMore1,
-      toggle: (key: boolean) => toggleReadMoreLess1(key),
-    },
-    {
-      id: 2,
-      name: "Standard",
-      bgcolor: "bg2",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
-      state: isShowMore2,
-      toggle: (key: boolean) => toggleReadMoreLess2(key),
-    },
-    {
-      id: 3,
-      name: "Confort",
-      bgcolor: "bg3",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ",
-      state: isShowMore3,
-      toggle: (key: boolean) => toggleReadMoreLess3(key),
-    },
-  ];
-
-  const toggleReadMoreLess1 = (state: boolean) => {
-    setIsShowMore1(!state);
-  };
-  const toggleReadMoreLess2 = (state: boolean) => {
-    setIsShowMore2(!state);
-  };
-  const toggleReadMoreLess3 = (state: boolean) => {
-    setIsShowMore3(!state);
   };
 
   return (

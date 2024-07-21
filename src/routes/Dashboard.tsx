@@ -1,8 +1,165 @@
-import React, { useState } from "react";
-
+// Theme
+import { ColDef, ValueFormatterParams } from "ag-grid-community";
+import { AgGridReact, CustomCellRendererProps } from "ag-grid-react";
+// React Grid Logic
+import "ag-grid-community/styles/ag-grid.css";
+// Core CSS
+import "ag-grid-community/styles/ag-theme-quartz.css";
+import React, { useEffect, useMemo, useState } from "react";
+import { createRoot } from "react-dom/client";
 import Example from "../components/Example";
 
+/* Custom Cell Renderer (Display tick / cross in 'Successful' column) */
+const MissionResultRenderer = (params: CustomCellRendererProps) => (
+  <span
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      height: "100%",
+      alignItems: "center",
+    }}
+  >
+    {
+      <img
+        alt={`${params.value}`}
+        src={`https://www.ag-grid.com/example-assets/icons/${
+          params.value ? "tick-in-circle" : "cross-in-circle"
+        }.png`}
+        style={{ width: "auto", height: "auto" }}
+      />
+    }
+  </span>
+);
 
+/* Format Date Cells */
+const dateFormatter = (params: ValueFormatterParams): string => {
+  return new Date(params.value).toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
+
+// Row Data Interface
+interface IRow {
+  client: string;
+  phone: string;
+  depart: string;
+  arrivy: string;
+  time: string;
+  type: string;
+  baby: string;
+  note: string;
+  state: string;
+  action: string;
+}
+
+// Create new GridExample component
+const GridExample = () => {
+  // Row Data: The data to be displayed.
+  const [rowData, setRowData] = useState<IRow[]>([]);
+
+  // Column Definitions: Defines & controls grid columns.
+  const [colDefs] = useState<ColDef[]>([
+    {
+      field: "concatenatedField",
+      valueGetter: (params) => {
+        // Assuming 'athlete' and 'firstName' are fields in your data
+        return `${params.data.__user__.firstName} ${params.data.__user__.lastName}`;
+      },
+      width: 150,
+      checkboxSelection: true,
+      headerName: "Nom client",
+    },
+    {
+      field: "__user__.phone",
+      width: 150,
+      // cellRenderer: CompanyLogoRenderer,
+      headerName: "Numéro de téléphone",
+    },
+    {
+      field: "departure",
+      width: 170,
+      headerName: "Point de départ",
+    },
+    {
+      field: "destination",
+      width: 170,
+      headerName: "Point d'arrivé",
+    },
+    {
+      field: "departureTime",
+      width: 180,
+      headerName: "Date et heure de départ",
+    },
+    {
+      field: "type",
+      width: 120,
+      // cellRenderer: MissionResultRenderer,
+      headerName: "Type",
+    },
+    {
+      field: "onBoard",
+      width: 120,
+      // cellRenderer: MissionResultRenderer,
+      headerName: "Bébé a bord",
+    },
+    {
+      field: "tripNote",
+      width: 120,
+      // cellRenderer: MissionResultRenderer,
+      headerName: "Note",
+    },
+    {
+      field: "status",
+      width: 120,
+      cellRenderer: MissionResultRenderer,
+      headerName: "Status",
+    },
+    {
+      field: "Action",
+      width: 120,
+      // cellRenderer: MissionResultRenderer,
+      headerName: "Action",
+    },
+  ]);
+
+  // Fetch data & update rowData state
+  useEffect(() => {
+    fetch("http://localhost:3000/api/v1/trips/getAllTrips")
+      .then((result) => result.json())
+      .then((rowData) => setRowData(rowData));
+  }, []);
+
+  // Apply settings across all columns
+  const defaultColDef = useMemo<ColDef>(() => {
+    return {
+      filter: true,
+      // editable: true,
+    };
+  }, []);
+
+  // Container: Defines the grid's theme & dimensions.
+  return (
+    <div
+      className={"ag-theme-quartz"}
+      style={{ width: "100%", height: "100%" }}
+    >
+      <AgGridReact
+        rowData={rowData}
+        columnDefs={colDefs}
+        defaultColDef={defaultColDef}
+        pagination={true}
+        // rowSelection="multiple"
+        onSelectionChanged={(event) => console.log("Row Selected!")}
+        // onCellValueChanged={(event) =>
+        //   console.log(`New Cell Value: ${event.value}`)
+        // }
+      />
+    </div>
+  );
+};
 const Dashboard: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
@@ -10,10 +167,9 @@ const Dashboard: React.FC = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-
   return (
     <div className="flex flex-1 flex-col w-[100%]">
-      <div className="flex    bg-white  p-7 shadow shadow-lg  md:w-[100%] ">
+      <div className="flex    bg-white  p-7 shadow shadow-lg  md:w-[100%] mb-5">
         <div className="flex w-[50%] justify-center items-center  ">
           <Example></Example>
         </div>
@@ -23,236 +179,15 @@ const Dashboard: React.FC = () => {
           </a>
         </div>
       </div>
-      <div className="mt-[12px] self-center  bg-white p-4 shadow rounded-xl shadow-lg mb-5 md:w-[95%] w-[100%] ">
-        <div className=" overflow-x-auto shadow-md sm:rounded-lg">
-          <div className="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
-            <label className="sr-only">Search</label>
-            <div className="">
-              <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                {/* <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                  />
-                </svg> */}
-              </div>
-              <input
-                type="text"
-                id="table-search-users"
-                className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Recherche"
-              />
-            </div>
-          </div>
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                <th scope="col" className="p-4">
-                  <div className="flex items-center">
-                    <input
-                      id="checkbox-all-search"
-                      type="checkbox"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label className="sr-only">checkbox</label>
-                  </div>
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Nom client
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Numéro de téléphone
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Point de départ
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Point d'arrivée
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Date et heure de départ
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Type
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Bébé a bord
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Note
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Status
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="w-4 p-4">
-                  <div className="flex items-center">
-                    <input
-                      id="checkbox-table-search-1"
-                      type="checkbox"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label className="sr-only">checkbox</label>
-                  </div>
-                </td>
-                <th
-                  scope="row"
-                  className="flex items-center px-3 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  {/* <img
-                    className="w-10 h-10 rounded-full"
-                    src="/docs/images/people/profile-picture-1.jpg"
-                    alt="Jese image"
-                  /> */}
-                  <div className="ps-3">
-                    <div className="text-base font-semibold">
-                      Kebabi Nouaaim
-                    </div>
-                    <div className="font-normal text-gray-500">
-                      kebabi@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4">0773066634</td>
-                <td className="px-6 py-4">Alger - Bab ezzouar</td>
-                <td className="px-6 py-4">Guelma</td>
-                <td className="px-6 py-4">23 Juillet 2024 - 19H30</td>
-                <td className="px-6 py-4">Confort</td>
-                <td className="px-6 py-4">Non</td>
-                <td className="px-6 py-4">Climatiseur</td>
-                <td className="px-6 py-4">
-                  <div className="flex items-center">
-                    <div className="h-2.5 w-2.5 rounded-full bg-yellow me-2"></div>{" "}
-                    En attente
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    Modifier
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="w-4 p-4">
-                  <div className="flex items-center">
-                    <input
-                      id="checkbox-table-search-1"
-                      type="checkbox"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label className="sr-only">checkbox</label>
-                  </div>
-                </td>
-                <th
-                  scope="row"
-                  className="flex items-center px-3 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  {/* <img
-                    className="w-10 h-10 rounded-full"
-                    src="/docs/images/people/profile-picture-1.jpg"
-                    alt="Jese image"
-                  /> */}
-                  <div className="ps-3">
-                    <div className="text-base font-semibold">Touati Michou</div>
-                    <div className="font-normal text-gray-500">
-                      michou@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4">0773066634</td>
-                <td className="px-6 py-4">Annaba</td>
-                <td className="px-6 py-4">Guelma</td>
-                <td className="px-6 py-4">15 Septembre 2024 - 19H30</td>
-                <td className="px-6 py-4">Simple</td>
-                <td className="px-6 py-4">Non</td>
-                <td className="px-6 py-4">Calme</td>
-                <td className="px-6 py-4">
-                  <div className="flex items-center">
-                    <div className="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>{" "}
-                    Validé
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    Modifier
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="w-4 p-4">
-                  <div className="flex items-center">
-                    <input
-                      id="checkbox-table-search-1"
-                      type="checkbox"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label className="sr-only">checkbox</label>
-                  </div>
-                </td>
-                <th
-                  scope="row"
-                  className="flex items-center px-3 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  {/* <img
-                    className="w-10 h-10 rounded-full"
-                    src="/docs/images/people/profile-picture-1.jpg"
-                    alt="Jese image"
-                  /> */}
-                  <div className="ps-3">
-                    <div className="text-base font-semibold">
-                      Yazid Bouderbala
-                    </div>
-                    <div className="font-normal text-gray-500">
-                      Bourderbala@gmail.com
-                    </div>
-                  </div>
-                </th>
-                <td className="px-6 py-4">0773066634</td>
-                <td className="px-6 py-4">Aéroport d'alger</td>
-                <td className="px-6 py-4">Guelma</td>
-                <td className="px-6 py-4">05 aout 2024 - 19H30</td>
-                <td className="px-6 py-4">Business</td>
-                <td className="px-6 py-4">Oui</td>
-                <td className="px-6 py-4">Music</td>
-                <td className="px-6 py-4">
-                  <div className="flex items-center">
-                    <div className="h-2.5 w-2.5 rounded-full bg-red me-2"></div>{" "}
-                    Refusé
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  <a
-                    href="#"
-                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                  >
-                    Modifier
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+
+      <div
+        style={{
+          width: "95%",
+          height: "600px",
+        }}
+        className="flex self-center"
+      >
+        <GridExample />
       </div>
     </div>
   );

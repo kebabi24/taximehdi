@@ -44,6 +44,8 @@ const Home = () => {
   const [type, setType] = React.useState("");
   const [error, setError] = useState(false);
   const [depart, setDepart] = useState("");
+  const [departError, setDepartError] = useState(false);
+  const [destinationError, setDestinationError] = useState(false);
   const [selectDate, setSelectDate] = useState(true);
   const [selectedDepartDate, setSelectedDepartDate] = useState(
     dayjs(new Date())
@@ -66,10 +68,12 @@ const Home = () => {
   const handleDepartChange = (e: any) => {
     console.log(e.target.value);
     setDepart(e.target.value);
+    setDepartError(false);
   };
   const handleDestinationChange = (e: any) => {
     console.log(e.target.value);
     setDestination(e.target.value);
+    setDestinationError(false);
   };
 
   const handleDepartDateChange = (date: any) => {
@@ -95,14 +99,21 @@ const Home = () => {
     if (selectDate) {
       setError(true);
     } else {
-      navigate("/book", {
-        state: {
-          depart: depart,
-          destination: destination,
-          departureTime: departTime,
-          returnTime: returnButton ? returnTime : null,
-        },
-      });
+      if (depart == "") {
+        setDepartError(true);
+      } else if (destination == "") {
+        setDestinationError(true);
+      } else {
+        navigate("/book", {
+          state: {
+            depart: depart,
+            destination: destination,
+            departureTime: departTime,
+            returnTime: returnButton ? returnTime : null,
+            type: type,
+          },
+        });
+      }
     }
   };
 
@@ -146,12 +157,17 @@ const Home = () => {
                 }}
               >
                 <div style={{ display: "flex", flexDirection: "column" }}>
+                  {departError && (
+                    <span className="self-start text-xs text-red font-opensans">
+                      Ce champ est obligatoire *
+                    </span>
+                  )}
                   <Stack spacing={2}>
                     <Autocomplete
                       freeSolo
                       id="free-solo-2-demo"
                       disableClearable
-                      options={top100Films.map((option) => option.title)}
+                      options={options.map((option) => option.title)}
                       onChange={(event, value) => setDepart(value)}
                       renderInput={(params) => (
                         <TextField
@@ -174,19 +190,25 @@ const Home = () => {
                       )}
                     />
                   </Stack>
+                  {destinationError && (
+                    <span className="self-start text-xs text-red font-opensans">
+                      Ce champ est obligatoire *
+                    </span>
+                  )}
                   <Stack spacing={2}>
                     <Autocomplete
                       freeSolo
                       id="free-solo-2-demo"
                       disableClearable
                       onChange={(event, value) => setDestination(value)}
-                      options={top100Films.map((option) => option.title)}
+                      options={options.map((option) => option.title)}
                       renderInput={(params) => (
                         <TextField
                           {...params}
                           style={{ marginBottom: "5px", minWidth: "100%" }}
                           placeholder="Localisation d'arrivé"
                           value={destination}
+                          onChange={handleDestinationChange}
                           InputProps={{
                             ...params.InputProps,
                             type: "search",
@@ -367,7 +389,7 @@ const Home = () => {
   );
 };
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-const top100Films = [
+const options = [
   { title: "Aéroport d'Annaba", year: 1994 },
   { title: "Guelma, Guelma", year: 1972 },
   { title: "Aéroport de Constantine", year: 1974 },

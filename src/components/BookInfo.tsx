@@ -38,6 +38,7 @@ const BookInfo = (props: stateProps) => {
 
   const [endStep, setEndStep] = useState(-1);
   const [tripsAdded, setTripsAdded] = useState(false);
+  const [value, setValue] = React.useState<number | null>(null);
   let navigate = useNavigate();
   const objUser = localStorage.getItem("user");
   const userLoggedIn = objUser ? JSON.parse(objUser) : null;
@@ -49,9 +50,9 @@ const BookInfo = (props: stateProps) => {
 
     phone: "",
 
-    departure: "",
+    departure: props.state.depart,
 
-    destination: "",
+    destination: props.state.destination,
 
     departureTime: props.state.departureTime,
 
@@ -69,6 +70,8 @@ const BookInfo = (props: stateProps) => {
 
     promoCode: "",
 
+    type: props.state.type,
+
     withNote: false,
 
     tripNote: "",
@@ -82,13 +85,13 @@ const BookInfo = (props: stateProps) => {
   const handleChangeChecked = (e: any) => {
     setTripData({ ...tripData, [e.target.name]: e.target.checked });
   };
-  useEffect(()=>{
-    const trip = localStorage.getItem('tripsAdded');
+  useEffect(() => {
+    const trip = localStorage.getItem("tripsAdded");
     if (trip) {
-      localStorage.removeItem('tripsAdded');
-      navigate('/')
+      localStorage.removeItem("tripsAdded");
+      navigate("/");
     }
-  }, [tripsAdded])
+  }, [tripsAdded]);
   const IOSSwitch = styled((props: SwitchProps) => (
     <Switch
       focusVisibleClassName=".Mui-focusVisible"
@@ -147,7 +150,13 @@ const BookInfo = (props: stateProps) => {
   const handleSubmit = () => {
     setStep(step + 1);
     setTripData({ ...tripData, userId: userLoggedIn.id });
+    console.log(tripData);
   };
+  const handleNumberChange = () => {
+    setTripData({ ...tripData, passengerNumber: tripData.passengerNumber + 1 });
+    console.log(tripData);
+  };
+
   const confirmOrder = async () => {
     try {
       const res = await axios.post(
@@ -161,8 +170,7 @@ const BookInfo = (props: stateProps) => {
         }
       );
       setEndStep(99);
-      localStorage.setItem("tripsAdded",  JSON.stringify(res.data.id))
-    
+      localStorage.setItem("tripsAdded", JSON.stringify(res.data.id));
     } catch (e) {
       console.log(e);
     }
@@ -391,9 +399,13 @@ const BookInfo = (props: stateProps) => {
                         >
                           <NumberInput
                             aria-label="Quantity Input"
-                            min={1}
-                            max={99}
                             value={tripData.passengerNumber}
+                            onChange={(event, val) =>
+                              setTripData({
+                                ...tripData,
+                                passengerNumber: val ? val : 1,
+                              })
+                            }
                           />
                         </div>
                       </div>

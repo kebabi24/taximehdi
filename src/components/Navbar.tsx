@@ -13,16 +13,16 @@ const itemVariants: Variants = {
   open: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 }
+    transition: { type: "spring", stiffness: 300, damping: 24 },
   },
-  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
+  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const objUser = localStorage.getItem("user");
-  const userLoggedIn = objUser  ? JSON.parse(objUser) : null
-  console.log(userLoggedIn)
+  const userLoggedIn = objUser ? JSON.parse(objUser) : null;
+  console.log(userLoggedIn);
   const { user } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -95,7 +95,7 @@ const Navbar = () => {
             ))}
             <LinkDom
               className="font-outfit block text-base text-bgWhite hover:text-textPrimary underline underline-offset-4 cursor-pointer font-bold"
-              to={`login`}
+              to={userLoggedIn ? `profile` : `login`}
             >
               {userLoggedIn
                 ? "BIENVENUE " + userLoggedIn.username
@@ -136,9 +136,11 @@ const Navbar = () => {
         ))}
         <LinkDom
           className="font-outfit mt-4 block text-base text-bgWhite hover:text-textPrimary text-center underline underline-offset-4 cursor-pointer font-bold"
-          to={`login`}
+          to={userLoggedIn ? `profile` : `login`}
         >
-          {userLoggedIn ? "BIENVENUE " + userLoggedIn.username : "SE CONNECTER / S'INSCRIRE"}
+          {userLoggedIn
+            ? "BIENVENUE " + userLoggedIn.username
+            : "SE CONNECTER / S'INSCRIRE"}
         </LinkDom>
       </div>
     </header>
