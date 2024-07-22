@@ -1,4 +1,3 @@
-
 import Navbar from "../components/Navbar";
 import Home from "../components/Home";
 
@@ -12,6 +11,7 @@ import Call from "../components/Call";
 import FollowersBar from "../components/FollowersBar";
 import { useInView } from "react-intersection-observer";
 import { InView } from "react-intersection-observer";
+import NavbarCustomized from "../components/NavbarCustomized";
 function App() {
   const { ref, inView, entry } = useInView({
     threshold: 0.25,
@@ -20,7 +20,7 @@ function App() {
     <InView>
       {({ inView, ref, entry }) => (
         <div ref={ref}>
-          
+          {/* <NavbarCustomized></NavbarCustomized> */}
           <Home />
 
           <Product></Product>

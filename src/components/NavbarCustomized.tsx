@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import lg from "../assets/lg-noir.png";
+import lg from "../assets/logoo.png";
 import { FaXmark, FaBars, FaPhone } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaTelegramPlane } from "react-icons/fa";
 import Button from "@mui/material/Button";
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Link } from "react-scroll";
-import { Outlet, Link as LinkDom } from "react-router-dom";
+import { Outlet, Link as LinkDom, useNavigate } from "react-router-dom";
 import { useAuth } from "../core/context/AuthContext";
 interface NavbarCustomizedProps {
   sidebarButton?: () => void;
 }
 const NavbarCustomized = (props: NavbarCustomizedProps) => {
+  let navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const objUser = localStorage.getItem("user");
@@ -44,17 +45,24 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
     { link: "SERVICES", path: "services" },
   ];
   return (
-    <header className="   top-0 left-0 right-0 overflow-hidden  bg-bgWhite shadow-lg ">
+    <header className=" flex justify-around items-center h-24 top-0 left-0 right-0 overflow-hidden  bg-bgWhite shadow-lg ">
+      <div>
+        <a className="cursor-pointer">
+          <img
+            src={lg}
+            alt=""
+            style={{ width: "180px" }}
+            onClick={() => navigate("/home")}
+          />
+        </a>
+      </div>
       <nav
-        className={` flex flex-row justify-between py-6  px-4 ${
+        className={` flex flex-row justify-between   px-4 ${
           isSticky
             ? "sticky top-0 left-0 right-0 border-b bg-white duration-300 z-40"
             : ""
         }`}
       >
-        <a>
-          <img src={lg} alt="" style={{ width: "150px" }} />
-        </a>
         <div className="flex  items-center text-base gap-8">
           <ul className="md:flex space-x-4 hidden">
             <Link

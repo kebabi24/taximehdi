@@ -39,6 +39,7 @@ import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import TestNavbar from "./TestNavbar";
+import NavbarCustomized from "./NavbarCustomized";
 TestNavbar;
 const Home = () => {
   const [type, setType] = React.useState("");
@@ -118,148 +119,120 @@ const Home = () => {
   };
 
   return (
-    <div
-      className=" py-8  w-full h-screen  bg-[url('assets/hero.jpg')] bg-cover bg-no-repeat overflow-hidden"
-      id="solutions"
-    >
-      <Navbar />
-      <div className="md:px-20 py-5 grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1 ">
-        <div
-          style={{ borderRadius: "10px" }}
-          className="card md:mx-10 mx-4 text-center md:w-[400px]  md:h-100  shadow   flex h-full  justify-center items-center overflow-hidden bg-white "
-        >
-          <div className=" h-50 md:w-[600px] w-full flex flex-col justify-center items-center ">
-            <div
-              className="w-full mb-5 bg-gradient-to-t from-[#EFCB3C] to-[#F7E498]"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                width: "100%",
-                borderStartStartRadius: 10,
-                borderStartEndRadius: 10,
-                height: "80px",
-              }}
-            >
-              <span
-                style={{ fontSize: "32px" }}
-                className="font-outfit px-10 font-bold "
-              >
-                BOOK NOW!
-              </span>
-            </div>
-            <form>
+    <div className="flex flex-col h-screen">
+      <NavbarCustomized></NavbarCustomized>
+      <div className=" flex flex-col sm:flex-row h-screen" id="solutions">
+        <div className="flex w-full h-full sm:w-9/12 bg-white flex-col justify-center ">
+          <div
+            style={{ borderRadius: "10px" }}
+            className="card md:mx-10 mx-4 text-center md:w-[400px]  md:h-100  drop-shadow-2xl  flex justify-center items-center overflow-hidden bg-white "
+          >
+            <div className=" h-50 md:w-[600px] w-full flex flex-col justify-center items-center ">
               <div
-                className="pb-5"
+                className="w-full mb-5 bg-gradient-to-t from-[#EFCB3C] to-[#F7E498]"
                 style={{
                   display: "flex",
-                  flexDirection: "column",
-                  // backgroundColor: "red",
+                  alignItems: "center",
+                  width: "100%",
+                  borderStartStartRadius: 10,
+                  borderStartEndRadius: 10,
+                  height: "80px",
                 }}
               >
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  {departError && (
-                    <span className="self-start text-xs text-red font-opensans">
-                      Ce champ est obligatoire *
-                    </span>
-                  )}
-                  <Stack spacing={2}>
-                    <Autocomplete
-                      freeSolo
-                      id="free-solo-2-demo"
-                      disableClearable
-                      options={options.map((option) => option.title)}
-                      onChange={(event, value) => setDepart(value)}
-                      renderInput={(params) => (
-                        <TextField
-                          {...params}
-                          style={{ marginBottom: "5px", minWidth: "100%" }}
-                          required
-                          placeholder="Localisation de départ"
-                          value={depart}
-                          onChange={handleDepartChange}
-                          InputProps={{
-                            ...params.InputProps,
-                            type: "search",
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <LoginIcon />
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                      )}
-                    />
-                  </Stack>
-                  {destinationError && (
-                    <span className="self-start text-xs text-red font-opensans">
-                      Ce champ est obligatoire *
-                    </span>
-                  )}
-                  <Stack spacing={2}>
-                    <Autocomplete
-                      freeSolo
-                      id="free-solo-2-demo"
-                      disableClearable
-                      onChange={(event, value) => setDestination(value)}
-                      options={options.map((option) => option.title)}
-                      renderInput={(params) => (
-                        <TextField
-                          {...params}
-                          style={{ marginBottom: "5px", minWidth: "100%" }}
-                          placeholder="Localisation d'arrivé"
-                          value={destination}
-                          onChange={handleDestinationChange}
-                          InputProps={{
-                            ...params.InputProps,
-                            type: "search",
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <LoginIcon />
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                      )}
-                    />
-                  </Stack>
-                </div>
+                <span
+                  style={{ fontSize: "32px" }}
+                  className="font-outfit px-10 font-bold "
+                >
+                  BOOK NOW!
+                </span>
+              </div>
+              <form>
                 <div
+                  className="pb-5"
                   style={{
                     display: "flex",
                     flexDirection: "column",
+                    // backgroundColor: "red",
                   }}
                 >
-                  {error && (
-                    <span className="self-start text-xs text-red font-opensans">
-                      veuillez séléctionné une date
-                    </span>
-                  )}
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    {departError && (
+                      <span className="self-start text-xs text-red font-opensans">
+                        Ce champ est obligatoire *
+                      </span>
+                    )}
+                    <Stack spacing={2}>
+                      <Autocomplete
+                        freeSolo
+                        id="free-solo-2-demo"
+                        disableClearable
+                        options={options.map((option) => option.title)}
+                        onChange={(event, value) => setDepart(value)}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            style={{ marginBottom: "5px", minWidth: "100%" }}
+                            required
+                            placeholder="Localisation de départ"
+                            value={depart}
+                            onChange={handleDepartChange}
+                            InputProps={{
+                              ...params.InputProps,
+                              type: "search",
+                              startAdornment: (
+                                <InputAdornment position="start">
+                                  <LoginIcon />
+                                </InputAdornment>
+                              ),
+                            }}
+                          />
+                        )}
+                      />
+                    </Stack>
+                    {destinationError && (
+                      <span className="self-start text-xs text-red font-opensans">
+                        Ce champ est obligatoire *
+                      </span>
+                    )}
+                    <Stack spacing={2}>
+                      <Autocomplete
+                        freeSolo
+                        id="free-solo-2-demo"
+                        disableClearable
+                        onChange={(event, value) => setDestination(value)}
+                        options={options.map((option) => option.title)}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            style={{ marginBottom: "5px", minWidth: "100%" }}
+                            placeholder="Localisation d'arrivé"
+                            value={destination}
+                            onChange={handleDestinationChange}
+                            InputProps={{
+                              ...params.InputProps,
+                              type: "search",
+                              startAdornment: (
+                                <InputAdornment position="start">
+                                  <LoginIcon />
+                                </InputAdornment>
+                              ),
+                            }}
+                          />
+                        )}
+                      />
+                    </Stack>
+                  </div>
                   <div
                     style={{
                       display: "flex",
-                      flex: 1,
-                      marginBottom: "5px",
-                      minWidth: "100%",
+                      flexDirection: "column",
                     }}
                   >
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DesktopDateTimePicker
-                        defaultValue={dayjs(new Date())}
-                        slotProps={{
-                          // Targets the `InputAdornment` component.
-                          inputAdornment: {
-                            position: "start",
-                          },
-                          textField: {
-                            required: true,
-                          },
-                        }}
-                        value={selectedDepartDate}
-                        onChange={handleDepartDateChange}
-                      />
-                    </LocalizationProvider>
-                  </div>
-                  {returnButton && (
+                    {error && (
+                      <span className="self-start text-xs text-red font-opensans">
+                        veuillez séléctionné une date
+                      </span>
+                    )}
                     <div
                       style={{
                         display: "flex",
@@ -276,115 +249,133 @@ const Home = () => {
                             inputAdornment: {
                               position: "start",
                             },
+                            textField: {
+                              required: true,
+                            },
                           }}
-                          value={selectedReturnDate}
-                          onChange={handleReturnDateChange}
+                          value={selectedDepartDate}
+                          onChange={handleDepartDateChange}
                         />
                       </LocalizationProvider>
                     </div>
-                  )}
-                  {!returnButton && (
-                    <div>
-                      <Button
-                        variant="contained"
+                    {returnButton && (
+                      <div
                         style={{
-                          backgroundColor: "transparent",
-                          color: "black",
-                          fontWeight: "bold",
-                          height: "100%",
-                          width: "100%",
+                          display: "flex",
+                          flex: 1,
+                          marginBottom: "5px",
+                          minWidth: "100%",
                         }}
-                        onClick={handleReturnButtonClick}
                       >
-                        Ajouter un retour
-                      </Button>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                          <DesktopDateTimePicker
+                            defaultValue={dayjs(new Date())}
+                            slotProps={{
+                              // Targets the `InputAdornment` component.
+                              inputAdornment: {
+                                position: "start",
+                              },
+                            }}
+                            value={selectedReturnDate}
+                            onChange={handleReturnDateChange}
+                          />
+                        </LocalizationProvider>
+                      </div>
+                    )}
+                    {!returnButton && (
+                      <div>
+                        <Button
+                          variant="contained"
+                          style={{
+                            backgroundColor: "transparent",
+                            color: "black",
+                            fontWeight: "bold",
+                            height: "100%",
+                            width: "100%",
+                          }}
+                          onClick={handleReturnButtonClick}
+                        >
+                          Ajouter un retour
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div>
+                      <FormControl
+                        style={{
+                          minWidth: "100%",
+
+                          marginTop: "5px",
+                        }}
+                      >
+                        <Select
+                          value={type}
+                          onChange={handleChange}
+                          style={{ minWidth: "100%" }}
+                          displayEmpty
+                          inputProps={{ "aria-label": "Without label" }}
+                          placeholder="Type de véhicule"
+                          renderValue={(value) => {
+                            console.log(value);
+                            return (
+                              <Box sx={{ display: "flex" }}>
+                                <SvgIcon>
+                                  <LocalTaxiIcon />
+                                </SvgIcon>
+                                {value}
+                              </Box>
+                            );
+                          }}
+                        >
+                          <MenuItem value={"Simple"}>Simple</MenuItem>
+                          <MenuItem value={"Confort"}>Confort</MenuItem>
+                          <MenuItem value={"Van"}>Van</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
-                  )}
-                </div>
-
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div>
-                    <FormControl
-                      style={{
-                        minWidth: "100%",
-
-                        marginTop: "5px",
-                      }}
-                    >
-                      <Select
-                        value={type}
-                        onChange={handleChange}
-                        style={{ minWidth: "100%" }}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        placeholder="Type de véhicule"
-                        renderValue={(value) => {
-                          console.log(value);
-                          return (
-                            <Box sx={{ display: "flex" }}>
-                              <SvgIcon>
-                                <LocalTaxiIcon />
-                              </SvgIcon>
-                              {value}
-                            </Box>
-                          );
+                    <div>
+                      <TextField
+                        style={{
+                          marginBottom: "7px",
+                          marginTop: "7px",
+                          minWidth: "100%",
                         }}
-                      >
-                        <MenuItem value={"Simple"}>Simple</MenuItem>
-                        <MenuItem value={"Confort"}>Confort</MenuItem>
-                        <MenuItem value={"Van"}>Van</MenuItem>
-                      </Select>
-                    </FormControl>
+                        id="input-with-icon-textfield"
+                        placeholder="Numéro de téléphone"
+                        InputProps={{
+                          inputMode: "tel",
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <LocalPhoneIcon />
+                            </InputAdornment>
+                          ),
+                        }}
+                        variant="outlined"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <TextField
-                      style={{
-                        marginBottom: "7px",
-                        marginTop: "7px",
-                        minWidth: "100%",
-                      }}
-                      id="input-with-icon-textfield"
-                      placeholder="Numéro de téléphone"
-                      InputProps={{
-                        inputMode: "tel",
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <LocalPhoneIcon />
-                          </InputAdornment>
-                        ),
-                      }}
-                      variant="outlined"
-                    />
-                  </div>
+                  <Button
+                    className="font-outfit"
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#313131",
+                      color: "white",
+                      fontWeight: "bold",
+                      height: "55px",
+                    }}
+                    onClick={handleBooking}
+                  >
+                    BOOK NOW!
+                  </Button>
                 </div>
-                <Button
-                  className="font-outfit"
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#313131",
-                    color: "white",
-                    fontWeight: "bold",
-                    height: "55px",
-                  }}
-                  onClick={handleBooking}
-                >
-                  BOOK NOW!
-                </Button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
+        <div className="z-99 w-full lg:h-full sm:w-1/2 bg-[url('assets/home.jpg')] bg-[length:100%_100%] bg-no-repeat bg-center "></div>
       </div>
-      <Backdrop
-        sx={{
-          color: "#fff",
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-        }}
-        open={open}
-        onClick={handleClose}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
     </div>
   );
 };
