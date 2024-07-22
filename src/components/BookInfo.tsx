@@ -1055,7 +1055,7 @@ const BookInfo = (props: stateProps) => {
                     <IoCarSportSharp color={"#717171"} size={20} />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xs ">Economy</span>
+                    <span className="text-xs ">{props.state.type}</span>
                     <span className="text-xs">
                       up to 4 passengers, 3 pieces of baggage
                     </span>

@@ -122,10 +122,10 @@ const Home = () => {
     <div className="flex flex-col h-screen">
       <NavbarCustomized></NavbarCustomized>
       <div className=" flex flex-col sm:flex-row h-screen" id="solutions">
-        <div className="flex w-full h-full sm:w-9/12 bg-white flex-col justify-center ">
+        <div className="flex w-full h-full sm:w-9/12 bg-white flex-col justify-center items-center ">
           <div
             style={{ borderRadius: "10px" }}
-            className="card md:mx-10 mx-4 text-center md:w-[400px]  md:h-100  drop-shadow-2xl  flex justify-center items-center overflow-hidden bg-white "
+            className="card md:mx-10 mx-4 text-center md:w-[400px]  md:h-100  drop-shadow-3xl  flex justify-center items-center overflow-hidden bg-white "
           >
             <div className=" h-50 md:w-[600px] w-full flex flex-col justify-center items-center ">
               <div
