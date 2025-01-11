@@ -14,12 +14,12 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import dayjs, { Dayjs } from "dayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DesktopDateTimePicker } from "@mui/x-date-pickers/DesktopDateTimePicker";
-
+import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
+import { useMediaQuery, useTheme } from "@mui/material";
+import homeImage from "../assets/home.jpg";
 import { StaticDateTimePicker } from "@mui/x-date-pickers/StaticDateTimePicker";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -117,15 +117,16 @@ const Home = () => {
       }
     }
   };
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <div className="flex flex-col h-screen">
       <NavbarCustomized></NavbarCustomized>
       <div className=" flex flex-col sm:flex-row h-screen" id="solutions">
-        <div className="flex w-full h-full sm:w-9/12 bg-white flex-col justify-center items-center ">
+        <div className="flex w-full h-full sm:w-5/12 bg-white flex-col justify-center md:px-24 ">
           <div
             style={{ borderRadius: "10px" }}
-            className="card md:mx-10 mx-4 text-center md:w-[400px]  md:h-100  drop-shadow-3xl  flex justify-center items-center overflow-hidden bg-white "
+            className="card md:mx-10 mx-4 text-center md:w-[400px]  md:h-100  shadow-2xl  flex justify-center items-center overflow-hidden bg-white "
           >
             <div className=" h-50 md:w-[600px] w-full flex flex-col justify-center items-center ">
               <div
@@ -242,20 +243,35 @@ const Home = () => {
                       }}
                     >
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DesktopDateTimePicker
-                          defaultValue={dayjs(new Date())}
-                          slotProps={{
-                            // Targets the `InputAdornment` component.
-                            inputAdornment: {
-                              position: "start",
-                            },
-                            textField: {
-                              required: true,
-                            },
-                          }}
-                          value={selectedDepartDate}
-                          onChange={handleDepartDateChange}
-                        />
+                        {isMobile ? (
+                          // Render MobileDateTimePicker for small screens
+                          <MobileDateTimePicker
+                            defaultValue={dayjs(new Date())}
+                            slotProps={{
+                              textField: {
+                                required: true,
+                                fullWidth: true, // Ensures the input takes full width on mobile
+                              },
+                            }}
+                            value={selectedDepartDate}
+                            onChange={handleDepartDateChange}
+                          />
+                        ) : (
+                          // Render DesktopDateTimePicker for larger screens
+                          <DesktopDateTimePicker
+                            defaultValue={dayjs(new Date())}
+                            slotProps={{
+                              inputAdornment: {
+                                position: "start",
+                              },
+                              textField: {
+                                required: true,
+                              },
+                            }}
+                            value={selectedDepartDate}
+                            onChange={handleDepartDateChange}
+                          />
+                        )}
                       </LocalizationProvider>
                     </div>
                     {returnButton && (
@@ -268,17 +284,38 @@ const Home = () => {
                         }}
                       >
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                          <DesktopDateTimePicker
-                            defaultValue={dayjs(new Date())}
-                            slotProps={{
-                              // Targets the `InputAdornment` component.
-                              inputAdornment: {
-                                position: "start",
-                              },
-                            }}
-                            value={selectedReturnDate}
-                            onChange={handleReturnDateChange}
-                          />
+                          {isMobile ? (
+                            // Render MobileDateTimePicker for small screens
+                            <MobileDateTimePicker
+                              defaultValue={dayjs(new Date())}
+                              slotProps={{
+                                textField: {
+                                  required: true,
+                                  fullWidth: true, // Ensures the input takes full width on mobile
+                                },
+                              }}
+                              value={selectedReturnDate}
+                              onChange={handleReturnDateChange}
+                            />
+                          ) : (
+                            // Render DesktopDateTimePicker for larger screens
+                            <DesktopDateTimePicker
+                              defaultValue={dayjs(new Date())}
+                              slotProps={{
+                                inputAdornment: {
+                                  position: "start",
+                                },
+                                textField: {
+                                  required: true,
+                                },
+                                popper: {
+                                  placement: "bottom", // Force the popover to open at the bottom
+                                },
+                              }}
+                              value={selectedReturnDate}
+                              onChange={handleReturnDateChange}
+                            />
+                          )}
                         </LocalizationProvider>
                       </div>
                     )}
@@ -374,7 +411,13 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="z-99 w-full lg:h-full sm:w-1/2 bg-[url('assets/home.jpg')] bg-[length:100%_100%] bg-no-repeat bg-center "></div>
+        <div className="z-99 w-full lg:h-full bg-[length:100%_100%] bg-no-repeat bg-center relative hidden md:block">
+          <img
+            src={homeImage}
+            alt=""
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[260px] md:w-[400px] lg:w-[520px]"
+          />
+        </div>
       </div>
     </div>
   );

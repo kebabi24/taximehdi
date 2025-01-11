@@ -288,7 +288,7 @@ const BookInfo = (props: stateProps) => {
                 </div>
                 {step === 0 && (
                   <>
-                    <div className="flex flex-col bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <div className="flex flex-col bg-white pt-4 pb-4 rounded-xl shadow-lg mb-5 align-start">
                       <h4 className="font-opensans font-extrabold text-gray800  font-size-32 mb-5 text-md ml-3 self-start">
                         Détails de transfere
                       </h4>
@@ -366,7 +366,7 @@ const BookInfo = (props: stateProps) => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <div className="flex flex-col  bg-white pt-4 pb-4 rounded-xl shadow-lg mb-5 align-start">
                       <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-3 self-start">
                         Passengers
                       </h4>
@@ -450,7 +450,7 @@ const BookInfo = (props: stateProps) => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <div className="flex flex-col  bg-white pt-4 pb-4 rounded-xl shadow-lg mb-5 align-start">
                       <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-3 self-start">
                         Informations du passager
                       </h4>
@@ -560,7 +560,7 @@ const BookInfo = (props: stateProps) => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <div className="flex flex-col  bg-white pt-4 pb-4  rounded-xl shadow-lg mb-5 align-start">
                       <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-3 self-start">
                         Services additionelle
                       </h4>
@@ -605,7 +605,7 @@ const BookInfo = (props: stateProps) => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <div className="flex flex-col  bg-white pt-4 pb-4 rounded-xl shadow-lg mb-5 align-start">
                       <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-3 self-start">
                         Notes
                       </h4>
@@ -678,7 +678,7 @@ const BookInfo = (props: stateProps) => {
                         </div>
                       )}
                     </div>
-                    <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <div className="flex flex-col  bg-white pt-4 pb-4  rounded-xl shadow-lg mb-5 align-start">
                       <h4 className="font-opensans font-extrabold text-gray800   font-size-32 mb-5 text-md ml-3 self-start">
                         Code promo
                       </h4>
@@ -712,7 +712,7 @@ const BookInfo = (props: stateProps) => {
                 )}
                 {step === 1 && (
                   <>
-                    <div className="flex  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 ">
+                    <div className="flex  bg-white pt-4 pb-4  rounded-xl shadow-lg mb-5 ">
                       <div className="w-[80%]  flex justify-start items-start">
                         <h4 className="font-opensans font-extrabold text-gray800  font-size-32  text-md ml-3 ">
                           Détails de transfere
@@ -727,7 +727,7 @@ const BookInfo = (props: stateProps) => {
                         </a>
                       </div>
                     </div>
-                    <div className="flex flex-col  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 align-start">
+                    <div className="flex flex-col  bg-white pt-4 pb-4  rounded-xl shadow-lg mb-5 align-start">
                       <h4 className="font-opensans font-extrabold text-gray800  mb-4 text-md ml-3 self-start">
                         Récapitulatif de votre course
                       </h4>
@@ -994,7 +994,7 @@ const BookInfo = (props: stateProps) => {
                 )}
                 {step === 2 && (
                   <>
-                    <div className="flex  bg-white pt-4 pb-4 shadow rounded-xl shadow-lg mb-5 ">
+                    <div className="flex  bg-white pt-4 pb-4  rounded-xl shadow-lg mb-5 ">
                       <div className="w-[80%]  flex justify-start items-start">
                         <h4 className="font-opensans font-extrabold text-gray800  font-size-32  text-md ml-3 ">
                           Confirmation de votre course
@@ -1011,7 +1011,7 @@ const BookInfo = (props: stateProps) => {
                     </div>
                   </>
                 )}
-                <div className="flex flex-col  bg-white  shadow rounded-xl shadow-lg mb-5 align-start">
+                <div className="flex flex-col  bg-white   rounded-xl shadow-lg mb-5 align-start">
                   {step !== 1 && (
                     <Button
                       onClick={handleSubmit}
@@ -1048,9 +1048,9 @@ const BookInfo = (props: stateProps) => {
           </>
           <>
             <div className="card flex flex-col ">
-              <div className=" h-46 md:mt-20 shadow flex flex-col bg-white rounded-xl shadow-lg">
+              <div className=" h-46 md:mt-20  flex flex-col bg-white rounded-xl shadow-lg">
                 {/* <img src={solution.logo} alt="" /> */}
-                <div className="flex p-3 shadow bg-gradient-to-t from-[#EFCB3C] to-[#F7E498] rounded-tl-xl rounded-tr-xl shadow-lg">
+                <div className="flex p-3  bg-gradient-to-t from-[#EFCB3C] to-[#F7E498] rounded-tl-xl rounded-tr-xl shadow-lg">
                   <div className="flex p-1 items-center justify-center bg-white mr-2 h-8 w-8 rounded-3xl self-center">
                     <IoCarSportSharp color={"#717171"} size={20} />
                   </div>
@@ -1089,7 +1089,7 @@ const BookInfo = (props: stateProps) => {
                   </div>
                 </div>
               </div>
-              <div className="pl-4 pr-4 h-16 mt-4 shadow flex items-center place-content-between bg-white rounded-xl shadow-lg">
+              <div className="pl-4 pr-4 h-16 mt-4  flex items-center place-content-between bg-white rounded-xl shadow-lg">
                 <p className="font-opensans text-md font-extrabold text-gray800">
                   TOTAL:
                 </p>

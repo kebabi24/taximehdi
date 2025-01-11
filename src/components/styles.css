@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: center;
   z-index: 99;
-
 }
 
 .background {
@@ -20,8 +19,6 @@
   background: #fff;
   border-right: 1px solid rgb(102, 0, 255);
   /* z-index: 33; */
-
-
 }
 
 .buttonNav {
@@ -38,7 +35,6 @@
   height: 50px;
   border-radius: 50%;
   background: transparent;
-
 }
 
 .ulNav,
@@ -71,7 +67,6 @@
   justify-content: center;
   align-items: center;
   margin-right: 20px;
-
 }
 
 .text-placeholder {
@@ -97,4 +92,24 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.bg-claw-trace-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%; /* Covers only the right side */
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 50%,
+    #ffd700 50%,
+    /* Taxi yellow color */ #ffd700 60%,
+    /* Taxi yellow color */ transparent 60%
+  );
+  background-size: 200px 200px; /* Larger claw marks */
+  background-repeat: no-repeat; /* No repetition */
+  background-position: right center; /* Position on the right */
+  transform: skewX(-20deg); /* Skew for a claw-like effect */
+  opacity: 0.6; /* Adjust opacity for subtlety */
 }

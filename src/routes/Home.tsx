@@ -12,6 +12,7 @@ import FollowersBar from "../components/FollowersBar";
 import { useInView } from "react-intersection-observer";
 import { InView } from "react-intersection-observer";
 import NavbarCustomized from "../components/NavbarCustomized";
+import TaxiBooking from "../components/TaxiBooking";
 function App() {
   const { ref, inView, entry } = useInView({
     threshold: 0.25,

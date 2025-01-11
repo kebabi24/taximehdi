@@ -4,17 +4,20 @@ import { FaXmark, FaBars, FaPhone } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaTelegramPlane } from "react-icons/fa";
 import Button from "@mui/material/Button";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Link } from "react-scroll";
 import { Outlet, Link as LinkDom, useNavigate } from "react-router-dom";
 import { useAuth } from "../core/context/AuthContext";
+
 interface NavbarCustomizedProps {
   sidebarButton?: () => void;
 }
+
 const NavbarCustomized = (props: NavbarCustomizedProps) => {
   let navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // For mobile detection
+
   const objUser = localStorage.getItem("user");
   const userLoggedIn = objUser ? JSON.parse(objUser) : null;
 
@@ -34,18 +37,31 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.addEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll); // Clean up event listener
     };
-  });
+  }, []);
 
-  //navitemss array
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Check if mobile size
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(false); // Close menu when screen size increases
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Clean up on unmount
+    };
+  }, []);
+
   const navItems = [
-    { link: "QUI SOMMES-NOUS", path: "about" },
-
-    { link: "SERVICES", path: "services" },
+    { link: "Qui sommes-nous", path: "about" },
+    { link: "Services", path: "services" },
   ];
+
   return (
-    <header className=" flex justify-around items-center h-24 top-0 left-0 right-0 overflow-hidden  bg-bgWhite shadow-lg ">
+    <header className="sticky flex justify-between md:px-12 items-center h-24 top-0 left-0 right-0 overflow-hidden bg-bgWhite shadow-md">
       <div>
         <a className="cursor-pointer">
           <img
@@ -57,29 +73,28 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
         </a>
       </div>
       <nav
-        className={` flex flex-row justify-between   px-4 ${
+        className={`flex flex-row justify-between px-4 ${
           isSticky
-            ? "sticky top-0 left-0 right-0 border-b bg-white duration-300 z-40"
+            ? "sticky top-0 left-0 right-0 border-b bg-white duration-300"
             : ""
         }`}
       >
-        <div className="flex  items-center text-base gap-8">
+        <div className="flex items-center text-base gap-8">
           <ul className="md:flex space-x-4 hidden">
             <Link
-              className=" font-outfit flex block text-base text-bgGreen hover:text-bgGreen first:font-medium cursor-pointer"
+              className="font-outfit flex text-base text-bgGreen hover:text-bgGreen first:font-medium cursor-pointer"
               to="/cart"
             >
               <IoLogoWhatsapp className="h-6 w-6 text-textPrimary" />
             </Link>
             <Link
-              className=" font-outfit flex block text-base text-bgGreen hover:text-textPrimary first:font-medium cursor-pointer"
+              className="font-outfit flex text-base text-bgGreen hover:text-textPrimary first:font-medium cursor-pointer"
               to="/cart"
             >
               <FaTelegramPlane className="h-6 w-6 text-textPrimary" />
             </Link>
-
             <Link
-              className=" font-outfit flex block text-base text-bgGreen hover:text-textPrimary first:font-medium cursor-pointer"
+              className="font-outfit flex text-base text-bgGreen hover:text-textPrimary first:font-medium cursor-pointer"
               to="/cart"
             >
               <span>+213 6 7142 1448</span>
@@ -88,7 +103,7 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               <Link
-                className="font-outfit block text-base text-bgGreen hover:text-textPrimary underline underline-offset-4 cursor-pointer font-bold"
+                className="font-outfit block text-base text-bgGreen hover:text-textPrimary cursor-pointer"
                 to={path}
                 key={path}
               >
@@ -96,12 +111,12 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
               </Link>
             ))}
             <LinkDom
-              className="font-outfit block text-base text-bgGreen hover:text-textPrimary underline underline-offset-4 cursor-pointer font-bold"
+              className="font-outfit block text-base text-bgGreen hover:text-textPrimary cursor-pointer"
               to={`/login`}
             >
               {userLoggedIn
-                ? "BIENVENUE " + userLoggedIn.username
-                : "SE CONNECTER / S'INSCRIRE"}
+                ? "Bienvenue " + userLoggedIn.username
+                : "Se connecter / S'inscrire"}
             </LinkDom>
           </ul>
 
@@ -118,18 +133,18 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
             </button>
           </div>
         </div>
-        {/* nav items for mobile devices */}
       </nav>
+
+      {/* Mobile menu, outside the navbar, positioned below it */}
       <div
-        className={` px-4  py-5 bg-textPrimary ${
-          isMenuOpen ? "block  top-0 right-0 left-0" : "hidden"
+        className={`px-4 py-5 bg-textPrimary ${
+          isMenuOpen ? "block absolute left-0 right-0 z-50 bottom-0" : "hidden"
         }`}
-        style={{ zIndex: 99 }}
-        onScroll={toggleMenu}
+        style={{ zIndex: 9999 }}
       >
         {navItems.map(({ link, path }) => (
           <Link
-            className=" font-outfit mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer "
+            className="font-outfit mt-4 block text-base text-black hover:text-brandPrimary text-center cursor-pointer"
             to={path}
             key={path}
           >
