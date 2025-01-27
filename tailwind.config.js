@@ -38,6 +38,7 @@ export default {
     fontFamily: {
       'outfit': ['Outfit', 'sans-serif'],
       'opensans': ['Open Sans', 'sans-serif'],
+      'acme': ['Acme', 'sans-serif'],
     },
     dropShadow: {
       '3xl': '0 35px 35px rgba(0, 0, 0, 0.25)',
@@ -47,7 +48,6 @@ export default {
       ]
     }
 
-  },
-  plugins: [require('flowbite/plugin')],
+  }
 }
 

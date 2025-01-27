@@ -34,6 +34,8 @@ type Trip = {
   phone?: string;
 
   userId: string;
+
+  tripPrice: number
 };
 
 export default Trip;

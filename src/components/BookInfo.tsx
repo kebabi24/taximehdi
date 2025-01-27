@@ -77,6 +77,8 @@ const BookInfo = (props: stateProps) => {
     tripNote: "",
 
     userId: "",
+
+    tripPrice: 0,
   });
 
   const handleChange = (e: any) => {
@@ -170,6 +172,7 @@ const BookInfo = (props: stateProps) => {
         }
       );
       setEndStep(99);
+      console.log(tripData);
       localStorage.setItem("tripsAdded", JSON.stringify(res.data.id));
     } catch (e) {
       console.log(e);
@@ -1094,7 +1097,7 @@ const BookInfo = (props: stateProps) => {
                   TOTAL:
                 </p>
                 <p className="font-opensans text-md font-extrabold text-textPrimary ">
-                  1200 DA
+                  {props.state.tripPrice} DA
                 </p>
               </div>
             </div>

@@ -9,8 +9,8 @@ const Book: React.FC = () => {
   console.log(state);
   return (
     <div>
-      <NavbarCustomized></NavbarCustomized>
-      <div className="flex flex-col h-full bg-neutralDGrey ">
+      <div className="flex flex-col h-full bg-neutralDGrey">
+        <NavbarCustomized></NavbarCustomized>
         <BookInfo state={state}></BookInfo>
       </div>
     </div>

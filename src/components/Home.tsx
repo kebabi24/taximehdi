@@ -40,11 +40,18 @@ import { useNavigate } from "react-router-dom";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import TestNavbar from "./TestNavbar";
 import NavbarCustomized from "./NavbarCustomized";
+import axios from "axios";
+interface adresse {
+  adresse_name: string;
+  adresse_code?: string;
+  adresse_price?: string;
+}
 TestNavbar;
 const Home = () => {
   const [type, setType] = React.useState("");
   const [error, setError] = useState(false);
   const [depart, setDepart] = useState("");
+  const [options, setOptions] = useState<adresse[]>([]);
   const [departError, setDepartError] = useState(false);
   const [destinationError, setDestinationError] = useState(false);
   const [selectDate, setSelectDate] = useState(true);
@@ -57,6 +64,7 @@ const Home = () => {
   const [departTime, setDepartTime] = useState("");
   const [returnTime, setReturnTime] = useState("");
   const [destination, setDestination] = useState("");
+  const [tripPrice, setTripPrice] = useState(0);
   const [returnButton, setReturnButton] = useState(false);
   let navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
@@ -105,6 +113,9 @@ const Home = () => {
       } else if (destination == "") {
         setDestinationError(true);
       } else {
+        const tripPrice = options.find(
+          (item: any) => item.adresse_name === destination
+        );
         navigate("/book", {
           state: {
             depart: depart,
@@ -112,18 +123,46 @@ const Home = () => {
             departureTime: departTime,
             returnTime: returnButton ? returnTime : null,
             type: type,
+            tripPrice: tripPrice?.adresse_price,
           },
         });
       }
     }
   };
+  useEffect(() => {
+    // This code will run when the component mounts
+    getAdresses();
+
+    // Optional: Cleanup function (runs when the component unmounts)
+    return () => {
+      console.log("Component will unmount");
+    };
+  }, []); // Empty dependency array means this runs only once on mount
+  const getAdresses = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost:3000/api/v1/adresse",
+
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      console.log(res.data.data);
+      setOptions(res.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-[url('assets/background.png')] bg-cover bg-no-repeat ">
       <NavbarCustomized></NavbarCustomized>
       <div className=" flex flex-col sm:flex-row h-screen" id="solutions">
-        <div className="flex w-full h-full sm:w-5/12 bg-white flex-col justify-center md:px-24 ">
+        <div className="flex w-full h-full sm:w-5/12  flex-col  md:px-24 md:py-28 py-12 ">
           <div
             style={{ borderRadius: "10px" }}
             className="card md:mx-10 mx-4 text-center md:w-[400px]  md:h-100  shadow-2xl  flex justify-center items-center overflow-hidden bg-white "
@@ -167,7 +206,7 @@ const Home = () => {
                         freeSolo
                         id="free-solo-2-demo"
                         disableClearable
-                        options={options.map((option) => option.title)}
+                        options={options2.map((option) => option.adresse_name)}
                         onChange={(event, value) => setDepart(value)}
                         renderInput={(params) => (
                           <TextField
@@ -175,7 +214,7 @@ const Home = () => {
                             style={{ marginBottom: "5px", minWidth: "100%" }}
                             required
                             placeholder="Localisation de départ"
-                            value={depart}
+                            value={options2[0].adresse_name}
                             onChange={handleDepartChange}
                             InputProps={{
                               ...params.InputProps,
@@ -201,7 +240,7 @@ const Home = () => {
                         id="free-solo-2-demo"
                         disableClearable
                         onChange={(event, value) => setDestination(value)}
-                        options={options.map((option) => option.title)}
+                        options={options.map((option) => option.adresse_name)}
                         renderInput={(params) => (
                           <TextField
                             {...params}
@@ -355,7 +394,6 @@ const Home = () => {
                           inputProps={{ "aria-label": "Without label" }}
                           placeholder="Type de véhicule"
                           renderValue={(value) => {
-                            console.log(value);
                             return (
                               <Box sx={{ display: "flex" }}>
                                 <SvgIcon>
@@ -411,11 +449,11 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="z-99 w-full lg:h-full bg-[length:100%_100%] bg-no-repeat bg-center relative hidden md:block">
+        <div className="z-99 w-full lg:h-full bg-[length:100%_100%] bg-no-repeat bg-center relative hidden md:block py-16">
           <img
-            src={homeImage}
+            src=""
             alt=""
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[260px] md:w-[400px] lg:w-[520px]"
+            className="absolute  w-[260px] md:w-[400px] lg:w-[520px]"
           />
         </div>
       </div>
@@ -423,10 +461,11 @@ const Home = () => {
   );
 };
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-const options = [
-  { title: "Aéroport d'Annaba", year: 1994 },
-  { title: "Guelma, Guelma", year: 1972 },
-  { title: "Aéroport de Constantine", year: 1974 },
-  { title: "Skikda, Skikda", year: 2008 },
+const options2 = [
+  {
+    id: "061dba53-8b4f-48cc-b501-4f8b41e04a02",
+    adresse_code: "AD054",
+    adresse_name: "Guelma",
+  },
 ];
 export default Home;

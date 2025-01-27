@@ -61,7 +61,7 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
   ];
 
   return (
-    <header className="sticky flex justify-between md:px-12 items-center h-24 top-0 left-0 right-0 overflow-hidden bg-bgWhite shadow-md">
+    <header className="flex justify-between md:px-36 md:py-12 items-center h-24 top-0 left-0 right-0 overflow-hidden ">
       <div>
         <a className="cursor-pointer">
           <img
@@ -103,7 +103,7 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               <Link
-                className="font-outfit block text-base text-bgGreen hover:text-textPrimary cursor-pointer"
+                className="font-outfit block text-base text-bgGreen hover:text-textPrimary cursor-pointer p-3 rounded-3xl"
                 to={path}
                 key={path}
               >
@@ -111,7 +111,7 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
               </Link>
             ))}
             <LinkDom
-              className="font-outfit block text-base text-bgGreen hover:text-textPrimary cursor-pointer"
+              className="font-outfit block text-base text-bgGreen hover:text-textPrimary cursor-pointer bg-[#FFD700] p-3 rounded-3xl border-2 border-[#FFFFFF]"
               to={`/login`}
             >
               {userLoggedIn

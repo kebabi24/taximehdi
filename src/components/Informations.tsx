@@ -19,6 +19,7 @@ const Informations = () => {
       state: isShowMore1,
       toggle: (key: boolean) => toggleReadMoreLess1(key),
       button: true,
+      key:1
     },
   ];
 
@@ -46,7 +47,7 @@ const Informations = () => {
               key={solution.id}
               className="card px-4 py-8  md:w-[450px] md:mx-56 md:h-100   cursor-pointer  flex h-full bg-white "
             >
-              <div className="mb-4 h-50  mx-auto flex flex-col ">
+              <div key={solution.id} className="mb-4 h-50  mx-auto flex flex-col ">
                 {/* <img src={solution.logo} alt="" /> */}
                 <h4 className="font-outfit font-bold text-black font-size-32 mb-5 text-2xl text-justify">
                   {solution.name}
