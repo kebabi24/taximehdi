@@ -1,11 +1,14 @@
 import Navbar from "../components/Navbar";
 import Home from "../components/Home";
-
+import Plan from "../components/Plan";
 import Product from "../components/Product";
+import Numbers from "../components/Numbers";
 import Informations from "../components/Informations";
 import Testimonials from "../components/Testimonials";
+import Testimonials2 from "../components/Testimonials2";
 import Contact from "../components/Contact";
 import Items from "../components/Items";
+import PhoneCall from "../components/PhoneCall";
 import Services from "../components/Services";
 import Call from "../components/Call";
 import FollowersBar from "../components/FollowersBar";
@@ -23,14 +26,17 @@ function App() {
         <div ref={ref}>
           {/* <NavbarCustomized></NavbarCustomized> */}
           <Home />
+          <Plan></Plan>
+          <Numbers></Numbers>
 
-          <Product></Product>
-          <FollowersBar></FollowersBar>
+          {/*<Product></Product>*/}
+          {/*<FollowersBar></FollowersBar>*/}
           <Informations></Informations>
           <Services></Services>
 
           <Call></Call>
           <Testimonials></Testimonials>
+          <Testimonials2></Testimonials2>
           <Contact></Contact>
         </div>
       )}

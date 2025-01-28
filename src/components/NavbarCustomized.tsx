@@ -67,7 +67,7 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
           <img
             src={lg}
             alt=""
-            style={{ width: "180px" }}
+            style={{ width: "160px" }}
             onClick={() => navigate("/home")}
           />
         </a>
