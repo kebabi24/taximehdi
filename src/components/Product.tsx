@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
 import { Divider } from "@mui/material";
 import { IoIosSpeedometer } from "react-icons/io";
+import { AiFillFire } from "react-icons/ai";
 import { MdCleaningServices } from "react-icons/md";
 import { InView } from "react-intersection-observer";
 import { motion } from "framer-motion";
@@ -44,7 +45,7 @@ const Product = () => {
             initial="hidden"
             animate="visible"
             ref={ref}
-            className=" md:pl-36 md:pr-36 px-4 mt-14 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-12 "
+            className=" md:pl-36 md:pr-36 px-4 mt-14 grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-12 "
           >
             {inView && (
               <motion.li
@@ -53,7 +54,40 @@ const Product = () => {
               >
                 <div className="mb-4 h-50 md:px-4    flex flex-col ">
                   <div
-                    className={`text-center p-1 h-8 w-20 bg-bg1 rounded-md mb-8 text-bgWhite font-semibold`}
+                    className={`text-center p-1 h-8  bg-bg1 rounded-md mb-8 text-bgWhite font-semibold`}
+                  >
+                    <p>Simple</p>
+                  </div>
+                  <div
+                    className={`flex flex-col p-1 h-10 w-56  rounded-md text-2xl  text-black font-bold`}
+                  >
+                    <p>≈ 200 DZD</p>
+                  </div>
+                  <p className="font-outfit text-xs text-grey mb-8 font-opensans ">
+                    Pas de crédite carte obligatoire
+                  </p>
+                  <Divider sx={{ minWidth: "100%", marginBottom: 3 }} />
+                  <div className="flex w-full p-1 mb-2 ">
+                    <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                    <p>Des chauffeurs ponctuelles & a l'heure</p>
+                  </div>
+
+                  <div className="flex w-full p-1 ">
+                    <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                    <p>Des chauffeurs ponctuelles & a l'heure</p>
+                  </div>
+                </div>
+              </motion.li>
+            )}
+
+            {inView && (
+              <motion.li
+                className="item card px-2 py-6   md:h-100  shadow  flex h-full bg-white rounded-lg "
+                variants={item}
+              >
+                <div className="mb-4 h-50 md:px-4    flex flex-col ">
+                  <div
+                    className={`text-center p-1 h-8 bg-bg1 rounded-md mb-8 text-bgWhite font-semibold`}
                   >
                     <p>Simple</p>
                   </div>
@@ -86,7 +120,41 @@ const Product = () => {
               >
                 <div className="mb-4 h-50 md:px-4  flex flex-col ">
                   <div
-                    className={`text-center p-1 h-8 w-20 bg-bg2 rounded-md mb-8 text-bgGreen font-semibold`}
+                    className={`flex flex-row align-items-center justify-content-center text-center p-1 h-8  bg-bg3 rounded-md mb-8 text-bgWhite font-semibold`}
+                  >
+                    <AiFillFire size={24} style={{ marginRight: 15 }} color="#F09721"/>
+                    <p>TAXI MOTO</p>
+                  </div>
+                  <div
+                    className={`flex flex-col p-1 h-10 w-56  rounded-md  text-2xl  text-black font-bold`}
+                  >
+                    <p>≈ 200 DZD</p>
+                  </div>
+                  <p className="font-outfit text-xs text-grey mb-8 font-opensans ">
+                    Pas de crédite carte obligatoire
+                  </p>
+                  <Divider sx={{ minWidth: "100%", marginBottom: 2 }} />
+                  <div className="flex w-full p-1 mb-2 ">
+                    <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                    <p>Des chauffeurs ponctuelles & a l'heure</p>
+                  </div>
+
+                  <div className="flex w-full p-1 ">
+                    <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
+                    <p>Des chauffeurs ponctuelles & a l'heure</p>
+                  </div>
+                </div>
+              </motion.li>
+            )}
+
+            {inView && (
+              <motion.li
+                className="item card px-2 py-6   md:h-100  shadow   flex h-full bg-white rounded-lg "
+                variants={item}
+              >
+                <div className="mb-4 h-50 md:px-4    flex flex-col ">
+                  <div
+                    className={`text-center p-1 h-8 bg-bg2 rounded-md mb-8 text-bgGreen font-semibold`}
                   >
                     <p>Standard</p>
                   </div>
@@ -111,7 +179,6 @@ const Product = () => {
                 </div>
               </motion.li>
             )}
-
             {inView && (
               <motion.li
                 className="item card px-2 py-6   md:h-100  shadow   flex h-full bg-white rounded-lg "
@@ -119,39 +186,7 @@ const Product = () => {
               >
                 <div className="mb-4 h-50 md:px-4    flex flex-col ">
                   <div
-                    className={`text-center p-1 h-8 w-20 bg-bg3 rounded-md mb-8 text-bgWhite font-semibold`}
-                  >
-                    <p>Confort</p>
-                  </div>
-                  <div
-                    className={`flex flex-col p-1 h-10 w-56  rounded-md  text-2xl  text-black font-bold`}
-                  >
-                    <p>≈ 200 DZD</p>
-                  </div>
-                  <p className="font-outfit text-xs text-grey mb-8 font-opensans ">
-                    Pas de crédite carte obligatoire
-                  </p>
-                  <Divider sx={{ minWidth: "100%", marginBottom: 2 }} />
-                  <div className="flex w-full p-1 mb-2 ">
-                    <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
-                    <p>Des chauffeurs ponctuelles & a l'heure</p>
-                  </div>
-
-                  <div className="flex w-full p-1 ">
-                    <IoIosSpeedometer size={24} style={{ marginRight: 15 }} />
-                    <p>Des chauffeurs ponctuelles & a l'heure</p>
-                  </div>
-                </div>
-              </motion.li>
-            )}
-            {inView && (
-              <motion.li
-                className="item card px-2 py-6   md:h-100  shadow   flex h-full bg-white rounded-lg "
-                variants={item}
-              >
-                <div className="mb-4 h-50 md:px-4    flex flex-col ">
-                  <div
-                    className={`text-center p-1 h-8 w-20 bg-bg3 rounded-md mb-8 text-bgWhite font-semibold`}
+                    className={`text-center p-1 h-8 bg-bg3 rounded-md mb-8 text-bgWhite font-semibold`}
                   >
                     <p>Confort</p>
                   </div>

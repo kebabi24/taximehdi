@@ -16,6 +16,8 @@ import { useInView } from "react-intersection-observer";
 import { InView } from "react-intersection-observer";
 import NavbarCustomized from "../components/NavbarCustomized";
 import TaxiBooking from "../components/TaxiBooking";
+import AboutCompany from "../components/AboutCompany";
+import Testimonials3 from "../components/Testimonials3";
 function App() {
   const { ref, inView, entry } = useInView({
     threshold: 0.25,
@@ -26,17 +28,20 @@ function App() {
         <div ref={ref}>
           {/* <NavbarCustomized></NavbarCustomized> */}
           <Home />
-          <Plan></Plan>
-          <Numbers></Numbers>
+          {/*<Plan></Plan>*/}
+          {/*<Numbers></Numbers>*/}
 
-          {/*<Product></Product>*/}
-          {/*<FollowersBar></FollowersBar>*/}
+          <Product></Product>
+          <FollowersBar></FollowersBar>
           <Informations></Informations>
+          {/*<Testimonials3></Testimonials3>*/}
           <Services></Services>
 
           <Call></Call>
-          <Testimonials></Testimonials>
-          <Testimonials2></Testimonials2>
+          {/*<AboutCompany></AboutCompany>*/}
+          {/*<PhoneCall></PhoneCall>*/}
+        {/*  <Testimonials></Testimonials>
+          <Testimonials2></Testimonials2>*/}
           <Contact></Contact>
         </div>
       )}

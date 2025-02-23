@@ -2,6 +2,9 @@ import { Carousel } from "flowbite-react";
 import React, { useState, useEffect } from "react";
 import banner from "../assets/banner.svg";
 import photo1 from "../assets/hero-002.jpg";
+import { IconField } from "primereact/iconfield";
+import { InputIcon } from "primereact/inputicon";
+import { InputText } from "primereact/inputtext";
 // motion
 import { motion } from "framer-motion";
 // variants
@@ -195,6 +198,7 @@ const Home = () => {
                     // backgroundColor: "red",
                   }}
                 >
+                
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {departError && (
                       <span className="self-start text-xs text-red font-opensans">
