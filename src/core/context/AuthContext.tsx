@@ -38,7 +38,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const loginAuth = async (data: AuthData) => {
     try {
       const res = await axios.post(
-        "https://protaxi.store/api/v1/auth/login",
+        "http://207.180.195.128/api/v1/auth/login",
         data,
         {
           headers: {
