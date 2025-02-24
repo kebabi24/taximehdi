@@ -127,7 +127,7 @@ const GridExample = () => {
 
   // Fetch data & update rowData state
   useEffect(() => {
-    fetch("http://localhost:3000/api/v1/trips/getAllTrips")
+    fetch("http://207.180.195.128:3000/api/v1/trips/getAllTrips")
       .then((result) => result.json())
       .then((rowData) => setRowData(rowData));
   }, []);

@@ -162,7 +162,7 @@ const BookInfo = (props: stateProps) => {
   const confirmOrder = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/trips/newTrip",
+        "http://207.180.195.128:3000/api/v1/trips/newTrip",
         tripData,
         {
           headers: {
