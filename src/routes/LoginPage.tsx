@@ -53,24 +53,39 @@ function LoginPage() {
                 : "Créer un nouveau compte"}
             </p>
             <p className="mb-5">{signin ? "Connectez avec" : "Créer avec"}</p>
-            <div className="flex  p-3 mb-10">
+            <div className="flex  p-3">
               <Button
-                style={{ marginRight: 12, minWidth: 90, minHeight: 40, borderColor:"#F09721"}}
+                style={{
+                  marginRight: 12,
+                  minWidth: 90,
+                  minHeight: 40,
+                  borderColor: "#F09721",
+                }}
                 startIcon={<FaFacebookSquare color="#F09721" />}
                 variant="outlined"
               ></Button>
               <Button
-                style={{ marginRight: 12, minWidth: 90, minHeight: 40, borderColor:"#F09721" }}
-                startIcon={<FaInstagramSquare color="#F09721"/>}
+                style={{
+                  marginRight: 12,
+                  minWidth: 90,
+                  minHeight: 40,
+                  borderColor: "#F09721",
+                }}
+                startIcon={<FaInstagramSquare color="#F09721" />}
                 variant="outlined"
               ></Button>
               <Button
-                style={{ marginRight: 12, minWidth: 90, minHeight: 40, borderColor:"#F09721" }}
+                style={{
+                  marginRight: 12,
+                  minWidth: 90,
+                  minHeight: 40,
+                  borderColor: "#F09721",
+                }}
                 startIcon={<FaTwitter color="#F09721" />}
                 variant="outlined"
               ></Button>
             </div>
-            <Divider style={{ width: "55%", marginBottom: 45 }}>
+            <Divider style={{ width: "55%", marginBottom: 10 }}>
               Ou utilisez email
             </Divider>
             {loginError && (
@@ -124,21 +139,41 @@ function LoginPage() {
                 />
               )}
               <Button
-                style={{ minWidth: 300, minHeight: 40, marginBottom: 15, backgroundColor:"#F09721" }}
+                style={{
+                  minWidth: 300,
+                  minHeight: 40,
+                  marginBottom: 15,
+                  backgroundColor: "#F09721",
+                }}
                 variant="contained"
                 type="submit"
               >
                 {signin ? "Connectez-vous" : "Créer mon compte"}
               </Button>
             </form>
-            <a className="mb-10 text-contained text-bgBlack">
+            <a className="mb-10 text-contained" style={{ color: "black" }}>
               {signin && " Vous avez oublié votre mot de passe? Click!"}
             </a>
 
             <a className="mb-5 text-black font-semibold cursor-point">
-              {signin
-                ? "Vous n'avez pas encore de compte? Inscriez-vous!"
-                : "Vous avez déjà un compte? click!"}
+              {signin ? (
+                <Button
+                  style={{
+                    minWidth: 300,
+                    minHeight: 40,
+                    marginBottom: 15,
+                    borderColor:"#F09721",
+                    color:"#F09721"
+                  }}
+                  variant="outlined"
+       
+            
+                >
+                  Créer mon nouveau compte
+                </Button>
+              ) : (
+                "Vous avez déjà un compte? click!"
+              )}
             </a>
           </div>
         </div>
