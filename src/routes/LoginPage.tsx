@@ -10,6 +10,7 @@ import { FaTwitter } from "react-icons/fa";
 import { FormEvent, useState } from "react";
 import useToken from "../core/hooks/tokens";
 import { useAuth } from "../core/context/AuthContext";
+import { sign } from "crypto";
 interface ValidationErrors {
   email?: string;
   password?: string;
@@ -166,13 +167,13 @@ function LoginPage() {
                     color:"#F09721"
                   }}
                   variant="outlined"
-       
+                  onClick={() => setSignIn(!signin)}
             
                 >
                   Créer mon nouveau compte
                 </Button>
               ) : (
-                "Vous avez déjà un compte? click!"
+                <span style={{cursor:"pointer"}} onClick={() => setSignIn(!signin)}>Vous avez déjà un compte? Click!</span>
               )}
             </a>
           </div>
