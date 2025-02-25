@@ -408,6 +408,7 @@ const Home = () => {
                             );
                           }}
                         >
+                          <MenuItem value={"Van"}>Taxi Moto</MenuItem>
                           <MenuItem value={"Simple"}>Simple</MenuItem>
                           <MenuItem value={"Confort"}>Confort</MenuItem>
                           <MenuItem value={"Van"}>Van</MenuItem>

@@ -1,5 +1,6 @@
 import Home from "../components/Home";
 import lg from "../assets/logo-noir.png";
+import logo from "../assets/logoo.png";
 import LoginIcon from "@mui/icons-material/Login";
 import { Button, TextField } from "@mui/material";
 import Divider, { dividerClasses } from "@mui/material/Divider";
@@ -42,8 +43,8 @@ function LoginPage() {
     <>
       <div className="flex flex-col sm:flex-row h-screen">
         <div className="flex w-full h-full sm:w-1/2 bg-white flex-col ">
-          <div className="px-36 py-3 w-full h-1/4">
-            <img src={lg} alt="" style={{ width: "150px" }} />
+          <div className="flex px-16 py-3 w-full h-1/6 justify-content-center align-items-center">
+            <img src={logo} alt="" style={{ width: "150px" }} />
           </div>
           <div className="flex flex-col w-full h-full items-center overflow-hidden ">
             <p className="text-xl font-bold">
@@ -52,24 +53,24 @@ function LoginPage() {
                 : "Créer un nouveau compte"}
             </p>
             <p className="mb-5">{signin ? "Connectez avec" : "Créer avec"}</p>
-            <div className="flex  p-3">
+            <div className="flex  p-3 mb-10">
               <Button
-                style={{ marginRight: 12, minWidth: 90, minHeight: 40 }}
-                startIcon={<FaFacebookSquare />}
+                style={{ marginRight: 12, minWidth: 90, minHeight: 40, borderColor:"#F09721"}}
+                startIcon={<FaFacebookSquare color="#F09721" />}
                 variant="outlined"
               ></Button>
               <Button
-                style={{ marginRight: 12, minWidth: 90, minHeight: 40 }}
-                startIcon={<FaInstagramSquare />}
+                style={{ marginRight: 12, minWidth: 90, minHeight: 40, borderColor:"#F09721" }}
+                startIcon={<FaInstagramSquare color="#F09721"/>}
                 variant="outlined"
               ></Button>
               <Button
-                style={{ marginRight: 12, minWidth: 90, minHeight: 40 }}
-                startIcon={<FaTwitter />}
+                style={{ marginRight: 12, minWidth: 90, minHeight: 40, borderColor:"#F09721" }}
+                startIcon={<FaTwitter color="#F09721" />}
                 variant="outlined"
               ></Button>
             </div>
-            <Divider style={{ width: "55%", marginBottom: 10 }}>
+            <Divider style={{ width: "55%", marginBottom: 45 }}>
               Ou utilisez email
             </Divider>
             {loginError && (
@@ -107,7 +108,7 @@ function LoginPage() {
                 autoComplete="current-password"
                 value={formData.password}
                 onChange={handleChange}
-                style={{ width: 300, marginBottom: 5 }}
+                style={{ width: 300, marginBottom: 15 }}
               />
               {errors.password && (
                 <p className="text-xs text-grey font-opensans mb-2">
@@ -123,14 +124,14 @@ function LoginPage() {
                 />
               )}
               <Button
-                style={{ minWidth: 300, minHeight: 40, marginBottom: 15 }}
+                style={{ minWidth: 300, minHeight: 40, marginBottom: 15, backgroundColor:"#F09721" }}
                 variant="contained"
                 type="submit"
               >
                 {signin ? "Connectez-vous" : "Créer mon compte"}
               </Button>
             </form>
-            <a className="mb-10 text-contained ">
+            <a className="mb-10 text-contained text-bgBlack">
               {signin && " Vous avez oublié votre mot de passe? Click!"}
             </a>
 
