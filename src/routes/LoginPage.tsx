@@ -21,7 +21,18 @@ function LoginPage() {
   const [signin, setSignIn] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [formData, setFormData] = useState(
+    signin
+      ? { username: "", password: "" }
+      : {
+          firstName: "",
+          lastName: "",
+          username: "",
+          password: "",
+          phone: "",
+          email: "",
+        }
+  );
   const [errors, setErrors] = useState<ValidationErrors>({});
   const { loginAuth, loginError } = useAuth();
   const { setToken } = useToken();
@@ -94,17 +105,31 @@ function LoginPage() {
                 <span>Veuillez vérifier vos informations</span>
               </div>
             )}
-            {!signin && (
-              <TextField
-                id="outlined-basic"
-                label="Nom et prénom"
-                style={{ width: 300, marginBottom: 15 }}
-              />
-            )}
+
             <form
               style={{ display: "flex", flexDirection: "column" }}
               onSubmit={handleSubmit}
             >
+              {!signin && (
+                <>
+                  <TextField
+                    id="outlined-basic"
+                    label="Nom"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    style={{ width: 300, marginBottom: 15 }}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Prénom"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    style={{ width: 300, marginBottom: 15 }}
+                  />
+                </>
+              )}
               <TextField
                 type="text"
                 id="outlined-basic"
@@ -132,12 +157,24 @@ function LoginPage() {
                 </p>
               )}
               {!signin && (
-                <TextField
-                  id="outlined-basic"
-                  label="Numéro de téléphone"
-                  variant="outlined"
-                  style={{ width: 300, marginBottom: 15 }}
-                />
+                <>
+                  <TextField
+                    id="outlined-basic"
+                    label="Numéro de téléphone"
+                    variant="outlined"
+                    name="phone"
+                    value={formData.phone}
+                    style={{ width: 300, marginBottom: 15 }}
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Email"
+                    variant="outlined"
+                    name="email"
+                    value={formData.email}
+                    style={{ width: 300, marginBottom: 15 }}
+                  />
+                </>
               )}
               <Button
                 style={{
@@ -163,17 +200,21 @@ function LoginPage() {
                     minWidth: 300,
                     minHeight: 40,
                     marginBottom: 15,
-                    borderColor:"#F09721",
-                    color:"#F09721"
+                    borderColor: "#F09721",
+                    color: "#F09721",
                   }}
                   variant="outlined"
                   onClick={() => setSignIn(!signin)}
-            
                 >
                   Créer mon nouveau compte
                 </Button>
               ) : (
-                <span style={{cursor:"pointer"}} onClick={() => setSignIn(!signin)}>Vous avez déjà un compte? Click!</span>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setSignIn(!signin)}
+                >
+                  Vous avez déjà un compte? Click!
+                </span>
               )}
             </a>
           </div>
