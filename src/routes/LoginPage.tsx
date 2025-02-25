@@ -58,7 +58,7 @@ function LoginPage() {
           <div className="flex px-16 py-3 w-full h-1/6 justify-content-center align-items-center">
             <img src={logo} alt="" style={{ width: "150px" }} />
           </div>
-          <div className="flex flex-col w-full h-full items-center overflow-hidden ">
+          <div className="flex flex-col w-full h-full items-center ">
             <p className="text-xl font-bold">
               {signin
                 ? "Connectez-vous a votre compte"
