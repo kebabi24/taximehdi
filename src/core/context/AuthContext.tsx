@@ -14,10 +14,20 @@ interface AuthData {
   acces_token?: string;
 }
 
+interface RegisterUserData {
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  email?: string;
+  username: string;
+  password: string;
+}
+
 // Define the context for authentication
 interface AuthContextType {
   user?: AuthData;
   loginAuth?: (data: AuthData) => Promise<void>;
+  registerUser?: (data: RegisterUserData) => Promise<void>;
   logoutAuth?: () => Promise<void>;
   loginError?: boolean;
 }
@@ -75,8 +85,30 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  const registerUser = async (data: RegisterUserData) => {
+    try {
+      const res = await axios.post(
+        "http://207.180.195.128:3000/api/v1/register",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+
+      navigate("/login");
+    } catch (e) {
+      console.log(e);
+      setLoginError(true);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, loginAuth, logoutAuth, loginError }}>
+    <AuthContext.Provider
+      value={{ user, loginAuth, logoutAuth, loginError, registerUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

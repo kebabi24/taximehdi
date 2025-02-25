@@ -115,7 +115,7 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
               to={`/login`}
             >
               {userLoggedIn
-                ? "Bienvenue " + userLoggedIn.username
+                ? "Mon compte"
                 : "Se connecter / S'inscrire"}
             </LinkDom>
           </ul>
@@ -156,7 +156,7 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
           to={`/login`}
         >
           {userLoggedIn
-            ? "BIENVENUE " + userLoggedIn.username
+            ? "Mon compte"
             : "SE CONNECTER / S'INSCRIRE"}
         </LinkDom>
       </div>

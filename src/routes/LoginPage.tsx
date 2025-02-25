@@ -34,7 +34,7 @@ function LoginPage() {
         }
   );
   const [errors, setErrors] = useState<ValidationErrors>({});
-  const { loginAuth, loginError } = useAuth();
+  const { loginAuth, loginError, registerUser } = useAuth();
   const { setToken } = useToken();
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -45,8 +45,17 @@ function LoginPage() {
 
     if (username && password) {
       if (loginAuth) {
-        const result = await loginAuth({ username, password });
-        console.log(result);
+        if (signin) {
+          const result = await loginAuth({ username, password });
+          console.log(result);
+        } else {
+       
+          if(registerUser){
+            const { firstName, lastName, username, password, phone, email } = formData;
+            const result = await registerUser({ firstName, lastName, username, password, phone, email });
+            console.log(result);
+          }
+        }
       }
     }
   };
@@ -161,17 +170,19 @@ function LoginPage() {
                   <TextField
                     id="outlined-basic"
                     label="Numéro de téléphone"
-                    variant="outlined"
+               
                     name="phone"
                     value={formData.phone}
+                    onChange={handleChange}
                     style={{ width: 300, marginBottom: 15 }}
                   />
                   <TextField
                     id="outlined-basic"
                     label="Email"
-                    variant="outlined"
+                  
                     name="email"
                     value={formData.email}
+                    onChange={handleChange}
                     style={{ width: 300, marginBottom: 15 }}
                   />
                 </>
