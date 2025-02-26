@@ -5,6 +5,8 @@ import photo1 from "../assets/hero-002.jpg";
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import { InputText } from "primereact/inputtext";
+
+
 // motion
 import { motion } from "framer-motion";
 // variants
@@ -69,6 +71,7 @@ const Home = () => {
   const [destination, setDestination] = useState("");
   const [tripPrice, setTripPrice] = useState(0);
   const [returnButton, setReturnButton] = useState(false);
+
   let navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
@@ -198,7 +201,6 @@ const Home = () => {
                     // backgroundColor: "red",
                   }}
                 >
-                
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     {departError && (
                       <span className="self-start text-xs text-red font-opensans">
@@ -408,7 +410,7 @@ const Home = () => {
                             );
                           }}
                         >
-                          <MenuItem value={"Van"}>Taxi Moto</MenuItem>
+                          <MenuItem value={"TaxiMoto"}>Taxi Moto</MenuItem>
                           <MenuItem value={"Simple"}>Simple</MenuItem>
                           <MenuItem value={"Confort"}>Confort</MenuItem>
                           <MenuItem value={"Van"}>Van</MenuItem>
@@ -453,6 +455,7 @@ const Home = () => {
               </form>
             </div>
           </div>
+       
         </div>
         <div className="z-99 w-full lg:h-full bg-[length:100%_100%] bg-no-repeat bg-center relative hidden md:block py-16">
           <img

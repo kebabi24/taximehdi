@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
+import Modal from "./Modal";
 import {
   Button,
   Divider,
@@ -39,6 +40,7 @@ const BookInfo = (props: stateProps) => {
   const [endStep, setEndStep] = useState(-1);
   const [tripsAdded, setTripsAdded] = useState(false);
   const [value, setValue] = React.useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   let navigate = useNavigate();
   const objUser = localStorage.getItem("user");
   const userLoggedIn = objUser ? JSON.parse(objUser) : null;
@@ -158,22 +160,28 @@ const BookInfo = (props: stateProps) => {
     setTripData({ ...tripData, passengerNumber: tripData.passengerNumber + 1 });
     console.log(tripData);
   };
-
+  const goToLogin = async () => {
+    navigate("/login")
+  };
   const confirmOrder = async () => {
     try {
-      const res = await axios.post(
-        "http://207.180.195.128:3000/api/v1/trips/newTrip",
-        tripData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
-      setEndStep(99);
-      console.log(tripData);
-      localStorage.setItem("tripsAdded", JSON.stringify(res.data.id));
+      if (userLoggedIn) {
+        const res = await axios.post(
+          "http://207.180.195.128:3000/api/v1/trips/newTrip",
+          tripData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+        setEndStep(99);
+        console.log(tripData);
+        localStorage.setItem("tripsAdded", JSON.stringify(res.data.id));
+      } else {
+        setIsModalOpen(true);
+      }
     } catch (e) {
       console.log(e);
     }
@@ -1047,6 +1055,27 @@ const BookInfo = (props: stateProps) => {
                   )}
                 </div>
               </div>
+              {/* Modal */}
+              <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <h2 className="text-xl font-bold mb-4">
+                  Oupss! vous n'êtes pas connecté
+                </h2>
+                <p className="text-gray-700">
+                  <Button
+                    onClick={goToLogin}
+                    style={{
+                      minWidth: 300,
+                      minHeight: 40,
+                      marginBottom: 15,
+                      borderColor: "#F09721",
+                      backgroundColor: "#F09721",
+                    }}
+                    variant="contained"
+                  >
+                    Accéder à votre compte
+                  </Button>
+                </p>
+              </Modal>
             </div>
           </>
           <>
