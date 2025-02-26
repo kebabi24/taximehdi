@@ -28,11 +28,9 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsSticky(true);
-      } else {
+     
         setIsSticky(false);
-      }
+      
     };
     window.addEventListener("scroll", handleScroll);
 
