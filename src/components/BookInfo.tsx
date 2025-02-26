@@ -1064,7 +1064,7 @@ const BookInfo = (props: stateProps) => {
                   <Button
                     onClick={goToLogin}
                     style={{
-                      minWidth: 300,
+                      padding:10,
                       minHeight: 40,
                       marginBottom: 15,
                       borderColor: "#F09721",
