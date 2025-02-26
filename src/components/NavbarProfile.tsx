@@ -8,11 +8,11 @@ import { Link } from "react-scroll";
 import { Outlet, Link as LinkDom, useNavigate } from "react-router-dom";
 import { useAuth } from "../core/context/AuthContext";
 
-interface NavbarCustomizedProps {
+interface NavbarProfileProps {
   sidebarButton?: () => void;
 }
 
-const NavbarCustomized = (props: NavbarCustomizedProps) => {
+const NavbarProfile = (props: NavbarProfileProps) => {
   let navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -56,8 +56,9 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
   }, []);
 
   const navItems = [
-    { link: "Qui sommes-nous", path: "about" },
-    { link: "Services", path: "services" },
+    { link: "Mes informations", path: "informations" },
+    { link: "Mes courses", path: "courses" },
+    { link: "Support", path: "support" },
   ];
 
   return (
@@ -80,26 +81,7 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
         }`}
       >
         <div className="flex items-center text-base gap-8">
-          <ul className="md:flex space-x-4 hidden">
-            <Link
-              className="font-outfit flex text-base text-bgGreen hover:text-bgGreen first:font-medium cursor-pointer"
-              to="/cart"
-            >
-              <IoLogoWhatsapp className="h-6 w-6 text-textPrimary" />
-            </Link>
-            <Link
-              className="font-outfit flex text-base text-bgGreen hover:text-textPrimary first:font-medium cursor-pointer"
-              to="/cart"
-            >
-              <FaTelegramPlane className="h-6 w-6 text-textPrimary" />
-            </Link>
-            <Link
-              className="font-outfit flex text-base text-bgGreen hover:text-textPrimary first:font-medium cursor-pointer"
-              to="/cart"
-            >
-              <span>+213 6 7142 1448</span>
-            </Link>
-          </ul>
+          
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
               <Link
@@ -112,11 +94,9 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
             ))}
             <LinkDom
               className="font-outfit block text-base text-bgGreen hover:text-textPrimary cursor-pointer bg-[#FFD700] p-3 rounded-3xl border-2 border-[#FFFFFF]"
-              to={userLoggedIn ? `/profile` : `/login`}
+              to={`/logout`}
             >
-              {userLoggedIn
-                ? "Mon compte"
-                : "Se connecter / S'inscrire"}
+              Déconnexion
             </LinkDom>
           </ul>
 
@@ -153,15 +133,13 @@ const NavbarCustomized = (props: NavbarCustomizedProps) => {
         ))}
         <LinkDom
           className="font-outfit mt-4 block text-base text-bgWhite hover:text-textPrimary text-center underline underline-offset-4 cursor-pointer font-bold"
-          to={userLoggedIn ? `/profile` : `/login`}
+          to={`/logout`}
         >
-          {userLoggedIn
-            ? "Mon compte"
-            : "SE CONNECTER / S'INSCRIRE"}
+          Déconnexion
         </LinkDom>
       </div>
     </header>
   );
 };
 
-export default NavbarCustomized;
+export default NavbarProfile;

@@ -10,7 +10,9 @@ import { FaTwitter } from "react-icons/fa";
 import { FormEvent, useState } from "react";
 import useToken from "../core/hooks/tokens";
 import { useAuth } from "../core/context/AuthContext";
+
 import { sign } from "crypto";
+import { useNavigate } from "react-router-dom";
 interface ValidationErrors {
   email?: string;
   password?: string;
@@ -18,6 +20,7 @@ interface ValidationErrors {
   // Add other potential error properties here
 }
 function LoginPage() {
+  let navigate = useNavigate();
   const [signin, setSignIn] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -73,7 +76,7 @@ function LoginPage() {
       <div className="flex flex-col sm:flex-row h-screen">
         <div className="flex w-full h-full sm:w-1/2 bg-white flex-col ">
           <div className="flex px-16 py-3 w-full h-1/6 justify-content-center align-items-center">
-            <img src={logo} alt="" style={{ width: "150px" }} />
+            <img src={logo} alt="" style={{ width: "150px" }}   onClick={() => navigate("/")} />
           </div>
           <div className="flex flex-col w-full h-full items-center ">
             <p className="text-xl font-bold">

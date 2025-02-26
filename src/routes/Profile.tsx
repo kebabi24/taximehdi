@@ -10,6 +10,7 @@ import { createRoot } from "react-dom/client";
 import Example from "../components/Example";
 import lg from "../assets/logoo.png";
 import { useNavigate } from "react-router-dom";
+import NavbarProfile from "../components/NavbarProfile";
 
 const Profile: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -20,21 +21,7 @@ const Profile: React.FC = () => {
 
   return (
     <div className="flex flex-1 flex-col w-[100%]">
-      <div className="flex    bg-white  p-4 shadow shadow-lg  md:w-[100%] mb-5">
-        <div className="flex w-[50%] justify-center items-center  ">
-          <Example></Example>
-        </div>
-        <div className="w-[50%] flex justify-end items-end">
-          <a className="cursor-pointer ml-3 self-end">
-          <img
-            src={lg}
-            alt=""
-            style={{ width: "150px", height:"50px" }}
-            onClick={() => navigate("/home")}
-          />
-          </a>
-        </div>
-      </div>
+     <NavbarProfile></NavbarProfile>
 
       <div
         style={{
