@@ -62,7 +62,7 @@ const NavbarProfile = (props: NavbarProfileProps) => {
   ];
 
   return (
-    <header className="flex justify-between md:px-36 md:py-12 items-center h-24 top-0 left-0 right-0 overflow-hidden ">
+    <header className="flex justify-between md:px-36 md:py-12 items-center h-24 top-0 left-0 right-0 overflow-hidden  bg-[url('assets/background.png')] bg-cover bg-no-repeat">
       <div>
         <a className="cursor-pointer">
           <img

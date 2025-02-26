@@ -71,7 +71,8 @@ const Home = () => {
   const [destination, setDestination] = useState("");
   const [tripPrice, setTripPrice] = useState(0);
   const [returnButton, setReturnButton] = useState(false);
-
+  const objUser = localStorage.getItem("user");
+  const userLoggedIn = objUser ? JSON.parse(objUser) : null;
   let navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
@@ -119,19 +120,23 @@ const Home = () => {
       } else if (destination == "") {
         setDestinationError(true);
       } else {
-        const tripPrice = options.find(
-          (item: any) => item.adresse_name === destination
-        );
-        navigate("/book", {
-          state: {
-            depart: depart,
-            destination: destination,
-            departureTime: departTime,
-            returnTime: returnButton ? returnTime : null,
-            type: type,
-            tripPrice: tripPrice?.adresse_price,
-          },
-        });
+        if(userLoggedIn){
+          const tripPrice = options.find(
+            (item: any) => item.adresse_name === destination
+          );
+          navigate("/book", {
+            state: {
+              depart: depart,
+              destination: destination,
+              departureTime: departTime,
+              returnTime: returnButton ? returnTime : null,
+              type: type,
+              tripPrice: tripPrice?.adresse_price,
+            },
+          });
+        }else{
+          navigate("/login")
+        }
       }
     }
   };
