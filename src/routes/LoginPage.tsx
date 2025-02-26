@@ -53,7 +53,9 @@ function LoginPage() {
           if(registerUser){
             const { firstName, lastName, username, password, phone, email } = formData;
             const result = await registerUser({ firstName, lastName, username, password, phone, email });
-            console.log(result);
+            if(!loginError){
+              setSignIn(!signin)
+            }
           }
         }
       }
