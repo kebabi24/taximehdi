@@ -49,13 +49,19 @@ function LoginPage() {
           const result = await loginAuth({ username, password });
           console.log(result);
         } else {
-       
-          if(registerUser){
-            const { firstName, lastName, username, password, phone, email } = formData;
-            const result = await registerUser({ firstName, lastName, username, password, phone, email });
-            if(!loginError){
-              setSignIn(!signin)
-            }
+          if (registerUser) {
+            const { firstName, lastName, username, password, phone, email } =
+              formData;
+            const result = await registerUser({
+              firstName,
+              lastName,
+              username,
+              password,
+              phone,
+              email,
+            });
+
+            setSignIn(!signin);
           }
         }
       }
@@ -172,7 +178,6 @@ function LoginPage() {
                   <TextField
                     id="outlined-basic"
                     label="Numéro de téléphone"
-               
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
@@ -181,7 +186,6 @@ function LoginPage() {
                   <TextField
                     id="outlined-basic"
                     label="Email"
-                  
                     name="email"
                     value={formData.email}
                     onChange={handleChange}

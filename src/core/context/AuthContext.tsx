@@ -97,8 +97,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
           },
         }
       );
-
-      navigate("/login");
     } catch (e) {
       console.log(e);
       setLoginError(true);
