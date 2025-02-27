@@ -127,7 +127,7 @@ const GridExample = () => {
 
   // Fetch data & update rowData state
   useEffect(() => {
-    fetch("https://api.protaxi.store/api/v1/trips/getAllTrips")
+    fetch("https://api.protaxi.store:8443/api/v1/trips/getAllTrips")
       .then((result) => result.json())
       .then((rowData) => setRowData(rowData));
   }, []);

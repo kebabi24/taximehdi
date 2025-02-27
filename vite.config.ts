@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/v1": {
-        target: "https://api.protaxi.store",
+        target: "https://api.protaxi.store:8443",
         changeOrigin: true,
       },
     },

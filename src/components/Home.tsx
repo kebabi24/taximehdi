@@ -152,7 +152,7 @@ const Home = () => {
   const getAdresses = async () => {
     try {
       const res = await axios.get(
-        "https://api.protaxi.store/api/v1/adresse",
+        "https://api.protaxi.store:8443/api/v1/adresse",
 
         {
           headers: {

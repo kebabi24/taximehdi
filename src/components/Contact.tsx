@@ -27,7 +27,7 @@ const Contact = () => {
   };
 
   const onSubmit = () => {
-    fetch("https://api.protaxi.store/api/v1/sendMail", {
+    fetch("https://api.protaxi.store:8443/api/v1/sendMail", {
       method: "POST",
       body: JSON.stringify({
         formData,
