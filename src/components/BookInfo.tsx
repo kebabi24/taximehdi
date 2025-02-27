@@ -167,7 +167,7 @@ const BookInfo = (props: stateProps) => {
     try {
       if (userLoggedIn) {
         const res = await axios.post(
-          "http://207.180.195.128:3000/api/v1/trips/newTrip",
+          "https://api.protaxi.store/api/v1/trips/newTrip",
           tripData,
           {
             headers: {
